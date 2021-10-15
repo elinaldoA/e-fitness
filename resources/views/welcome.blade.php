@@ -85,9 +85,9 @@
                 </div>
 
                 <div class="links">
-                    <a href="#">Médicos</a>
-                    <a href="#">Pacientes</a>
-                    <a href="#">Clinicas</a>
+                    <a href="{{ route('pacientes') }}">{{ __('Pacientes') }}</a>
+                    <a href="{{ route('medicos') }}">{{ __('Médicos') }}</a>
+                    <a href="{{ route('clinicas') }}">{{ __('Clínicas') }}</a>
                 </div>
             </div>
         </div>
