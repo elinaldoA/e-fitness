@@ -19,6 +19,73 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//Auth Recepcao
+Route::prefix('recepcao')->group(function () {
+    Route::get('login', 'efitness\Recepcao\AuthRecepcao\LoginController@showLoginForm')->name('efitness.recepcao.login');
+    Route::post('login', 'efitness\Recepcao\AuthRecepcao\LoginController@login')->name('efitness.recepcao.login.submit');
+    Route::post('logout', 'efitness\Recepcao\AuthRecepcao\LoginController@logout')->name('efitness.recepcao.logout');
+
+    Route::get('register', 'efitness\Recepcao\AuthRecepcao\RegisterController@showRegistrationForm')->name('efitness.recepcao.register');
+    Route::post('register', 'efitness\Recepcao\AuthRecepcao\RegisterController@register')->name('efitness.recepcao.submit');
+
+    Route::get('password/confirm', 'efitness\Recepcao\AuthRecepcao\ConfirmPasswordController@showConfirmForm')->name('efitness.recepcao.password.confirm');
+    Route::post('password/confirm', 'efitness\Recepcao\AuthRecepcao\ConfirmPasswordController@confirm')->name('efitness.recepcao.confirm.submit');
+
+    Route::get('password/reset', 'efitness\Recepcao\AuthRecepcao\ForgotPasswordController@showLinkRequestForm')->name('efitness.recepcao.password.request');
+    Route::post('password/email', 'efitness\Recepcao\AuthRecepcao\ForgotPasswordController@sendResetLinkEmail')->name('efitness.recepcao.password.email');
+
+    Route::get('password/reset/{token}', 'efitness\Recepcao\AuthRecepcao\ResetPasswordController@showResetForm')->name('efitness.recepcao.password.reset');
+    Route::post('password/reset', 'efitness\Recepcao\AuthRecepcao\ResetPasswordController@reset')->name('efitness.recepcao.password.update');
+
+    Route::get('email/verify', 'efitness\Recepcao\AuthRecepcao\VerificationController@show')->name('efitness.recepcao.verification.notice');
+    Route::get('email/verify/{id}/{hash}', 'efitness\Recepcao\AuthRecepcao\VerificationController@verify')->name('efitness.recepcao.verification.verify');
+    Route::post('email/resend', 'efitness\Recepcao\AuthRecepcao\VerificationController@resend')->name('efitness.recepcao.verification.resend');
+});
+//Auth Nutricionistas
+Route::prefix('nutricionistas')->group(function () {
+    Route::get('login', 'efitness\Nutricionistas\AuthNutricionistas\LoginController@showLoginForm')->name('efitness.nutricionistas.login');
+    Route::post('login', 'efitness\Nutricionistas\AuthNutricionistas\LoginController@login')->name('efitness.nutricionistas.login.submit');
+    Route::post('logout', 'efitness\Nutricionistas\AuthNutricionistas\LoginController@logout')->name('efitness.nutricionistas.logout');
+
+    Route::get('register', 'efitness\Nutricionistas\AuthNutricionistas\RegisterController@showRegistrationForm')->name('efitness.nutricionistas.register');
+    Route::post('register', 'efitness\Nutricionistas\AuthNutricionistas\RegisterController@register')->name('efitness.nutricionistas.submit');
+
+    Route::get('password/confirm', 'efitness\Nutricionistas\AuthNutricionistas\ConfirmPasswordController@showConfirmForm')->name('efitness.nutricionistas.password.confirm');
+    Route::post('password/confirm', 'efitness\Nutricionistas\AuthNutricionistas\ConfirmPasswordController@confirm')->name('efitness.nutricionistas.confirm.submit');
+
+    Route::get('password/reset', 'efitness\Nutricionistas\AuthNutricionistas\ForgotPasswordController@showLinkRequestForm')->name('efitness.nutricionistas.password.request');
+    Route::post('password/email', 'efitness\Nutricionistas\AuthNutricionistas\ForgotPasswordController@sendResetLinkEmail')->name('efitness.nutricionistas.password.email');
+
+    Route::get('password/reset/{token}', 'efitness\Nutricionistas\AuthNutricionistas\ResetPasswordController@showResetForm')->name('efitness.nutricionistas.password.reset');
+    Route::post('password/reset', 'efitness\Nutricionistas\AuthNutricionistas\ResetPasswordController@reset')->name('efitness.nutricionistas.password.update');
+
+    Route::get('email/verify', 'efitness\Nutricionistas\AuthNutricionistas\VerificationController@show')->name('efitness.nutricionistas.verification.notice');
+    Route::get('email/verify/{id}/{hash}', 'efitness\Nutricionistas\AuthNutricionistas\VerificationController@verify')->name('efitness.nutricionistas.verification.verify');
+    Route::post('email/resend', 'efitness\Nutricionistas\AuthNutricionistas\VerificationController@resend')->name('efitness.nutricionistas.verification.resend');
+});
+//Auth Professores
+Route::prefix('professores')->group(function () {
+    Route::get('login', 'efitness\Professores\AuthProfessores\LoginController@showLoginForm')->name('efitness.professores.login');
+    Route::post('login', 'efitness\Professores\AuthProfessores\LoginController@login')->name('efitness.professores.login.submit');
+    Route::post('logout', 'efitness\Professores\AuthProfessores\LoginController@logout')->name('efitness.professores.logout');
+
+    Route::get('register', 'efitness\Professores\AuthProfessores\RegisterController@showRegistrationForm')->name('efitness.professores.register');
+    Route::post('register', 'efitness\Professores\AuthProfessores\RegisterController@register')->name('efitness.professores.submit');
+
+    Route::get('password/confirm', 'efitness\Professores\AuthProfessores\ConfirmPasswordController@showConfirmForm')->name('efitness.professores.password.confirm');
+    Route::post('password/confirm', 'efitness\Professores\AuthProfessores\ConfirmPasswordController@confirm')->name('efitness.professores.confirm.submit');
+
+    Route::get('password/reset', 'efitness\Professores\AuthProfessores\ForgotPasswordController@showLinkRequestForm')->name('efitness.professores.password.request');
+    Route::post('password/email', 'efitness\Professores\AuthProfessores\ForgotPasswordController@sendResetLinkEmail')->name('efitness.professores.password.email');
+
+    Route::get('password/reset/{token}', 'efitness\Professores\AuthProfessores\ResetPasswordController@showResetForm')->name('efitness.professores.password.reset');
+    Route::post('password/reset', 'efitness\Professores\AuthProfessores\ResetPasswordController@reset')->name('efitness.recepcao.professores.update');
+
+    Route::get('email/verify', 'efitness\Professores\AuthProfessores\VerificationController@show')->name('efitness.recepcao.verification.notice');
+    Route::get('email/verify/{id}/{hash}', 'efitness\Professores\AuthProfessores\VerificationController@verify')->name('efitness.recepcao.verification.verify');
+    Route::post('email/resend', 'efitness\Professores\AuthProfessores\VerificationController@resend')->name('efitness.recepcao.verification.resend');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/profile', 'ProfileController@index')->name('profile');

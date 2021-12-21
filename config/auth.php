@@ -43,9 +43,38 @@ return [
 
         'api' => [
             'driver' => 'token',
-            'provider' => 'users',
+            'provider' => 'esaude',
             'hash' => false,
         ],
+
+        'recepcao' => [
+            'driver' => 'session',
+            'provider' => 'recepcao',
+        ],
+        'api-recepcao' => [
+            'driver' => 'passport',
+            'provider' => 'recepcao',
+            'hash' => false,
+        ],
+        'nutricionistas' => [
+            'driver' => 'session',
+            'provider' => 'nutricionistas',
+        ],
+        'api-nutricionistas' => [
+            'driver' => 'passport',
+            'provider' => 'nutricionistas',
+            'hash' => false,
+        ],
+
+        'professores' => [
+            'driver' => 'session',
+            'provider' => 'professores',
+        ],
+        'api-professores' => [
+            'driver' => 'passport',
+            'provider' => 'professores',
+            'hash' => false,
+        ]
     ],
 
     /*
@@ -68,7 +97,22 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\User::class,
+            'model' => \App\User::class,
+        ],
+
+        'recepcao' => [
+            'driver' => 'eloquent',
+            'model' => \App\Models\Recepcaos::class,
+        ],
+
+        'nutricionistas' => [
+            'driver' => 'eloquent',
+            'model' => \App\Models\Nutricionistas::class,
+        ],
+
+        'professores' => [
+            'driver' => 'eloquent',
+            'model' => \App\Models\Professores::class,
         ],
 
         // 'users' => [
@@ -99,6 +143,33 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+        'admins' => [
+            'provider' => 'admins',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+        'nutricionistas' => [
+            'provider' => 'nutricionistas',
+            'table' => 'password_resets_nutricionistas',
+            'expire' => 1440,
+            'throttle' => 60,
+        ],
+
+        'professores' => [
+            'provider' => 'professores',
+            'table' => 'password_resets_professores',
+            'expire' => 1440,
+            'throttle' => 60,
+        ],
+
+        'recepcao' => [
+            'provider' => 'recepcao',
+            'table' => 'password_resets_recepcao',
+            'expire' => 1440,
+            'throttle' => 60,
+        ],
+
     ],
 
     /*
