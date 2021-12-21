@@ -82,6 +82,13 @@
                 <span>{{ __('Cargos') }}</span>
             </a>
         </li>
+        <!-- Nav Item - Professores-->
+        <li class="nav-item {{ Nav::isRoute('professores') }}">
+            <a class="nav-link" href="{{ route('professores') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>{{ __('Professores') }}</span>
+            </a>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

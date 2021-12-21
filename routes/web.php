@@ -95,7 +95,7 @@ Route::get('efitness/Administrativo/about', function () {
     return view('about');
 })->name('about');
 
-/*=========================Rotas Cargos=======================================================================================================*/
+/*=========================Rotas Administrativo Cargos=======================================================================================================*/
 Route::get('efitness/Administrativo/cargos/novo', 'efitness\Administrativo\Cargos\CargosController@create')->name('cargos.create');
 Route::post('efitness/Administrativo/cargos/novo', 'efitness\Administrativo\Cargos\CargosController@store')->name('cargos.store');
 Route::get('efitness/Administrativo/cargos/visualizar', 'efitness\Administrativo\Cargos\CargosController@index')->name('cargos');
@@ -103,3 +103,11 @@ Route::get('efitness/Administrativo/cargos/editar/{id}', 'efitness\Administrativ
 Route::post('efitness/Administrativo/cargos/editar/{id}', 'efitness\Administrativo\Cargos\CargosController@update')->name('Alterar_cargo');
 Route::get('efitness/Administrativo/cargos/excluir/{id}', 'efitness\Administrativo\Cargos\CargosController@delete');
 Route::post('efitness/Administrativo/cargos/excluir/{id}', 'efitness\Administrativo\Cargos\CargosController@destroy')->name('excluir_cargo');
+/*=========================Rotas Administrativo Professores=======================================================================================================*/
+Route::get('efitness/Administrativo/professores/novo', 'efitness\Administrativo\Professores\ProfessoresController@create')->name('professores.create');
+Route::post('efitness/Administrativo/professores/novo', 'efitness\Administrativo\Professores\ProfessoresController@store')->name('professores.store');
+Route::get('efitness/Administrativo/professores/visualizar', 'efitness\Administrativo\Professores\ProfessoresController@index')->name('professores');
+Route::get('efitness/Administrativo/professores/editar/{id}', 'efitness\Administrativo\Professores\ProfessoresController@edit');
+Route::post('efitness/Administrativo/professores/editar/{id}', 'efitness\Administrativo\Professores\ProfessoresController@update')->name('Alterar_professor');
+Route::get('efitness/Administrativo/professores/excluir/{id}', 'efitness\Administrativo\Professores\ProfessoresController@delete');
+Route::post('efitness/Administrativo/professores/excluir/{id}', 'efitness\Administrativo\Professores\ProfessoresController@destroy')->name('excluir_professor');
