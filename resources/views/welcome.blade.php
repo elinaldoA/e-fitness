@@ -4,10 +4,12 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Agendamentos</title>
+        <title>E-Scholl</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <!-- Favicon -->
+        <link href="{{ asset('img/favicon.ico') }}" rel="icon" type="image/png">
 
         <!-- Styles -->
         <style>
@@ -65,7 +67,7 @@
     </head>
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
+            <!--@if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
@@ -77,17 +79,17 @@
                         @endif
                     @endauth
                 </div>
-            @endif
+            @endif-->
 
             <div class="content">
                 <div class="title m-b-md">
-                    Agendamentos
+                    E-Fitness
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('pacientes') }}">{{ __('Pacientes') }}</a>
-                    <a href="{{ route('medicos') }}">{{ __('Médicos') }}</a>
-                    <a href="{{ route('clinicas') }}">{{ __('Clínicas') }}</a>
+                    <a href="{{ route('nutricionistas') }}">{{ __('Nutricionistas') }}</a>
+                    <a href="{{ route('professores') }}">{{ __('Professores') }}</a>
+                    <a href="{{ route('login') }}">{{ __('Administrador') }}</a>
                 </div>
             </div>
         </div>

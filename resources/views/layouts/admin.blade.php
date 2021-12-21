@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Laravel SB Admin 2">
-    <meta name="author" content="Alejandro RH">
+    <meta name="author" content="Elinaldo Agostinho">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Agendamentos') }}</title>
+    <title>{{ config('app.name', 'E-Fitness') }}</title>
 
     <!-- Fonts -->
     <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
@@ -20,21 +20,21 @@
     <link href="{{ asset('css/sb-admin-2.min.css') }}" rel="stylesheet">
 
     <!-- Favicon -->
-    <link href="{{ asset('img/favicon.png') }}" rel="icon" type="image/png">
+    <link href="{{ asset('img/favicon.ico') }}" rel="icon" type="image/png">
 </head>
 <body id="page-top">
 
 <!-- Page Wrapper -->
 <div id="wrapper">
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    <ul class="navbar-nav bg-gradient-dark sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
             <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-book"></i>
+                <i class="fas fa-dumbbell"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Agenda</div>
+            <div class="sidebar-brand-text mx-3">E-Fitness</div>
         </a>
 
         <!-- Divider -->
@@ -76,24 +76,17 @@
         </div>
 
         <!-- Nav Item - Pacientes -->
-        <li class="nav-item {{ Nav::isRoute('pacientes') }}">
-            <a class="nav-link" href="{{ route('pacientes') }}">
+        <li class="nav-item {{ Nav::isRoute('nutricionistas') }}">
+            <a class="nav-link" href="{{ route('nutricionistas') }}">
                 <i class="fas fa-fw fa-file-medical"></i>
-                <span>{{ __('Pacientes') }}</span>
+                <span>{{ __('Nutricionistas') }}</span>
             </a>
         </li>
         <!-- Nav Item - Medicos -->
-        <li class="nav-item {{ Nav::isRoute('medicos') }}">
-            <a class="nav-link" href="{{ route('medicos') }}">
+        <li class="nav-item {{ Nav::isRoute('professores') }}">
+            <a class="nav-link" href="{{ route('professores') }}">
                 <i class="fas fa-fw fa-briefcase-medical"></i>
-                <span>{{ __('Médicos') }}</span>
-            </a>
-        </li>
-        <!-- Nav Item - Clinicas -->
-        <li class="nav-item {{ Nav::isRoute('clinicas') }}">
-            <a class="nav-link" href="{{ route('clinicas') }}">
-                <i class="fas fa-fw fa-hospital-alt"></i>
-                <span>{{ __('Clínicas') }}</span>
+                <span>{{ __('Professores') }}</span>
             </a>
         </li>
 

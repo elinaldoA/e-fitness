@@ -28,14 +28,14 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/pacientes', function () {
-    return view('pacientes');
-})->name('pacientes');
+Route::get('/nutricionistas', function () {
+    return view('nutricionistas');
+})->name('nutricionistas');
 
-Route::get('/medicos', function () {
-    return view('medicos');
-})->name('medicos');
+Route::get('/professores', function () {
+    return view('professores');
+})->name('professores');
 
-Route::get('/clinicas', function () {
-    return view('clinicas');
-})->name('clinicas');
+Route::get('/loja', function () {
+    return view('loja');
+})->name('loja');

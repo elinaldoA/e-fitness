@@ -40,8 +40,8 @@
 
                     <div class="row">
                         <div class="col-lg-12">
-                            <h5 class="font-weight-bold">Dashboard Agendamentos</h5>
-                            <p>Dashboard agendamentos.</p>
+                            <h5 class="font-weight-bold">Dashboard E-fitness</h5>
+                            <p>Dashboard e-fitness.</p>
                             <p>-</p>
                             <a href="https://github.com/aleckrh/laravel-sb-admin-2" target="_blank" class="btn btn-github">
                                 <i class="fab fa-github fa-fw"></i> Ir para o repositorio
