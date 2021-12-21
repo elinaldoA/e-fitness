@@ -87,8 +87,8 @@
                 </div>
 
                 <div class="links">
-                    <a href="{{ route('nutricionistas') }}">{{ __('Nutricionistas') }}</a>
-                    <a href="{{ route('professores') }}">{{ __('Professores') }}</a>
+                    <a href="{{ route('efitness.nutricionistas.login') }}">{{ __('Nutricionistas') }}</a>
+                    <a href="{{ route('efitness.professores.login') }}">{{ __('Professores') }}</a>
                     <a href="{{ route('login') }}">{{ __('Administrador') }}</a>
                 </div>
             </div>
