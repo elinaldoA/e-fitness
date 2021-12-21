@@ -75,21 +75,13 @@
             {{__('Cadastros')}}
         </div>
 
-        <!-- Nav Item - Pacientes -->
-        <li class="nav-item {{ Nav::isRoute('nutricionistas') }}">
-            <a class="nav-link" href="{{ route('nutricionistas') }}">
-                <i class="fas fa-fw fa-file-medical"></i>
-                <span>{{ __('Nutricionistas') }}</span>
+        <!-- Nav Item - Cargos-->
+        <li class="nav-item {{ Nav::isRoute('cargos') }}">
+            <a class="nav-link" href="{{ route('cargos') }}">
+                <i class="fas fa-fw fa-user"></i>
+                <span>{{ __('Cargos') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Medicos -->
-        <li class="nav-item {{ Nav::isRoute('professores') }}">
-            <a class="nav-link" href="{{ route('professores') }}">
-                <i class="fas fa-fw fa-briefcase-medical"></i>
-                <span>{{ __('Professores') }}</span>
-            </a>
-        </li>
-
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

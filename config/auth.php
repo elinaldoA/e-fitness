@@ -74,7 +74,11 @@ return [
             'driver' => 'passport',
             'provider' => 'professores',
             'hash' => false,
-        ]
+        ],
+        'admin' => [
+            'driver' => 'session',
+            'provider' => 'admins',
+        ],
     ],
 
     /*
@@ -114,6 +118,10 @@ return [
             'driver' => 'eloquent',
             'model' => \App\Models\Professores::class,
         ],
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => \App\Models\Admin::class
+        ]
 
         // 'users' => [
         //     'driver' => 'database',

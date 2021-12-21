@@ -21,10 +21,10 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
-    public const HOME_NUTRICIONISTAS = '/home-nutricionista';
-    public const HOME_PROFESSORES = '/home-professor';
-    public const HOME_RECEPCAO = '/home-recepcao';
+    public const HOME = 'efitness/Administrativo/home';
+    public const HOME_NUTRICIONISTAS = 'efitness/Nutricionista/home-nutricionista';
+    public const HOME_PROFESSORES = 'efitness/Professor/home-professor';
+    public const HOME_RECEPCAO = 'efitness/Recepcao/home-recepcao';
 
     /**
      * Define your route model bindings, pattern filters, etc.

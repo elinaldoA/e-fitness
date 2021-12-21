@@ -86,23 +86,20 @@ Route::prefix('professores')->group(function () {
     Route::post('email/resend', 'efitness\Professores\AuthProfessores\VerificationController@resend')->name('efitness.recepcao.verification.resend');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('efitness/Administrativo/home', 'HomeController@index')->name('home');
 
-Route::get('/profile', 'ProfileController@index')->name('profile');
-Route::put('/profile', 'ProfileController@update')->name('profile.update');
+Route::get('efitness/Administrativo/profile', 'ProfileController@index')->name('profile');
+Route::put('efitness/Administrativo/profile', 'ProfileController@update')->name('profile.update');
 
-Route::get('/about', function () {
+Route::get('efitness/Administrativo/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/nutricionistas', function () {
-    return view('nutricionistas');
-})->name('nutricionistas');
-
-Route::get('/professores', function () {
-    return view('professores');
-})->name('professores');
-
-Route::get('/loja', function () {
-    return view('loja');
-})->name('loja');
+/*=========================Rotas Cargos=======================================================================================================*/
+Route::get('efitness/Administrativo/cargos/novo', 'efitness\Administrativo\Cargos\CargosController@create')->name('cargos.create');
+Route::post('efitness/Administrativo/cargos/novo', 'efitness\Administrativo\Cargos\CargosController@store')->name('cargos.store');
+Route::get('efitness/Administrativo/cargos/visualizar', 'efitness\Administrativo\Cargos\CargosController@index')->name('cargos');
+Route::get('efitness/Administrativo/cargos/editar/{id}', 'efitness\Administrativo\Cargos\CargosController@edit');
+Route::post('efitness/Administrativo/cargos/editar/{id}', 'efitness\Administrativo\Cargos\CargosController@update')->name('Alterar_cargo');
+Route::get('efitness/Administrativo/cargos/excluir/{id}', 'efitness\Administrativo\Cargos\CargosController@delete');
+Route::post('efitness/Administrativo/cargos/excluir/{id}', 'efitness\Administrativo\Cargos\CargosController@destroy')->name('excluir_cargo');
