@@ -57,7 +57,7 @@
 
         <!-- Nav Item - Profile -->
         <li class="nav-item {{ Nav::isRoute('profile') }}">
-            <a class="nav-link" href="{{ route('profile') }}">
+            <a class="nav-link" href="{{ route('efitness.administrativo.profile') }}">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Perfil') }}</span>
             </a>
@@ -90,13 +90,20 @@
             </a>
         </li>
         <!-- Nav Item - Professores-->
+        <li class="nav-item {{ Nav::isRoute('alunos') }}">
+            <a class="nav-link" href="{{ route('alunos') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>{{ __('Alunos') }}</span>
+            </a>
+        </li>
+        <!-- Nav Item - Professores-->
         <li class="nav-item {{ Nav::isRoute('professores') }}">
             <a class="nav-link" href="{{ route('professores') }}">
                 <i class="fas fa-fw fa-user-graduate"></i>
                 <span>{{ __('Professores') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Professores-->
+        <!--Nav Item - Professores -->
         <li class="nav-item {{ Nav::isRoute('nutricionistas') }}">
             <a class="nav-link" href="{{ route('nutricionistas') }}">
                 <i class="fas fa-fw fa-user-nurse"></i>
@@ -141,7 +148,7 @@
                         </a>
                         <!-- Dropdown - User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                            <a class="dropdown-item" href="{{ route('profile') }}">
+                            <a class="dropdown-item" href="{{ route('efitness.administrativo.profile') }}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 {{ __('Perfil') }}
                             </a>

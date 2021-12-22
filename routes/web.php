@@ -81,15 +81,15 @@ Route::prefix('professores')->group(function () {
     Route::get('password/reset/{token}', 'efitness\Professores\AuthProfessores\ResetPasswordController@showResetForm')->name('efitness.professores.password.reset');
     Route::post('password/reset', 'efitness\Professores\AuthProfessores\ResetPasswordController@reset')->name('efitness.recepcao.professores.update');
 
-    Route::get('email/verify', 'efitness\Professores\AuthProfessores\VerificationController@show')->name('efitness.recepcao.verification.notice');
-    Route::get('email/verify/{id}/{hash}', 'efitness\Professores\AuthProfessores\VerificationController@verify')->name('efitness.recepcao.verification.verify');
-    Route::post('email/resend', 'efitness\Professores\AuthProfessores\VerificationController@resend')->name('efitness.recepcao.verification.resend');
+    Route::get('email/verify', 'efitness\Professores\AuthProfessores\VerificationController@show')->name('efitness.professores.verification.notice');
+    Route::get('email/verify/{id}/{hash}', 'efitness\Professores\AuthProfessores\VerificationController@verify')->name('efitness.professores.verification.verify');
+    Route::post('email/resend', 'efitness\Professores\AuthProfessores\VerificationController@resend')->name('efitness.professores.verification.resend');
 });
 
 Route::get('efitness/Administrativo/home', 'HomeController@index')->name('home');
 
-Route::get('efitness/Administrativo/profile', 'ProfileController@index')->name('profile');
-Route::put('efitness/Administrativo/profile', 'ProfileController@update')->name('profile.update');
+Route::get('efitness/Administrativo/profile', 'ProfileController@index')->name('efitness.administrativo.profile');
+Route::put('efitness/Administrativo/profile', 'ProfileController@update')->name('efitness.administrativo.profile.update');
 
 Route::get('efitness/Administrativo/about', function () {
     return view('about');
@@ -127,3 +127,11 @@ Route::get('efitness/Administrativo/nutricionistas/editar/{id}', 'efitness\Admin
 Route::post('efitness/Administrativo/nutricionistas/editar/{id}', 'efitness\Administrativo\Nutricionistas\NutricionistasController@update')->name('Alterar_nutricionista');
 Route::get('efitness/Administrativo/nutricionistas/excluir/{id}', 'efitness\Administrativo\Nutricionistas\NutricionistasController@delete');
 Route::post('efitness/Administrativo/nutricionistas/excluir/{id}', 'efitness\Administrativo\Nutricionistas\NutricionistasController@destroy')->name('excluir_nutricionista');
+/*=========================Rotas Administrativo Alunos=======================================================================================================*/
+Route::get('efitness/Administrativo/alunos/novo', 'efitness\Administrativo\Alunos\AlunosController@create')->name('alunos.create');
+Route::post('efitness/Administrativo/alunos/novo', 'efitness\Administrativo\Alunos\AlunosController@store')->name('alunos.store');
+Route::get('efitness/Administrativo/alunos/visualizar', 'efitness\Administrativo\Alunos\AlunosController@index')->name('alunos');
+Route::get('efitness/Administrativo/alunos/editar/{id}', 'efitness\Administrativo\Alunos\AlunosController@edit');
+Route::post('efitness/Administrativo/alunos/editar/{id}', 'efitness\Administrativo\Alunos\AlunosController@update')->name('Alterar_aluno');
+Route::get('efitness/Administrativo/alunos/excluir/{id}', 'efitness\Administrativo\Alunos\AlunosController@delete');
+Route::post('efitness/Administrativo/alunos/excluir/{id}', 'efitness\Administrativo\Alunos\AlunosController@destroy')->name('excluir_aluno');

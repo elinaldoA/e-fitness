@@ -16,7 +16,7 @@ class ProfileController extends Controller
 
     public function index()
     {
-        return view('profile');
+        return view('efitness.administrativo.profile');
     }
 
     public function update(Request $request)
@@ -46,6 +46,6 @@ class ProfileController extends Controller
 
         $user->save();
 
-        return redirect()->route('profile')->withSuccess('Perfil atualizado com sucesso.');
+        return redirect()->route('efitness.administrativo.profile')->withSuccess('Perfil atualizado com sucesso.');
     }
 }

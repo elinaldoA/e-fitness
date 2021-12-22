@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cargos;
 use App\Models\Enderecos;
 use App\Models\Estados_civils;
+use App\Models\Funcionarios;
 use App\Models\Nutricionistas;
 use App\Models\Sexos;
 use Illuminate\Http\Request;
@@ -36,7 +37,6 @@ class NutricionistasController extends Controller
             'nascimento' => 'string|max:255',
             'cpf' => 'required|string|max:255',
             'email' => 'required|string|unique:users',
-            'password' => 'required|string|min:8',
             'telefone' => 'required|string|max:13',
             'rua' => 'required|string|max:255',
             'numero' => 'required|integer',
@@ -58,6 +58,7 @@ class NutricionistasController extends Controller
                 $image->move($destinationPath,$profileImage);
                 $input['image'] = "$profileImage";
             }
+            Funcionarios::create($input);
             Nutricionistas::create($input);
             Enderecos::create($input);
         return redirect('efitness/Administrativo/nutricionistas/visualizar')->with('success', 'Nutricionista(a) cadastrado(a) com sucesso!');
@@ -92,7 +93,6 @@ class NutricionistasController extends Controller
             'nascimento' => 'string',
             'cpf' => 'string',
             'email' => 'string',
-            'password' => 'string',
             'telefone' => 'string',
             'rua' => 'string',
             'numero' => 'string',

@@ -24,7 +24,7 @@
                                     </div>
                                 @endif
 
-                                <form method="POST" action="{{ route('efitness.recepcao.register') }}" class="user">
+                                <form method="POST" action="{{ route('efitness.recepcao.register') }}" class="recepcao">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                     <div class="form-group">

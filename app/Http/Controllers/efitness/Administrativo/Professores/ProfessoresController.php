@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Cargos;
 use App\Models\Enderecos;
 use App\Models\Estados_civils;
+use App\Models\Funcionarios;
 use App\Models\Professores;
 use App\Models\Sexos;
 use Illuminate\Http\Request;
@@ -36,7 +37,6 @@ class ProfessoresController extends Controller
             'nascimento' => 'string|max:255',
             'cpf' => 'required|string|max:255',
             'email' => 'required|string|unique:users',
-            'password' => 'required|string|min:8',
             'telefone' => 'required|string|max:13',
             'rua' => 'required|string|max:255',
             'numero' => 'required|integer',
@@ -58,6 +58,7 @@ class ProfessoresController extends Controller
                 $image->move($destinationPath,$profileImage);
                 $input['image'] = "$profileImage";
             }
+            Funcionarios::create($input);
             Professores::create($input);
             Enderecos::create($input);
         return redirect('efitness/Administrativo/professores/visualizar')->with('success', 'Professor(a) cadastrado(a) com sucesso!');
@@ -80,6 +81,7 @@ class ProfessoresController extends Controller
     
     public function update(Request $request, $id)
     {
+        $funcionarios = Funcionarios::findOrFail($id);
         $professores = Professores::findOrFail($id);
         $enderecos = Enderecos::findOrFail($id);
 
@@ -92,7 +94,6 @@ class ProfessoresController extends Controller
             'nascimento' => 'string',
             'cpf' => 'string',
             'email' => 'string',
-            'password' => 'string',
             'telefone' => 'string',
             'rua' => 'string',
             'numero' => 'string',
@@ -115,6 +116,7 @@ class ProfessoresController extends Controller
             unset($input['image']);
         }
 
+        $funcionarios->update($input);
         $professores->update($input);
         $enderecos->update($input);
 

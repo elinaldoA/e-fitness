@@ -26,7 +26,7 @@ class CreateNutricionistasTable extends Migration
             $table->date('nascimento');
             $table->string('cpf')->unique();
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->string('telefone');
             $table->string('image');
             $table->timestamps();

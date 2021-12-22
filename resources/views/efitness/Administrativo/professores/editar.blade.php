@@ -117,12 +117,6 @@
                                         <input type="email" id="email" class="form-control" name="email" placeholder="example@servidor.com.br" value="{{$professores->email}}">
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="password">Senha<span class="small text-danger"> * </span></label>
-                                        <input type="password" class="form-control" name="password" id="password" value="{{$professores->password}}">
-                                    </div>
-                                </div>
                                 <div class="col-lg-2">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="email">Telefone<span class="small text-danger"> * </span></label>
