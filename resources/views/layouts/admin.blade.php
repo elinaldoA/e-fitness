@@ -82,10 +82,17 @@
                 <span>{{ __('Cargos') }}</span>
             </a>
         </li>
+        <!-- Nav Item - Funcionários-->
+        <li class="nav-item {{ Nav::isRoute('funcionarios') }}">
+            <a class="nav-link" href="{{ route('funcionarios') }}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>{{ __('Funcionarios') }}</span>
+            </a>
+        </li>
         <!-- Nav Item - Professores-->
         <li class="nav-item {{ Nav::isRoute('professores') }}">
             <a class="nav-link" href="{{ route('professores') }}">
-                <i class="fas fa-fw fa-users"></i>
+                <i class="fas fa-fw fa-user-graduate"></i>
                 <span>{{ __('Professores') }}</span>
             </a>
         </li>

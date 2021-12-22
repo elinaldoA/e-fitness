@@ -1,29 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\efitness\Administrativo\Professores;
+namespace App\Http\Controllers\efitness\Administrativo\Funcionarios;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cargos;
 use App\Models\Enderecos;
 use App\Models\Estados_civils;
-use App\Models\Professores;
+use App\Models\Funcionarios;
 use App\Models\Sexos;
 use Illuminate\Http\Request;
 
-class ProfessoresController extends Controller
+class FuncionariosController extends Controller
 {
     public function index()
     {
-        $professores = Professores::with('professores')->get();
+        $funcionarios = Funcionarios::with('funcionarios')->get();
         $cargos = Cargos::with('cargos')->get();
-        return view('efitness/Administrativo/professores/visualizar', ['professores' => $professores, 'cargos' => $cargos]);
+        return view('efitness/Administrativo/funcionarios/visualizar', ['funcionarios' => $funcionarios, 'cargos' => $cargos]);
     }
     public function create()
     {
         $cargos = Cargos::with('cargos')->get();
         $sexos = Sexos::with('sexos')->get();
         $estados_civils = Estados_civils::with('estados_civils')->get();
-        return view('efitness/Administrativo/professores/novo', ['sexos' => $sexos, 'estados_civils' => $estados_civils, 'cargos' => $cargos]);
+        return view('efitness/Administrativo/funcionarios/novo', ['sexos' => $sexos, 'estados_civils' => $estados_civils, 'cargos' => $cargos]);
     }
     public function store(Request $request)
     {
@@ -58,29 +58,29 @@ class ProfessoresController extends Controller
                 $image->move($destinationPath,$profileImage);
                 $input['image'] = "$profileImage";
             }
-            Professores::create($input);
+            Funcionarios::create($input);
             Enderecos::create($input);
-        return redirect('efitness/Administrativo/professores/visualizar')->with('success', 'Professor(a) cadastrado(a) com sucesso!');
+        return redirect('efitness/Administrativo/funcionarios/visualizar')->with('success', 'Funcionário(a) cadastrado(a) com sucesso!');
     }
     public function show($id)
     {
-        $professores = Professores::findOrFail($id);
-        return redirect('efitness/Administrativo/professores/visualizar', ['professores' => $professores]);
+        $funcionarios = Funcionarios::findOrFail($id);
+        return redirect('efitness/Administrativo/funcionarios/visualizar', ['funcionarios' => $funcionarios]);
     }
     public function edit($id)
     {
-        $professores = Professores::findOrFail($id);
+        $funcionarios = Funcionarios::findOrFail($id);
         $cargos = Cargos::with('cargos')->get();
         $sexos = Sexos::with('sexos')->get();
         $estados_civils = Estados_civils::with('estados_civils')->get();
         $enderecos = Enderecos::findOrFail($id);
-        return view('efitness/Administrativo/professores/editar', 
-        ['professores' => $professores, 'sexos' => $sexos, 'estados_civils' => $estados_civils, 'enderecos' => $enderecos, 'cargos' => $cargos]);
+        return view('efitness/Administrativo/funcionarios/editar', 
+        ['funcionarios' => $funcionarios, 'sexos' => $sexos, 'estados_civils' => $estados_civils, 'enderecos' => $enderecos, 'cargos' => $cargos]);
     }
     
     public function update(Request $request, $id)
     {
-        $professores = Professores::findOrFail($id);
+        $funcionarios = Funcionarios::findOrFail($id);
         $enderecos = Enderecos::findOrFail($id);
 
         $request->validate([
@@ -115,16 +115,16 @@ class ProfessoresController extends Controller
             unset($input['image']);
         }
 
-        $professores->update($input);
+        $funcionarios->update($input);
         $enderecos->update($input);
 
-        return redirect('efitness/Administrativo/professores/visualizar')->with('success', 'Professor(a) atualizado(a) com sucesso!');
+        return redirect('efitness/Administrativo/funcionarios/visualizar')->with('success', 'Funcionário(a) atualizado(a) com sucesso!');
     }
 
     public function delete($id)
     {
-        $professores = Professores::findOrFail($id);
-        $professores->delete();
-        return redirect('efitness/Administrativo/professores/visualizar')->with('success', 'Professor(a) excluído(a) com sucesso!');
+        $funcionarios = Funcionarios::findOrFail($id);
+        $funcionarios->delete();
+        return redirect('efitness/Administrativo/funcionarios/visualizar')->with('success', 'Funcionário(a) excluído(a) com sucesso!');
     }
 }

@@ -2,7 +2,7 @@
 
 @section('main-content')
 <!-- Page Heading -->
-<h1 class="h3 mb-4 text-gray-800">{{ __('Professores') }}</h1>
+<h1 class="h3 mb-4 text-gray-800">{{ __('Funcionários') }}</h1>
 
 @if (session('success'))
 <div class="alert alert-success border-left-success alert-dismissible fade show" role="alert">
@@ -41,27 +41,27 @@
                             <th>Status</th>
                             <th scope="col">Ações</th>
                         </tr>
-                        @forelse ($professores as $professor)
+                        @forelse ($funcionarios as $funcionario)
                         <tr>
-                            <td><img src="/image/{{ $professor -> image }}" width="100px"></td>
-                            <td>{{ $professor -> nome }}</td>
+                            <td><img src="/image/{{ $funcionario -> image }}" width="100px"></td>
+                            <td>{{ $funcionario -> nome }}</td>
                             @foreach($cargos as $cargo)
-                            @if($cargo->id == $professor->cargos_id)
+                            @if($cargo->id == $funcionario->cargos_id)
                             <td>{{$cargo -> nome}} </td>@endif
                             @endforeach
-                            <td>{{ $professor -> email }}</td>
-                            <td>{{ $professor -> telefone }}</td>
-                            <td>{{ date('d-m-Y', strtotime($professor->created_at)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($professor->updated_at)) }}</td>
+                            <td>{{ $funcionario -> email }}</td>
+                            <td>{{ $funcionario -> telefone }}</td>
+                            <td>{{ date('d-m-Y', strtotime($funcionario->created_at)) }}</td>
+                            <td>{{ date('d-m-Y', strtotime($funcionario->updated_at)) }}</td>
                             <td>
-                                @if( $professor->active == '0' )
+                                @if( $funcionario->active == '0' )
                                 <button class="btn btn-danger">Inativo</button>
                                 @else
                                 <button class="btn btn-success">Ativo</button>
                                 @endif
                             </td>
                             <td>
-                                <a class="btn btn-outline-primary" href="{{ route('Alterar_professor', ['id' => $professor-> id]) }}"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-outline-primary" href="{{ route('Alterar_funcionario', ['id' => $funcionario-> id]) }}"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
@@ -87,7 +87,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancelar') }}</button>
-                                    <a class="btn btn-danger btn-ok" href="{{ route('excluir_professor', ['id' => $professor-> id]) }}">Delete</a>
+                                    <a class="btn btn-danger btn-ok" href="{{ route('excluir_funcionario', ['id' => $funcionario-> id]) }}">Delete</a>
                                 </div>
                             </div>
                         </div>

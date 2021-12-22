@@ -103,6 +103,14 @@ Route::get('efitness/Administrativo/cargos/editar/{id}', 'efitness\Administrativ
 Route::post('efitness/Administrativo/cargos/editar/{id}', 'efitness\Administrativo\Cargos\CargosController@update')->name('Alterar_cargo');
 Route::get('efitness/Administrativo/cargos/excluir/{id}', 'efitness\Administrativo\Cargos\CargosController@delete');
 Route::post('efitness/Administrativo/cargos/excluir/{id}', 'efitness\Administrativo\Cargos\CargosController@destroy')->name('excluir_cargo');
+/*=========================Rotas Administrativo Funcionários=======================================================================================================*/
+Route::get('efitness/Administrativo/funcionarios/novo', 'efitness\Administrativo\Funcionarios\FuncionariosController@create')->name('funcionarios.create');
+Route::post('efitness/Administrativo/funcionarios/novo', 'efitness\Administrativo\Funcionarios\FuncionariosController@store')->name('funcionarios.store');
+Route::get('efitness/Administrativo/funcionarios/visualizar', 'efitness\Administrativo\Funcionarios\FuncionariosController@index')->name('funcionarios');
+Route::get('efitness/Administrativo/funcionarios/editar/{id}', 'efitness\Administrativo\Funcionarios\FuncionariosController@edit');
+Route::post('efitness/Administrativo/funcionarios/editar/{id}', 'efitness\Administrativo\Funcionarios\FuncionariosController@update')->name('Alterar_funcionario');
+Route::get('efitness/Administrativo/funcionarios/excluir/{id}', 'efitness\Administrativo\Funcionarios\FuncionariosController@delete');
+Route::post('efitness/Administrativo/funcionarios/excluir/{id}', 'efitness\Administrativo\Funcionarios\FuncionariosController@destroy')->name('excluir_funcionario');
 /*=========================Rotas Administrativo Professores=======================================================================================================*/
 Route::get('efitness/Administrativo/professores/novo', 'efitness\Administrativo\Professores\ProfessoresController@create')->name('professores.create');
 Route::post('efitness/Administrativo/professores/novo', 'efitness\Administrativo\Professores\ProfessoresController@store')->name('professores.store');
