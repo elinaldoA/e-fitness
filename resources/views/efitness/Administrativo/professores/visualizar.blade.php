@@ -48,10 +48,10 @@
                             <td>{{ $professor -> cpf }}</td>
                             <td>{{ $professor -> email }}</td>
                             <td>{{ $professor -> telefone }}</td>
-                            <td>{{ date('d-m-Y', strtotime($clinica->created_at)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($clinica->updated_at)) }}</td>
+                            <td>{{ date('d-m-Y', strtotime($professor->created_at)) }}</td>
+                            <td>{{ date('d-m-Y', strtotime($professor->updated_at)) }}</td>
                             <td>
-                                @if( $clinica->active == '0' )
+                                @if( $professor->active == '0' )
                                 <button class="btn btn-danger">Inativo</button>
                                 @else
                                 <button class="btn btn-success">Ativo</button>

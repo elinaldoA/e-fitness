@@ -56,7 +56,7 @@
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="active">Ativo<span class="small text-danger"> * </span></label>
                                         <input type="checkbox" name="active" value="1" class="form-control"
-                                           @if( ($clinicas->active == 0 && old('active') && old('first_time')) || ($clinicas->active && old('active') == null && old('first_time') == null) || ($clinicas->active && old('active') && old('first_time') ) )
+                                           @if( ($professores->active == 0 && old('active') && old('first_time')) || ($professores->active && old('active') == null && old('first_time') == null) || ($professores->active && old('active') && old('first_time') ) )
                                            checked="checked"
                                         @endif
                                     >
@@ -71,19 +71,19 @@
                                 <div class="col-lg-4">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="sexo">Sexo<span class="small text-danger"> * </span></label>
-                                        <select name="sexo" id="sexo" class="form-control">
+                                        <select name="sexos_id" id="sexos_id" class="form-control">
                                             @foreach($sexos as $sexo)
                                             <option {{ $professores->sexos_id == $sexo->id ? 'selected' : '' }}  value="{{ $sexo->id }}">{{$sexo->nome}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="estado_civil_id">Estado cívil<span class="small text-danger"> * </span></label>
                                         <select name="estado_civil_id" id="estado_civil_id" class="form-control">
-                                            @foreach($estadoCivils as $estadoCivil)
-                                            <option {{ $professores->estado_civil_id == $estadoCivil->id ? 'selected' : '' }}  value="{{ $estadoCivil->id }}">{{$estadoCivil->nome}}</option>
+                                            @foreach($estados_civils as $estadoCivil)
+                                            <option {{ $professores->estado_civils_id == $estadoCivil->id ? 'selected' : '' }}  value="{{ $estadoCivil->id }}">{{$estadoCivil->nome}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -146,7 +146,7 @@
                             <div class="col-lg-4">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="complemento">Complemento<span class="small text-danger">*</span></label>
-                                    <input type="text" id="complemento" class="form-control" name="complemeto" placeholder="Perto de..." value="{{$enderecos->referencia}}">
+                                    <input type="text" id="complemento" class="form-control" name="complemeto" placeholder="Perto de..." value="{{$enderecos->complemento}}">
                                 </div>
                             </div>
                             <div class="col-lg-4">
@@ -189,7 +189,7 @@
                         <div class="row">
                             <div class="col">
                                 <button type="submit" class="btn btn-outline-primary"><i class="far fa-save"></i> Salvar</button>
-                                <a href="{{route('clinicas.create')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
+                                <a href="{{route('professores.create')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
                             </div>
                         </div>
                     </div>

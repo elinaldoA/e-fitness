@@ -15,7 +15,7 @@ class Professores extends Model
      * @var array
      */
     protected $fillable = [
-        'active','nome','sexos_id','estadoCivils_id','nascimento','cpf','email','password','telefone'
+        'active','nome','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image'
     ];
 
     /**
@@ -38,6 +38,6 @@ class Professores extends Model
 
     public function Professores()
     {
-        return $this -> hasMany('App\Models\Professores','id','active','nome','sexos_id','estadoCivils_id','nascimento','cpf','email','password','telefone');
+        return $this -> hasMany('App\Models\Professores','id','active','nome','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image');
     }
 }

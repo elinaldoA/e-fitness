@@ -26,6 +26,7 @@ class CreateProfessoresTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('telefone');
+            $table->string('image');
             $table->timestamps();
         });
     }

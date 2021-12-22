@@ -28,7 +28,7 @@ class ProfessoresController extends Controller
             'active' => 'required|boolean',
             'nome' => 'required|string|max:255',
             'sexos_id' => 'required|string',
-            'estadoCivils_id' => 'string|max:255',
+            'estados_civils_id' => 'string|max:255',
             'nascimento' => 'string|max:255',
             'cpf' => 'required|string|max:255',
             'email' => 'required|string|unique:users',
@@ -66,7 +66,10 @@ class ProfessoresController extends Controller
     public function edit($id)
     {
         $professores = Professores::findOrFail($id);
-        return view('efitness/Administrativo/professores/editar', ['professores' => $professores]);
+        $sexos = Sexos::with('sexos')->get();
+        $estados_civils = Estados_civils::with('estados_civils')->get();
+        $enderecos = Enderecos::findOrFail($id);
+        return view('efitness/Administrativo/professores/editar', ['professores' => $professores, 'sexos' => $sexos, 'estados_civils' => $estados_civils, 'enderecos' => $enderecos]);
     }
     
     public function update(Request $request, $id)
@@ -78,7 +81,7 @@ class ProfessoresController extends Controller
             'active' => 'required',
             'nome' => 'string',
             'sexos_id' => 'string',
-            'estadoCivils_id' => 'string',
+            'estados_civils_id' => 'string',
             'nascimento' => 'string',
             'cpf' => 'string',
             'email' => 'string',

@@ -27,7 +27,7 @@ class Enderecos extends Model
        'created_at', 'updated_at'
    ];
 
-    public function Nutricionistas()
+    public function Enderecos()
     {
         return $this -> hasMany('App\Models\Nutricionistas','id','cep','rua','numero','bairro','cidade','complemento','estado','pais');
     }
