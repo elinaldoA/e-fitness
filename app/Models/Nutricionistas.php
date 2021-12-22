@@ -15,7 +15,7 @@ class Nutricionistas extends Model
      * @var array
      */
     protected $fillable = [
-        'nome', 'email', 'password'
+        'active','nome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image'
     ];
 
     /**
@@ -38,6 +38,6 @@ class Nutricionistas extends Model
 
     public function Nutricionistas()
     {
-        return $this -> hasMany('App\Models\Nutricionistas','id','nome','email','password');
+        return $this -> hasMany('App\Models\Nutricionistas','id','active','nome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image');
     }
 }

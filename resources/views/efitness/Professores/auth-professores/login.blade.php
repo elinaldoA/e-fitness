@@ -24,7 +24,7 @@
                                     </div>
                                 @endif
 
-                                <form method="POST" action="{{ route('login') }}" class="user">
+                                <form method="POST" action="{{ route('efitness.professores.login') }}" class="user">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                     <div class="form-group">
@@ -53,7 +53,7 @@
 
                                 @if (Route::has('password.request'))
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('password.request') }}">
+                                        <a class="small" href="{{ route('efitness.professores.password.request') }}">
                                             {{ __('Recuperra senha?') }}
                                         </a>
                                     </div>
@@ -61,7 +61,7 @@
 
                                 @if (Route::has('register'))
                                     <div class="text-center">
-                                        <a class="small" href="{{ route('register') }}">{{ __('Criar conta!') }}</a>
+                                        <a class="small" href="{{ route('efitness.professores.register') }}">{{ __('Criar conta!') }}</a>
                                     </div>
                                 @endif
                             </div>

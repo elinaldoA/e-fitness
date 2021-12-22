@@ -15,7 +15,7 @@ class Recepcaos extends Model
      * @var array
      */
     protected $fillable = [
-        'nome', 'email', 'password'
+        'active','nome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image'
     ];
 
     /**
@@ -36,8 +36,8 @@ class Recepcaos extends Model
         'email_verified_at' => 'datetime',
     ];
 
-    public function Recepcao()
+    public function Recepcaos()
     {
-        return $this -> hasMany('App\Models\Recepcaos','id','nome','email','password');
+        return $this -> hasMany('App\Models\Recepcaos','id','active','nome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image');
     }
 }

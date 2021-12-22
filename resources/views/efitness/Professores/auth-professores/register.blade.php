@@ -24,7 +24,7 @@
                                     </div>
                                 @endif
 
-                                <form method="POST" action="{{ route('register') }}" class="user">
+                                <form method="POST" action="{{ route('efitness.professores.register') }}" class="user">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                                     <div class="form-group">
@@ -57,7 +57,7 @@
                                 <hr>
 
                                 <div class="text-center">
-                                    <a class="small" href="{{ route('login') }}">
+                                    <a class="small" href="{{ route('efitness.professores.login') }}">
                                         {{ __('Já tem uma conta? Login!') }}
                                     </a>
                                 </div>

@@ -96,6 +96,13 @@
                 <span>{{ __('Professores') }}</span>
             </a>
         </li>
+        <!-- Nav Item - Professores-->
+        <li class="nav-item {{ Nav::isRoute('nutricionistas') }}">
+            <a class="nav-link" href="{{ route('nutricionistas') }}">
+                <i class="fas fa-fw fa-user-nurse"></i>
+                <span>{{ __('Nutricionistas') }}</span>
+            </a>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

@@ -15,9 +15,20 @@ class CreateNutricionistasTable extends Migration
     {
         Schema::create('nutricionistas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->boolean('active')->default(false);
             $table->string('nome');
-            $table->string('email');
+            $table->foreign('cargos_id')->references('id')->on('cargos');
+            $table->bigInteger('cargos_id')->unsigned();
+            $table->foreign('sexos_id')->references('id')->on('sexos');
+            $table->bigInteger('sexos_id')->unsigned();
+            $table->foreign('estados_civils_id')->references('id')->on('estados_civils');
+            $table->bigInteger('estados_civils_id')->unsigned();
+            $table->date('nascimento');
+            $table->string('cpf')->unique();
+            $table->string('email')->unique();
             $table->string('password');
+            $table->string('telefone');
+            $table->string('image');
             $table->timestamps();
         });
     }
