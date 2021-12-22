@@ -70,6 +70,16 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <div class="form-group focused">
+                                        <label class="form-control-label" for="cargos_id">Cargos<span class="small text-danger"> * </span></label>
+                                        <select name="cargos_id" id="cargos_id" class="form-control">
+                                            @foreach($cargos as $cargo)
+                                            <option {{ $professores->cargos_id == $cargo->id ? 'selected' : '' }}  value="{{ $cargo->id }}">{{$cargo->nome}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
                                         <label class="form-control-label" for="sexo">Sexo<span class="small text-danger"> * </span></label>
                                         <select name="sexos_id" id="sexos_id" class="form-control">
                                             @foreach($sexos as $sexo)
@@ -78,7 +88,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-4">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="estado_civil_id">Estado cívil<span class="small text-danger"> * </span></label>
                                         <select name="estado_civil_id" id="estado_civil_id" class="form-control">

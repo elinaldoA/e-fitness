@@ -66,6 +66,17 @@
                             </div>
                             <div class="col-lg-4">
                                 <div class="form-group focused">
+                                    <label class="form-control-label" for="sexo">Cargos<span class="small text-danger"> * </span></label>
+                                    <select class="form-control" id="cargos_id" name="cargos_id">
+                                    <option>Selecione uma opção</option>
+                                        @foreach($cargos as $cargo)
+                                        <option value="{{$cargo->id}}">{{$cargo->nome}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group focused">
                                     <label class="form-control-label" for="sexo">Sexo<span class="small text-danger"> * </span></label>
                                     <select class="form-control" id="sexos_id" name="sexos_id">
                                     <option>Selecione uma opção</option>
@@ -75,7 +86,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-3">
+                            <div class="col-lg-4">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="estado_civil">Estado civil<span class="small text-danger"> * </span></label>
                                     <select class="form-control" id="estados_civils_id" name="estados_civils_id">

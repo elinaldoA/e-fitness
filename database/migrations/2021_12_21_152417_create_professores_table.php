@@ -17,6 +17,8 @@ class CreateProfessoresTable extends Migration
             $table->bigIncrements('id');
             $table->boolean('active')->default(false);
             $table->string('nome');
+            $table->foreign('cargos_id')->references('id')->on('cargos');
+            $table->bigInteger('cargos_id')->unsigned();
             $table->foreign('sexos_id')->references('id')->on('sexos');
             $table->bigInteger('sexos_id')->unsigned();
             $table->foreign('estados_civils_id')->references('id')->on('estados_civils');
