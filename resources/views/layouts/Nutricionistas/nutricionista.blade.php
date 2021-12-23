@@ -57,7 +57,7 @@
 
         <!-- Nav Item - Profile -->
         <li class="nav-item {{ Nav::isRoute('profile-nutricionista') }}">
-            <a class="nav-link" href="{{ route('profile-nutricionista') }}">
+            <a class="nav-link" href="#">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Perfil') }}</span>
             </a>

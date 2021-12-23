@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
-class ProfileNutricionistaController extends Controller
+class ProfileRecepcaoController extends Controller
 {
     public function __construct()
     {

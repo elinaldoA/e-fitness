@@ -52,20 +52,24 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            {{ __('Definições') }}
+            {{ __('Cadastros') }}
         </div>
 
         <!-- Nav Item - Profile -->
-        <li class="nav-item {{ Nav::isRoute('profile-recepcao') }}">
-            <a class="nav-link" href="{{ route('profile-recepcao') }}">
-                <i class="fas fa-fw fa-user"></i>
-                <span>{{ __('Perfil') }}</span>
+        <li class="nav-item {{ Nav::isRoute('recepcao_alunos') }}">
+            <a class="nav-link" href="{{route('recepcao_alunos')}}">
+                <i class="fas fa-fw fa-users"></i>
+                <span>{{ __('Alunos') }}</span>
+            </a>
+        </li>
+        <!-- Nav Item - Profile -->
+        <li class="nav-item {{ Nav::isRoute('avaliacoes_alunos') }}">
+            <a class="nav-link" href="{{route('avaliacoes_alunos')}}">
+                <i class="fas fa-fw fa-file-medical-alt"></i>
+                <span>{{ __('Avaliações físicas') }}</span>
             </a>
         </li>
 
-        <div class="sidebar-heading">
-            {{__('Cadastros')}}
-        </div>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
