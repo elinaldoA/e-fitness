@@ -13,7 +13,6 @@ class CreateAlunosTable extends Migration
      */
     public function up()
     {
-
         Schema::create('alunos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('active')->default(false);

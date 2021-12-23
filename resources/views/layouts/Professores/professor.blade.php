@@ -52,14 +52,14 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            {{ __('Definições') }}
+            {{ __('Alertas') }}
         </div>
 
         <!-- Nav Item - Profile -->
-        <li class="nav-item {{ Nav::isRoute('profile-professor') }}">
-            <a class="nav-link" href="#">
+        <li class="nav-item {{ Nav::isRoute('avaliacoes_professores_alunos') }}">
+            <a class="nav-link" href="{{route('avaliacoes_professores_alunos')}}">
                 <i class="fas fa-fw fa-user"></i>
-                <span>{{ __('Perfil') }}</span>
+                <span>{{ __('Avaliações pendentes') }}</span>
             </a>
         </li>
 

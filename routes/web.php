@@ -128,6 +128,8 @@ Route::get('efitness/Administrativo/professores/editar/{id}', 'efitness\Administ
 Route::post('efitness/Administrativo/professores/editar/{id}', 'efitness\Administrativo\Professores\ProfessoresController@update')->name('Alterar_professor');
 Route::get('efitness/Administrativo/professores/excluir/{id}', 'efitness\Administrativo\Professores\ProfessoresController@delete');
 Route::post('efitness/Administrativo/professores/excluir/{id}', 'efitness\Administrativo\Professores\ProfessoresController@destroy')->name('excluir_professor');
+/*=========================Rotas Professores Avaliações Físicas=======================================================================================================*/
+Route::get('efitness/Professores/avaliacoes/visualizar', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesAlunosController@index')->name('avaliacoes_professores_alunos');
 /*=========================Rotas Administrativo Nutricionistas=======================================================================================================*/
 Route::get('efitness/Administrativo/nutricionistas/novo', 'efitness\Administrativo\Nutricionistas\NutricionistasController@create')->name('nutricionistas.create');
 Route::post('efitness/Administrativo/nutricionistas/novo', 'efitness\Administrativo\Nutricionistas\NutricionistasController@store')->name('nutricionistas.store');
