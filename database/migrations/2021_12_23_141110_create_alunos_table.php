@@ -13,6 +13,7 @@ class CreateAlunosTable extends Migration
      */
     public function up()
     {
+
         Schema::create('alunos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('active')->default(false);
@@ -22,9 +23,11 @@ class CreateAlunosTable extends Migration
             $table->date('nascimento');
             $table->string('cpf')->unique();
             $table->string('email')->unique();
-            $table->string('password')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
             $table->string('telefone');
             $table->string('image');
+            $table->string('password')->nullable();
+            $table->rememberToken();
             $table->timestamps();
         });
     }
