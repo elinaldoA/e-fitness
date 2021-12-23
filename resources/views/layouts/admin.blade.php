@@ -90,6 +90,13 @@
             </a>
         </li>
         <!-- Nav Item - Professores-->
+        <li class="nav-item {{ Nav::isRoute('recepcao') }}">
+            <a class="nav-link" href="{{ route('recepcao') }}">
+                <i class="fas fa-fw fa-folder"></i>
+                <span>{{ __('Recepção') }}</span>
+            </a>
+        </li>
+        <!-- Nav Item - Professores-->
         <li class="nav-item {{ Nav::isRoute('alunos') }}">
             <a class="nav-link" href="{{ route('alunos') }}">
                 <i class="fas fa-fw fa-users"></i>

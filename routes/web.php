@@ -136,6 +136,14 @@ Route::get('efitness/Administrativo/nutricionistas/editar/{id}', 'efitness\Admin
 Route::post('efitness/Administrativo/nutricionistas/editar/{id}', 'efitness\Administrativo\Nutricionistas\NutricionistasController@update')->name('Alterar_nutricionista');
 Route::get('efitness/Administrativo/nutricionistas/excluir/{id}', 'efitness\Administrativo\Nutricionistas\NutricionistasController@delete');
 Route::post('efitness/Administrativo/nutricionistas/excluir/{id}', 'efitness\Administrativo\Nutricionistas\NutricionistasController@destroy')->name('excluir_nutricionista');
+/*=========================Rotas Administrativo Recepção=======================================================================================================*/
+Route::get('efitness/Administrativo/recepcao/novo', 'efitness\Administrativo\Recepcao\RecepcaoController@create')->name('recepcao.create');
+Route::post('efitness/Administrativo/recepcao/novo', 'efitness\Administrativo\Recepcao\RecepcaoController@store')->name('recepcao.store');
+Route::get('efitness/Administrativo/recepcao/visualizar', 'efitness\Administrativo\Recepcao\RecepcaoController@index')->name('recepcao');
+Route::get('efitness/Administrativo/recepcao/editar/{id}', 'efitness\Administrativo\Recepcao\RecepcaoController@edit');
+Route::post('efitness/Administrativo/recepcao/editar/{id}', 'efitness\Administrativo\Recepcao\RecepcaoController@update')->name('Alterar_recepcao');
+Route::get('efitness/Administrativo/recepcao/excluir/{id}', 'efitness\Administrativo\Recepcao\RecepcaoController@delete');
+Route::post('efitness/Administrativo/recepcao/excluir/{id}', 'efitness\Administrativo\Recepcao\RecepcaoController@destroy')->name('excluir_recepcao');
 /*=========================Rotas Administrativo Alunos=======================================================================================================*/
 Route::get('efitness/Administrativo/alunos/novo', 'efitness\Administrativo\Alunos\AlunosController@create')->name('alunos.create');
 Route::post('efitness/Administrativo/alunos/novo', 'efitness\Administrativo\Alunos\AlunosController@store')->name('alunos.store');
