@@ -22,8 +22,8 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     public const HOME = 'efitness/Administrativo/home';
-    public const HOME_NUTRICIONISTAS = 'efitness/Nutricionista/home-nutricionista';
-    public const HOME_PROFESSORES = 'efitness/Professor/home-professor';
+    public const HOME_NUTRICIONISTAS = 'efitness/Nutricionistas/home-nutricionista';
+    public const HOME_PROFESSORES = 'efitness/Professores/home-professor';
     public const HOME_RECEPCAO = 'efitness/Recepcao/home-recepcao';
 
     /**

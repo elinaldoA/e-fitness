@@ -61,10 +61,16 @@
                             <div class="col-lg-4">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="nome">Nome<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="nome" class="form-control" name="nome" placeholder="Nome fantasia" required>
+                                    <input type="text" id="nome" class="form-control" name="nome" placeholder="Seu nome" required>
                                 </div>
                             </div>
                             <div class="col-lg-4">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="nome">Sobrenome<span class="small text-danger"> * </span></label>
+                                    <input type="text" id="sobrenome" class="form-control" name="sobrenome" placeholder="Seu sobrenome" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="sexo">Cargos<span class="small text-danger"> * </span></label>
                                     <select class="form-control" id="cargos_id" name="cargos_id">
@@ -86,7 +92,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="estados_civils">Estado civil<span class="small text-danger"> * </span></label>
                                     <select class="form-control" id="estados_civils_id" name="estados_civils_id">
@@ -97,13 +103,13 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="nascimento">Nascimento<span class="small text-danger"> * </span></label>
                                     <input type="date" id="nascimento" class="form-control" name="nascimento" required>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="cpf">Cpf<span class="small text-danger"> * </span></label>
                                     <input type="text" id="cpf" 
@@ -121,7 +127,7 @@
                                     <input type="email" id="email" class="form-control" name="email" placeholder="example@servidor.com.br" required>
                                 </div>
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="telefone">Telefone<span class="small text-danger"> * </span></label>
                                     <input type="text" id="telefone" 
@@ -130,7 +136,7 @@
                                     onkeypress="mascara(this, '## #####-####')" maxlength="13" required>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-5">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="image">Foto<span class="small text-danger"> * </span></label>
                                     <input type="file" id="image" class="form-control" name="image" class="form-control" placeholder="imagem">

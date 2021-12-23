@@ -4,10 +4,12 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Recepcaos extends Model
+class Recepcaos extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -15,7 +17,7 @@ class Recepcaos extends Model
      * @var array
      */
     protected $fillable = [
-        'active','nome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image'
+        'active','nome','sobrenome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image'
     ];
 
     /**
@@ -36,8 +38,33 @@ class Recepcaos extends Model
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Get the user's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        if (is_null($this->sobrenome)) {
+            return "{$this->nome}";
+        }
+
+        return "{$this->nome} {$this->sobrenome}";
+    }
+
+    /**
+     * Set the user's password.
+     *
+     * @param string $value
+     * @return void
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
     public function Recepcaos()
     {
-        return $this -> hasMany('App\Models\Recepcaos','id','active','nome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image');
+        return $this -> hasMany('App\Models\Recepcaos','id','active','nome','sobrenome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image');
     }
 }

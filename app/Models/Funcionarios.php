@@ -14,7 +14,7 @@ class Funcionarios extends Model
      * @var array
      */
     protected $fillable = [
-        'active','nome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image'
+        'active','nome','sobrenome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image'
     ];
 
     /**
@@ -35,8 +35,33 @@ class Funcionarios extends Model
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Get the user's full name.
+     *
+     * @return string
+     */
+    public function getFullNameAttribute()
+    {
+        if (is_null($this->sobrenome)) {
+            return "{$this->nome}";
+        }
+
+        return "{$this->nome} {$this->sobrenome}";
+    }
+
+    /**
+     * Set the user's password.
+     *
+     * @param string $value
+     * @return void
+     */
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = bcrypt($value);
+    }
+
     public function funcionarios()
     {
-        return $this -> hasMany('App\Models\Funcionarios','id','active','nome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image');
+        return $this -> hasMany('App\Models\Funcionarios','id','active','nome','sobrenome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image');
     }
 }

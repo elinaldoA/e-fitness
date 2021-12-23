@@ -85,16 +85,25 @@ Route::prefix('professores')->group(function () {
     Route::get('email/verify/{id}/{hash}', 'efitness\Professores\AuthProfessores\VerificationController@verify')->name('efitness.professores.verification.verify');
     Route::post('email/resend', 'efitness\Professores\AuthProfessores\VerificationController@resend')->name('efitness.professores.verification.resend');
 });
-
+/*=========================Rotas Painel Administrativo=======================================================================================================*/
 Route::get('efitness/Administrativo/home', 'HomeController@index')->name('home');
-
 Route::get('efitness/Administrativo/profile', 'ProfileController@index')->name('efitness.administrativo.profile');
 Route::put('efitness/Administrativo/profile', 'ProfileController@update')->name('efitness.administrativo.profile.update');
-
 Route::get('efitness/Administrativo/about', function () {
     return view('about');
 })->name('about');
-
+/*=========================Rotas Painel Recepção=======================================================================================================*/
+Route::get('efitness/Recepcao/home-recepcao', 'HomeRecepcaoController@index')->name('home-recepcao');
+Route::get('efitness/Recepcao/profile-recepcao', 'ProfileRecepcaoController@index')->name('profile-recepcao');
+Route::put('efitness/Recepcao/profile-recepcao', 'ProfileRecepcaoController@update')->name('profile-recepcao.update');
+/*=========================Rotas Painel Professor=======================================================================================================*/
+Route::get('efitness/Professores/home-professor', 'HomeProfessorController@index')->name('home-professor');
+Route::get('efitness/Professores/profile-professor', 'ProfileProfessorController@index')->name('profile-professor');
+Route::put('efitness/Professores/profile-professor', 'ProfileProfessorController@update')->name('profile-professor.update');
+/*=========================Rotas Painel Nutricionista=======================================================================================================*/
+Route::get('efitness/Nutricionistas/home-nutricionista', 'HomeNutricionistaController@index')->name('home-nutricionista');
+Route::get('efitness/Nutricionistas/profile-nutricionista', 'ProfileNutricionistaController@index')->name('profile-nutricionista');
+Route::put('efitness/Nutricionistas/profile-nutricionista', 'ProfileNutricionistaController@update')->name('profile-nutricionista.update');
 /*=========================Rotas Administrativo Cargos=======================================================================================================*/
 Route::get('efitness/Administrativo/cargos/novo', 'efitness\Administrativo\Cargos\CargosController@create')->name('cargos.create');
 Route::post('efitness/Administrativo/cargos/novo', 'efitness\Administrativo\Cargos\CargosController@store')->name('cargos.store');

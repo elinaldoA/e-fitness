@@ -65,10 +65,16 @@
                                 <div class="col-lg-4">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="nome">Nome<span class="small text-danger"> * </span></label>
-                                        <input type="text" id="nome" class="form-control" name="nome" placeholder="Nome fantasia" value="{{$funcionarios->nome}}">
+                                        <input type="text" id="nome" class="form-control" name="nome" placeholder="Seu nome" value="{{$funcionarios->nome}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="nome">Sobrenome<span class="small text-danger"> * </span></label>
+                                        <input type="text" id="sobrenome" class="form-control" name="sobrenome" placeholder="Seu sobrenome" value="{{$funcionarios->sobrenome}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="cargos_id">Cargos<span class="small text-danger"> * </span></label>
                                         <select name="cargos_id" id="cargos_id" class="form-control">
@@ -88,7 +94,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="estado_civil_id">Estado cívil<span class="small text-danger"> * </span></label>
                                         <select name="estado_civil_id" id="estado_civil_id" class="form-control">
@@ -98,13 +104,13 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="nascimento">Nascimento<span class="small text-danger"> * </span></label>
                                         <input type="date" class="form-control" id="nascimento" name="nascimento" value="{{$funcionarios->nascimento}}">
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="nome">Cpf<span class="small text-danger"> * </span></label>
                                         <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Somente números" maxlength="15" onkeypress="mascara(this, '###.###.###-##')" onkeyup="somenteNumeros(this);" value="
@@ -117,13 +123,13 @@
                                         <input type="email" id="email" class="form-control" name="email" placeholder="example@servidor.com.br" value="{{$funcionarios->email}}">
                                     </div>
                                 </div>
-                                <div class="col-lg-2">
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="email">Telefone<span class="small text-danger"> * </span></label>
                                         <input type="text" id="telefone" class="form-control" name="telefone" placeholder="Somente números" onkeypress="mascara(this, '## #####-####')" maxlength="13" value="{{$funcionarios->telefone}}">
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-5">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="image">Imagem<span class="small text-danger"> * </span></label>
                                         <input type="file" id="image" class="form-control" name="image" class="form-control" placeholder="imagem">

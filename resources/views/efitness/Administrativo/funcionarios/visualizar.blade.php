@@ -33,6 +33,7 @@
                         <tr>
                             <th>Image</th>
                             <th>Nome</th>
+                            <th>Sobrenome</th>
                             <th>Cargo</th>
                             <th>Email</th>
                             <th>Telefone</th>
@@ -45,6 +46,7 @@
                         <tr>
                             <td><img src="/image/{{ $funcionario -> image }}" width="100px"></td>
                             <td>{{ $funcionario -> nome }}</td>
+                            <td>{{ $funcionario -> sobrenome }}</td>
                             @foreach($cargos as $cargo)
                             @if($cargo->id == $funcionario->cargos_id)
                             <td>{{$cargo -> nome}} </td>@endif

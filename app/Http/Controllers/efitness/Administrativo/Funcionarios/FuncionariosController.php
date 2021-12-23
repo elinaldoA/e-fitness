@@ -30,6 +30,7 @@ class FuncionariosController extends Controller
         $request->validate([
             'active' => 'required|boolean',
             'nome' => 'required|string|max:255',
+            'sobrenome' => 'required|string|max:255',
             'cargos_id' => 'required|string',
             'sexos_id' => 'required|string',
             'estados_civils_id' => 'string|max:255',
@@ -85,6 +86,7 @@ class FuncionariosController extends Controller
         $request->validate([
             'active' => 'required',
             'nome' => 'string',
+            'sobrenome' => 'string',
             'cargos_id' => 'string',
             'sexos_id' => 'string',
             'estados_civils_id' => 'string',
