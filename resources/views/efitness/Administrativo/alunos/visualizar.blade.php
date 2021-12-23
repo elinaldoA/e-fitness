@@ -33,6 +33,7 @@
                         <tr>
                             <th>Image</th>
                             <th>Nome</th>
+                            <th>Sobrenome</th>
                             <th>Email</th>
                             <th>Telefone</th>
                             <th>Cadastro</th>
@@ -44,6 +45,7 @@
                         <tr>
                             <td><img src="/image/{{ $aluno -> image }}" width="100px"></td>
                             <td>{{ $aluno -> nome }}</td>
+                            <td>{{ $aluno -> sobrenome }}</td>
                             <td>{{ $aluno -> email }}</td>
                             <td>{{ $aluno -> telefone }}</td>
                             <td>{{ date('d-m-Y', strtotime($aluno->created_at)) }}</td>

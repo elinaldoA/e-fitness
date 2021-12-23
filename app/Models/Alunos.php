@@ -15,7 +15,7 @@ class Alunos extends Model
      * @var array
      */
     protected $fillable = [
-        'active','nome','sexos_id','nascimento','cpf','email','password','telefone','image'
+        'active','nome','sobrenome','sexos_id','nascimento','cpf','email','password','telefone','image'
     ];
 
     /**
@@ -38,6 +38,6 @@ class Alunos extends Model
 
     public function Alunos()
     {
-        return $this -> hasMany('App\Models\Alunos','id','active','nome','sexos_id','nascimento','cpf','email','password','telefone','image');
+        return $this -> hasMany('App\Models\Alunos','id','active','nome','sobrenome','sexos_id','nascimento','cpf','email','password','telefone','image');
     }
 }

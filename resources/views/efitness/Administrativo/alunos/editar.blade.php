@@ -65,7 +65,13 @@
                                 <div class="col-lg-4">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="nome">Nome<span class="small text-danger"> * </span></label>
-                                        <input type="text" id="nome" class="form-control" name="nome" placeholder="Nome Completo" value="{{$alunos->nome}}">
+                                        <input type="text" id="nome" class="form-control" name="nome" placeholder="Seu nome" value="{{$alunos->nome}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="sobrenome">Sobrenome<span class="small text-danger"> * </span></label>
+                                        <input type="text" id="sobrenome" class="form-control" name="sobrenome" placeholder="Seu sobrenome" value="{{$alunos->sobrenome}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
@@ -78,7 +84,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="nascimento">Nascimento<span class="small text-danger"> * </span></label>
                                         <input type="date" class="form-control" id="nascimento" name="nascimento" value="{{$alunos->nascimento}}">
@@ -87,7 +93,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="nome">Cpf<span class="small text-danger"> * </span></label>
-                                        <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Somente números" maxlength="15" onkeypress="mascara(this, '###.###.###-##')" onkeyup="somenteNumeros(this);" value="
+                                        <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Somente números" maxlength="15" value="
                                         {{$alunos->cpf}}">
                                     </div>
                                 </div>
@@ -104,7 +110,7 @@
                                         name="telefone" placeholder="Somente números" onkeypress="mascara(this, '## #####-####')" maxlength="13" value="{{$alunos->telefone}}">
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-4">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="image">Imagem<span class="small text-danger"> * </span></label>
                                         <input type="file" id="image" class="form-control" name="image" class="form-control" placeholder="imagem">

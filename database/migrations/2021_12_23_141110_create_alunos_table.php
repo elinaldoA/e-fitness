@@ -18,6 +18,7 @@ class CreateAlunosTable extends Migration
             $table->bigIncrements('id');
             $table->boolean('active')->default(false);
             $table->string('nome');
+            $table->string('sobrenome');
             $table->foreign('sexos_id')->references('id')->on('sexos');
             $table->bigInteger('sexos_id')->unsigned();
             $table->date('nascimento');

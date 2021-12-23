@@ -25,6 +25,7 @@ class AlunosController extends Controller
         $request->validate([
             'active' => 'required|boolean',
             'nome' => 'required|string|max:255',
+            'sobrenome' => 'required|string|max:255',
             'sexos_id' => 'required|string',
             'nascimento' => 'string|max:255',
             'cpf' => 'required|string|max:255',
@@ -76,6 +77,7 @@ class AlunosController extends Controller
         $request->validate([
             'active' => 'required',
             'nome' => 'string',
+            'sobrenome' => 'string',
             'sexos_id' => 'string',
             'nascimento' => 'string',
             'cpf' => 'string',

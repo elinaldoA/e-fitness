@@ -61,7 +61,13 @@
                             <div class="col-lg-4">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="nome">Nome<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="nome" class="form-control" name="nome" placeholder="Nome completo" required>
+                                    <input type="text" id="nome" class="form-control" name="nome" placeholder="Seu nome" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="sobrenome">Sobrenome<span class="small text-danger"> * </span></label>
+                                    <input type="text" id="sobrenome" class="form-control" name="sobrenome" placeholder="Seu sobrenome" required>
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -75,13 +81,13 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="nascimento">Nascimento<span class="small text-danger"> * </span></label>
                                     <input type="date" id="nascimento" class="form-control" name="nascimento" required>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="cpf">Cpf<span class="small text-danger"> * </span></label>
                                     <input type="text" id="cpf" 
@@ -93,13 +99,13 @@
                                     onkeyup="somenteNumeros(this);" required>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
+                            <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="email">E-mail<span class="small text-danger"> * </span></label>
                                     <input type="email" id="email" class="form-control" name="email" placeholder="example@servidor.com.br" required>
                                 </div>
                             </div>
-                            <div class="col-lg-2">
+                            <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="email">Telefone<span class="small text-danger"> * </span></label>
                                     <input type="text" id="telefone" 
