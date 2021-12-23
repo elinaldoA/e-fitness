@@ -58,7 +58,7 @@
         <!-- Nav Item - Profile -->
         <li class="nav-item {{ Nav::isRoute('avaliacoes_professores_alunos') }}">
             <a class="nav-link" href="{{route('avaliacoes_professores_alunos')}}">
-                <i class="fas fa-fw fa-user"></i>
+                <i class="fas fa-fw fa-file-medical-alt"></i>
                 <span>{{ __('Avaliações pendentes') }}</span>
             </a>
         </li>
