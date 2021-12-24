@@ -50,7 +50,7 @@
                             <td>{{ date('d-m-Y', strtotime($avaliacao->data)) }}</td>
                             <td>{{ $avaliacao->hora }}</td>
                             <td>
-                                <a class="btn btn-outline-primary" href="#"><i class="fa fa-procedures"></i></a>
+                                <a class="btn btn-outline-primary" href="{{route('avaliacoes_medidas_alunos.create', ['id' => $avaliacao-> id])}}"><i class="fa fa-procedures"></i></a>
                             </td>
                         </tr>
                         @empty
