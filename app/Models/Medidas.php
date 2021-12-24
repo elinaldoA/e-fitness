@@ -15,8 +15,21 @@ class Medidas extends Model
      * @var array
      */
     protected $fillable = [
-        'altura','peso','torax','quadril','coxa_direita','coxa_esquerda',
-        'braço_direito','braco_esquerdo','panturilha_direita','panturilha_esquerda'
+        'alunos_id',
+        'sexos_id',
+        'professores_id',
+        'data',
+        'hora',
+        'altura',
+        'peso',
+        'torax',
+        'quadril',
+        'coxa_direita',
+        'coxa_esquerda',
+        'braco_direito',
+        'braco_esquerdo',
+        'panturilha_direita',
+        'panturilha_esquerda'
     ];
     /**
      * The attributes that should be hidden for serialization.
@@ -29,7 +42,20 @@ class Medidas extends Model
 
     public function Medidas()
     {
-        return $this -> hasMany('App\Models\Medidas','id','altura','peso','torax','quadril','coxa_direita','coxa_esquerda',
-        'braço_direito','braco_esquerdo','panturilha_direita','panturilha_esquerda');
+        return $this -> hasMany('App\Models\Medidas','id','alunos_id',
+        'sexos_id',
+        'professores_id',
+        'data',
+        'hora',
+        'altura',
+        'peso',
+        'torax',
+        'quadril',
+        'coxa_direita',
+        'coxa_esquerda',
+        'braco_direito',
+        'braco_esquerdo',
+        'panturilha_direita',
+        'panturilha_esquerda');
     }
 }

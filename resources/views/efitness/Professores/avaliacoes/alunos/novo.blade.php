@@ -35,7 +35,7 @@
 
             <div class="card-body">
 
-            <form method="POST" action="{{ route('avaliacoes_medidas_alunos', ['id' => $avaliacoes->id]) }}" enctype="multipart/form-data">
+            <form method="POST" action="{{ route('avaliacoes_medidas_alunos.store', ['id' => $avaliacoes->id]) }}" enctype="multipart/form-data">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand" role="tablist">
                     <li class="nav-item">
@@ -52,19 +52,32 @@
                     <div class="tab-content pl-lg-12">
                     <div class="tab-pane active" id="tab_informacoes" role="tabpanel"><br/>
                         <div class="row">
+                        <div class="col-lg-3">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="alunos_id">Nome do aluno<span class="small text-danger"> * </span></label>
+                                    <select name="alunos_id" id="alunos_id" class="form-control">
+                                        @foreach($alunos as $aluno)
+                                            <option {{ $avaliacoes->alunos_id == $aluno->id ? 'selected' : '' }}  value="{{ $aluno->id }}">{{$aluno->nome}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="alunos">Aluno<span class="small text-danger"> * </span></label>
-                                    <input class="form-control" name="alunos_id" id="alunos_id" value="{{ $avaliacoes->alunos_id}}">
+                                    <label class="form-control-label" for="sexos_id">Sexo<span class="small text-danger"> * </span></label>
+                                    <select name="sexos_id" id="sexos_id" class="form-control">
+                                        @foreach($sexos as $sexo)
+                                            <option {{ $avaliacoes->sexos_id == $sexo->id ? 'selected' : '' }}  value="{{ $sexo->id }}">{{$sexo->nome}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="professores_id">Professor<span class="small text-danger"> * </span></label>
-                                    <select class="form-control" id="professores_id" name="professores_id">
-                                    <option>Selecione uma opção</option>
+                                    <select name="professores_id" id="professores_id" class="form-control">
                                         @foreach($professores as $professor)
-                                        <option value="{{$professor->id}}">{{$professor->nome}}</option>
+                                            <option {{ $avaliacoes->professores_id == $professor->id ? 'selected' : '' }}  value="{{ $professor->id }}">{{$professor->nome}}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -72,13 +85,13 @@
                             <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="data">Data<span class="small text-danger"> * </span></label>
-                                    <input type="date" id="data" class="form-control" name="data" required>
+                                    <input type="date" id="data" class="form-control" name="data" value="{{$avaliacoes->data}}">
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="data">Hora<span class="small text-danger"> * </span></label>
-                                    <input type="time" id="hora" class="form-control" name="hora" required>
+                                    <input type="time" id="hora" class="form-control" name="hora" value="{{$avaliacoes->hora}}">
                                 </div>
                             </div>
                         </div>
@@ -87,54 +100,64 @@
                     <div class="row">
                             <div class="col-lg-3">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="rua">Rua<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="rua" class="form-control" name="rua" placeholder="Rua, Logradouro, Avenida, Travessa ..." required>
+                                    <label class="form-control-label" for="altura">Altura<span class="small text-danger"> * </span></label>
+                                    <input type="text" id="altura" class="form-control" name="altura" placeholder="1.69" required>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="numero">Número<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="numero" class="form-control" name="numero" placeholder="1234" onkeyup="somenteNumeros(this);" required maxlength="4">
+                                    <label class="form-control-label" for="peso">Peso<span class="small text-danger"> * </span></label>
+                                    <input type="text" id="numero" class="form-control" name="peso" placeholder="80.0">
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="complemento">Complemento<span class="small text-danger">*</span></label>
-                                    <input type="text" id="complemento" class="form-control" name="complemento" placeholder="Perto de..." required>
+                                    <label class="form-control-label" for="torax">Torax<span class="small text-danger">*</span></label>
+                                    <input type="text" id="torax" class="form-control" name="torax" required>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="bairro">Bairro<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="bairro" class="form-control" name="bairro" placeholder="Bairro" required>
+                                    <label class="form-control-label" for="quadril">Quadril<span class="small text-danger"> * </span></label>
+                                    <input type="text" id="quadril" class="form-control" name="quadril" required>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="cep">Cep<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="cep" class="form-control" 
-                                    name="cep" 
-                                    placeholder="Somente números" 
-                                    onkeypress="mascara(this,'#####-###')" maxlength="9"
+                                    <label class="form-control-label" for="coxa_direita">Coxa direita<span class="small text-danger"> * </span></label>
+                                    <input type="text" id="coxa_direita" class="form-control" 
+                                    name="coxa_direita"
                                     required>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="cidade">Cidade<span class="small text-danger">*</span></label>
-                                    <input type="text" id="cidade" class="form-control" name="cidade" placeholder="Sua cidade" required>
+                                    <label class="form-control-label" for="coxa_esquerda">Coxa esquerda<span class="small text-danger">*</span></label>
+                                    <input type="text" id="coxa_esquerda" class="form-control" name="coxa_esquerda" required>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="estado">Estado<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="estado" class="form-control" name="estado" placeholder="Es" maxlength="2" required>
+                                    <label class="form-control-label" for="braco_direito">Braço direito<span class="small text-danger"> * </span></label>
+                                    <input type="text" id="braco_direito" class="form-control" name="braco_direito" required>
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="pais">País<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="pais" class="form-control" name="pais" placeholder="Brasil" required>
+                                    <label class="form-control-label" for="braco_esquerdo">Braço esquerdo<span class="small text-danger"> * </span></label>
+                                    <input type="text" id="braco_esquerdo" class="form-control" name="braco_esquerdo" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="panturilha_direita">Panturilha direita<span class="small text-danger"> * </span></label>
+                                    <input type="text" id="panturilha_direita" class="form-control" name="panturilha_direita" required>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="panturilha_esquerdo">Panturilha esquerda<span class="small text-danger"> * </span></label>
+                                    <input type="text" id="panturilha_esquerda" class="form-control" name="panturilha_esquerda" required>
                                 </div>
                             </div>
                         </div>
@@ -146,7 +169,7 @@
                         <div class="row">
                             <div class="col">
                                 <button type="submit" class="btn btn-outline-primary"><i class="far fa-save"></i> Salvar</button>
-                                <a href="{{route('recepcao_alunos')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
+                                <a href="{{route('avaliacoes_medidas_alunos')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
                             </div>
                         </div>
                     </div>

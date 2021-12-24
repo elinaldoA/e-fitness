@@ -35,22 +35,24 @@
                             <th>Professor</th>
                             <th>Data</th>
                             <th>Hora</th>
-                            <th scope="col">Ações</th>
+                            <th scope="col">Status</th>
                         </tr>
-                        @forelse ($avaliacoes as $avaliacao)
+                        @forelse ($medidas as $medida)
                         <tr>
                             @foreach($alunos as $aluno)
-                            @if($aluno->id == $avaliacao->alunos_id)
+                            @if($aluno->id == $medida->alunos_id)
                             <td>{{$aluno -> nome}} </td>@endif
                             @endforeach
                             @foreach($professores as $professor)
-                            @if($professor->id == $avaliacao->professores_id)
+                            @if($professor->id == $medida->professores_id)
                             <td>{{$professor -> nome}} </td>@endif
                             @endforeach
-                            <td>{{ date('d-m-Y', strtotime($avaliacao->data)) }}</td>
-                            <td>{{ $avaliacao->hora }}</td>
+                            <td>{{ date('d-m-Y', strtotime($medida->data)) }}</td>
+                            <td>{{ $medida->hora }}</td>
                             <td>
-                                <a class="btn btn-outline-primary" href="#"><i class="fa fa-procedures"></i></a>
+                                <a class="btn btn-outline-success" href="#"><i class="fa fa-check"></i></a>
+                                <a class="btn btn-outline-warning" href="{{route('Alterar_avaliacao_medida_aluno', ['id' => $medida-> id])}}"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-outline-primary" href="#"><i class="fa fa-dumbbell"></i></a>
                             </td>
                         </tr>
                         @empty

@@ -55,11 +55,19 @@
             {{ __('Alertas') }}
         </div>
 
-        <!-- Nav Item - Profile -->
+        <!-- Nav Item - Avaliações pendentes -->
         <li class="nav-item {{ Nav::isRoute('avaliacoes_professores_alunos') }}">
             <a class="nav-link" href="{{route('avaliacoes_professores_alunos')}}">
                 <i class="fas fa-fw fa-file-medical-alt"></i>
                 <span>{{ __('Avaliações pendentes') }}</span>
+            </a>
+        </li>
+
+        <!-- Nav Item - Avaliações realizadas -->
+        <li class="nav-item {{ Nav::isRoute('avaliacoes_medidas_alunos') }}">
+            <a class="nav-link" href="{{route('avaliacoes_medidas_alunos')}}">
+                <i class="fas fa-fw fa-check"></i>
+                <span>{{ __('Avaliações realizadas') }}</span>
             </a>
         </li>
 
