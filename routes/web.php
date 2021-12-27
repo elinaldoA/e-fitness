@@ -138,6 +138,14 @@ Route::get('efitness/Professores/avaliacoes/alunos/editar/{id}', 'efitness\Profe
 Route::post('efitness/Professores/avaliacoes/alunos/editar/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@update')->name('Alterar_avaliacao_medida_aluno');
 Route::get('efitness/Professores/avaliacoes/alunos/excluir/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@delete');
 Route::post('efitness/Professores/avaliacoes/alunos/excluir/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@destroy')->name('excluir__avaliacao_medida_aluno');
+/*=========================Rotas Professores Treeinos Alunos=======================================================================================================*/
+Route::get('efitness/Professores/treinos/alunos/novo/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@create')->name('treinos_alunos.create');
+Route::post('efitness/Professores/treinos/alunos/novo/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@store')->name('treinos_alunos.store');
+Route::get('efitness/Professores/treinos/alunos/visualizar', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@index')->name('treinos_alunos');
+Route::get('efitness/Professores/treinos/alunos/editar/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@edit');
+Route::post('efitness/Professores/treinos/alunos/editar/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@update')->name('Alterar_treino_aluno');
+Route::get('efitness/Professores/treinos/alunos/excluir/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@delete');
+Route::post('efitness/Professores/treinos/alunos/excluir/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@destroy')->name('excluir__treino_aluno');
 /*=========================Rotas Administrativo Nutricionistas=======================================================================================================*/
 Route::get('efitness/Administrativo/nutricionistas/novo', 'efitness\Administrativo\Nutricionistas\NutricionistasController@create')->name('nutricionistas.create');
 Route::post('efitness/Administrativo/nutricionistas/novo', 'efitness\Administrativo\Nutricionistas\NutricionistasController@store')->name('nutricionistas.store');
