@@ -105,8 +105,10 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="tab_treinos" role="tabpanel"><br />
+                            <a class="btn btn-outline-warning" onclick="inserirLinhaTabela()">Adcionar</a>
+                            <br /><br />
                             <div class="row">
-                                <table id="tbl" class="table table-striped text-center">
+                                <table id="minhaTabela" class="table table-striped text-center">
                                     <thead>
                                         <tr>
                                             <th>Nº</th>
@@ -144,3 +146,26 @@
     </div>
 </div>
 @endsection
+<script language="javascript">
+    // Função responsável por inserir linhas na tabela
+    function inserirLinhaTabela() {
+
+        // Captura a referência da tabela com id “minhaTabela”
+        var table = document.getElementById("minhaTabela");
+        // Captura a quantidade de linhas já existentes na tabela
+        var numOfRows = table.rows.length;
+        // Captura a quantidade de colunas da última linha da tabela
+        var numOfCols = table.rows[numOfRows - 1].cells.length;
+
+        // Insere uma linha no fim da tabela.
+        var newRow = table.insertRow(numOfRows);
+
+        // Faz um loop para criar as colunas
+        for (var j = 0; j < numOfCols; j++) {
+            // Insere uma coluna na nova linha 
+            newCell = newRow.insertCell(j);
+            // Insere um conteúdo na coluna
+            newCell.innerHTML += "<td><input class='form-control' value=''/></td>";
+        }
+    }
+</script>

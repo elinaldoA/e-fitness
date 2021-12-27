@@ -165,8 +165,7 @@
             // Insere uma coluna na nova linha 
             newCell = newRow.insertCell(j);
             // Insere um conteúdo na coluna
-            newCell.innerHTML = "<td><input class='form-control'/></td> ";
+            newCell.innerHTML += "<td><input class='form-control' value=''/></td>";
         }
-
     }
 </script>

@@ -80,7 +80,7 @@
         <!-- Nav Item - Treinos alunos -->
         <li class="nav-item {{ Nav::isRoute('treinos_alunos') }}">
             <a class="nav-link" href="{{route('treinos_alunos')}}">
-            <i class="fas fa-dumbbell"></i>
+            <i class="fas fa-fw fa-dumbbell"></i>
                 <span>{{ __('Treinos') }}</span>
             </a>
         </li>

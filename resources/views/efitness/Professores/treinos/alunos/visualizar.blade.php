@@ -33,8 +33,9 @@
                         <tr>
                             <th>Aluno</th>
                             <th>Nível</th>
+                            <th>Objetivo</th>
                             <th>Professor</th>
-                            <th>Data</th>
+                            <th>Inicio</th>
                             <th scope="col">Ações</th>
                         </tr>
                         @forelse ($treinos as $treino)
@@ -44,6 +45,7 @@
                             <td>{{$aluno -> nome}} </td>@endif
                             @endforeach
                             <td>{{$treino->nivel}}</td>
+                            <td>{{$treino->objetivo}}</td>
                             @foreach($professores as $professor)
                             @if($professor->id == $treino->professores_id)
                             <td>{{$professor -> nome}} </td>@endif
