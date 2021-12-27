@@ -35,22 +35,22 @@
                             <th>Nível</th>
                             <th>Objetivo</th>
                             <th>Professor</th>
-                            <th>Inicio</th>
+                            <th>Data</th>
                             <th scope="col">Ações</th>
                         </tr>
-                        @forelse ($treinos as $treino)
+                        @forelse($treinos as $treino)
                         <tr>
                             @foreach($alunos as $aluno)
                             @if($aluno->id == $treino->alunos_id)
-                            <td>{{$aluno -> nome}} </td>@endif
+                                <td>{{$aluno -> nome}} </td>@endif
                             @endforeach
-                            <td>{{$treino->nivel}}</td>
-                            <td>{{$treino->objetivo}}</td>
+                                <td>{{$treino->nivel}}</td>
+                                <td>{{$treino->objetivo}}</td>
                             @foreach($professores as $professor)
                             @if($professor->id == $treino->professores_id)
-                            <td>{{$professor -> nome}} </td>@endif
+                                <td>{{$professor -> nome}} </td>@endif
                             @endforeach
-                            <td>{{ date('d-m-Y', strtotime($treino->data_inicio)) }}</td>
+                                <td>{{ date('d-m-Y', strtotime($treino->data_inicio)) }}</td>
                             <td>
                                 <a class="btn btn-outline-warning" href="{{route('Alterar_treino_aluno', ['id' => $treino-> id])}}"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-outline-primary" href="#"><i class="fa fa-print"></i></a>

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alunos;
+use App\Models\Avaliacoes;
+use App\Models\Treinos;
 use Illuminate\Http\Request;
 
 class HomeProfessorController extends Controller
@@ -25,12 +27,22 @@ class HomeProfessorController extends Controller
     public function index()
     {
         $alunos = Alunos::count();
+        $avaliacoes = Avaliacoes::count();
+        $treinos = Treinos::count();
 
         $alunos = [
             'alunos' => $alunos,
             //...
         ];
+        $avaliacoes = [
+            'avaliacoes' => $avaliacoes,
+            //...
+        ];
+        $treinos = [
+            'treinos' => $treinos,
+            //...
+        ];
 
-        return view('efitness/Professores/home-professor', compact('alunos'));
+        return view('efitness/Professores/home-professor', compact('alunos','avaliacoes','treinos'));
     }
 }
