@@ -77,6 +77,14 @@
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
+        <!-- Nav Item - Treinos alunos -->
+        <li class="nav-item {{ Nav::isRoute('treinos_alunos') }}">
+            <a class="nav-link" href="{{route('treinos_alunos')}}">
+            <i class="fas fa-dumbbell"></i>
+                <span>{{ __('Treinos') }}</span>
+            </a>
+        </li>
+
         <!-- Sidebar Toggler (Sidebar) -->
         <div class="text-center d-none d-md-inline">
             <button class="rounded-circle border-0" id="sidebarToggle"></button>

@@ -17,65 +17,56 @@ class ProfessorTreinosAlunosController extends Controller
     {
         $treinos = Treinos::with('treinos')->get();
         $alunos = Alunos::with('alunos')->get();
-        $sexos = Sexos::with('sexos')->get();
         $professores = Professores::with('professores')->get();
-        $avaliacoes = Avaliacoes::with('avaliacoes')->get();
         $medidas = Medidas::with('medidas')->get();
-        return view('efitness/Professores/treinos/alunos/visualizar', 
-        ['alunos' => $alunos,'sexos' => $sexos, 
-        'professores' => $professores, 'medidas' => $medidas, 'avaliacoes' => $avaliacoes]);
+        return view('efitness/Professores/treinos/alunos/visualizar', ['treinos' => $treinos,'alunos' => $alunos,'professores' => $professores, 'medidas' => $medidas]);
     }
     public function create($id)
     {
-        $treinos = Treinos::findOrFail($id);
         $alunos = Alunos::with('alunos')->get();
-        $sexos = Sexos::with('sexos')->get();
         $professores = Professores::with('professores')->get();
-        $avaliacoes = Avaliacoes::with('avaliacoes')->get();
-        $medidas = Medidas::with('medidas')->get();
-        return view('efitness/Professores/treinos/alunos/novo', 
-        ['treinos' => $treinos,'alunos' => $alunos,'sexos' => $sexos, 
-        'professores' => $professores, 'medidas' => $medidas, 'avaliacoes' => $avaliacoes]);
+        $medidas = Medidas::findOrFail($id);
+        return view('efitness/Professores/treinos/alunos/novo', ['alunos' => $alunos,'professores' => $professores, 'medidas' => $medidas]);
     }
     public function store(Request $request)
     {
         $request->validate([
-            'alunos_id' => 'required|string',
-            'sexos_id' => 'required|string',
-            'professores_id' => 'required|string',
-            'data' => 'required|string'
+            'alunos_id' => '|required|string',
+            'professores_id'=> '|required|string',
+            'data_inicio' => '|required|string',
+            'objetivo' => '|required|string',
+            'observacao' => '|required|string',
+            'aquecimento' => '|required|string',
+            'nivel' => '|required|string',
+            'numero' => '|required|integer',
+            'exercicios'=> '|required|string',
+            'series' => '|required|string',
+            'repeticoes' => '|required|string',
+            'cargas' => '|required|string'
             ]);
 
             $input = $request->all();
-            Medidas::create($input);
+            Treinos::create($input);
 
-        return redirect('efitness/Professores/treinos/alunos/visualizar')->with('success', 'Treino realizado com sucesso!');
+        return redirect('efitness/Professores/treinos/alunos/visualizar')->with('success', 'Treino criado com sucesso!');
     }
 
     public function show($id)
     {
         $treinos = Treinos::findOrFail($id);
-        $alunos = Alunos::findOrFail($id);
-        $sexos = Sexos::findOrFail($id);
-        $professores = Professores::findOrFail($id);
-        $avaliacoes = Avaliacoes::findOrFail($id);
-        $medidas = Medidas::findOrFail($id);
-        return redirect('efitness/Professores/treinos/alunos/visualizar', 
-        ['treinos' => $treinos,'avaliacoes' => $avaliacoes, 'alunos' => $alunos,'sexos' => $sexos, 
-        'professores' => $professores, 'medidas', $medidas]);
+        $alunos = Alunos::with('alunos')->get();
+        $professores = Professores::with('professores')->get();
+        $medidas = Medidas::with('medidas')->get();
+        return redirect('efitness/Professores/treinos/alunos/visualizar',['treinos' => $treinos,'alunos' => $alunos,'professores' => $professores, 'medidas', $medidas]);
     }
 
     public function edit($id)
     {
         $treinos = Treinos::findOrFail($id);
         $alunos = Alunos::with('alunos')->get();
-        $sexos = Sexos::with('sexos')->get();
         $professores = Professores::with('professores')->get();
-        $avaliacoes = Avaliacoes::with('avaliacoes')->get();
         $medidas = Medidas::with('medidas')->get();
-        return view('efitness/Professores/treinos/alunos/editar', 
-        ['treinos' => $treinos,'avaliacoes' => $avaliacoes, 'alunos' => $alunos,'sexos' => $sexos, 
-        'professores' => $professores, 'medidas' => $medidas]);
+        return view('efitness/Professores/treinos/alunos/editar',['treinos' => $treinos,'alunos' => $alunos,'professores' => $professores, 'medidas' => $medidas]);
     }
     
     public function update(Request $request, $id)
@@ -84,9 +75,17 @@ class ProfessorTreinosAlunosController extends Controller
 
         $request->validate([
             'alunos_id' => 'string',
-            'sexos_id' => 'required|string',
-            'professores_id' => 'string',
-            'data' => 'required|string'
+            'professores_id'=> 'string',
+            'data_inicio' => 'string',
+            'objetivo' => 'string',
+            'observacao' => 'string',
+            'aquecimento' => 'string',
+            'nivel' => 'string',
+            'numero' => 'integer',
+            'exercicios'=> 'string',
+            'series' => 'string',
+            'repeticoes' => 'string',
+            'cargas' => 'string'
         ]);
 
         $input = $request->all();

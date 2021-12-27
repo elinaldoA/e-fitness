@@ -52,7 +52,7 @@
                             <td>
                                 <a class="btn btn-outline-success" href="#"><i class="fa fa-check"></i></a>
                                 <a class="btn btn-outline-warning" href="{{route('Alterar_avaliacao_medida_aluno', ['id' => $medida-> id])}}"><i class="fa fa-edit"></i></a>
-                                <a class="btn btn-outline-primary" href="{{route('treinos_alunos', ['id' => $medida-> id])}}"><i class="fa fa-dumbbell"></i></a>
+                                <a class="btn btn-outline-primary" href="{{route('treinos_alunos.create', ['id' => $medida-> id])}}"><i class="fa fa-dumbbell"></i></a>
                             </td>
                         </tr>
                         @empty
