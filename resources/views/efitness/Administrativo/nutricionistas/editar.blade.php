@@ -200,7 +200,7 @@
                         <div class="row">
                             <div class="col">
                                 <button type="submit" class="btn btn-outline-primary"><i class="far fa-save"></i> Salvar</button>
-                                <a href="{{route('funcionarios.create')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
+                                <a href="{{route('nutricionistas.create')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
                             </div>
                         </div>
                     </div>

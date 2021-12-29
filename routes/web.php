@@ -178,6 +178,22 @@ Route::get('efitness/Recepcao/alunos/editar/{id}', 'efitness\Recepcao\Alunos\Rec
 Route::post('efitness/Recepcao/alunos/editar/{id}', 'efitness\Recepcao\Alunos\RecepcaoAlunosController@update')->name('Alterar_recepcao_aluno');
 Route::get('efitness/Recepcao/alunos/excluir/{id}', 'efitness\Recepcao\Alunos\RecepcaoAlunosController@delete');
 Route::post('efitness/Recepcao/alunos/excluir/{id}', 'efitness\Recepcao\Alunos\RecepcaoAlunosController@destroy')->name('excluir_recepcao_aluno');
+/*=========================Rotas Recepcao Nutricionistas=======================================================================================================*/
+Route::get('efitness/Recepcao/nutricionistas/novo', 'efitness\Recepcao\Nutricionistas\Cadastros\RecepcaoNutricionistasController@create')->name('recepcao_nutri.create');
+Route::post('efitness/Recepcao/nutricionistas/novo', 'efitness\Recepcao\Nutricionistas\Cadastros\RecepcaoNutricionistasController@store')->name('recepcao_nutri.store');
+Route::get('efitness/Recepcao/nutricionistas/visualizar', 'efitness\Recepcao\Nutricionistas\Cadastros\RecepcaoNutricionistasController@index')->name('recepcao_nutri');
+Route::get('efitness/Recepcao/nutricionistas/editar/{id}', 'efitness\Recepcao\Nutricionistas\Cadastros\RecepcaoNutricionistasController@edit');
+Route::post('efitness/Recepcao/nutricionistas/editar/{id}', 'efitness\Recepcao\Nutricionistas\Cadastros\RecepcaoNutricionistasController@update')->name('Alterar_nutri');
+Route::get('efitness/Recepcao/nutricionistas/excluir/{id}', 'efitness\Recepcao\Nutricionistas\Cadastros\RecepcaoNutricionistasController@delete');
+Route::post('efitness/Recepcao/nutricionistas/excluir/{id}', 'efitness\Recepcao\Nutricionistas\Cadastros\RecepcaoNutricionistasController@destroy')->name('excluir_nutri');
+/*=========================Rotas Recepcao Professores=======================================================================================================*/
+Route::get('efitness/Recepcao/professores/novo', 'efitness\Recepcao\Professores\RecepcaoProfessoresController@create')->name('recepcao_prof.create');
+Route::post('efitness/Recepcao/professores/novo', 'efitness\Recepcao\Professores\RecepcaoProfessoresController@store')->name('recepcao_prof.store');
+Route::get('efitness/Recepcao/professores/visualizar', 'efitness\Recepcao\Professores\RecepcaoProfessoresController@index')->name('recepcao_prof');
+Route::get('efitness/Recepcao/professores/editar/{id}', 'efitness\Recepcao\Professores\RecepcaoProfessoresController@edit');
+Route::post('efitness/Recepcao/professores/editar/{id}', 'efitness\Recepcao\Professores\RecepcaoProfessoresController@update')->name('Alterar_recepcao_prof');
+Route::get('efitness/Recepcao/professores/excluir/{id}', 'efitness\Recepcao\Professores\RecepcaoProfessoresController@delete');
+Route::post('efitness/Recepcao/professores/excluir/{id}', 'efitness\Recepcao\Professores\RecepcaoProfessoresController@destroy')->name('excluir_recepcao_prof');
 /*=========================Rotas Recepcao Avaliação física=======================================================================================================*/
 Route::get('efitness/Recepcao/avaliacoes/novo', 'efitness\Recepcao\Avaliacoes\RecepcaoAvaliacoesAlunosController@create')->name('avaliacoes_alunos.create');
 Route::post('efitness/Recepcao/avaliacoes/novo', 'efitness\Recepcao\Avaliacoes\RecepcaoAvaliacoesAlunosController@store')->name('avaliacoes_alunos.store');
@@ -186,3 +202,11 @@ Route::get('efitness/Recepcao/avaliacoes/editar/{id}', 'efitness\Recepcao\Avalia
 Route::post('efitness/Recepcao/avaliacoes/editar/{id}', 'efitness\Recepcao\Avaliacoes\RecepcaoAvaliacoesAlunosController@update')->name('Alterar_avaliacao_aluno');
 Route::get('efitness/Recepcao/avaliacoes/excluir/{id}', 'efitness\Recepcao\Avaliacoes\RecepcaoAvaliacoesAlunosController@delete');
 Route::post('efitness/Recepcao/avaliacoes/excluir/{id}', 'efitness\Recepcao\Avaliacoes\RecepcaoAvaliacoesAlunosController@destroy')->name('excluir_avaliacao_aluno');
+/*=========================Rotas Recepcao Consultas nutricionais=======================================================================================================*/
+Route::get('efitness/Recepcao/nutricionistas/consultas/novo', 'efitness\Recepcao\Nutricionistas\Consultas\RecepcaoNutricionistasConsultasController@create')->name('consultas_alunos.create');
+Route::post('efitness/Recepcao/nutricionistas/consultas/novo', 'efitness\Recepcao\Nutricionistas\Consultas\RecepcaoNutricionistasConsultasController@store')->name('consultas_alunos.store');
+Route::get('efitness/Recepcao/nutricionistas/consultas/visualizar', 'efitness\Recepcao\Nutricionistas\Consultas\RecepcaoNutricionistasConsultasController@index')->name('consultas_alunos');
+Route::get('efitness/Recepcao/nutricionistas/consultas/editar/{id}', 'efitness\Recepcao\Nutricionistas\Consultas\RecepcaoNutricionistasConsultasController@edit');
+Route::post('efitness/Recepcao/nutricionistas/consultas/editar/{id}', 'efitness\Recepcao\Nutricionistas\Consultas\RecepcaoNutricionistasConsultasController@update')->name('Alterar_consulta_aluno');
+Route::get('efitness/Recepcao/nutricionistas/consultas/excluir/{id}', 'efitness\Recepcao\Nutricionistas\Consultas\RecepcaoNutricionistasConsultasController@delete');
+Route::post('efitness/Recepcao/nutricionistas/consultas/excluir/{id}', 'efitness\Recepcao\Nutricionistas\Consultas\RecepcaoNutricionistasConsultasController@destroy')->name('excluir_consulta_aluno');

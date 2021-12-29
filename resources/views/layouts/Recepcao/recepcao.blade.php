@@ -55,18 +55,36 @@
             {{ __('Cadastros') }}
         </div>
 
-        <!-- Nav Item - Profile -->
+        <!-- Nav Item - Alunos -->
         <li class="nav-item {{ Nav::isRoute('recepcao_alunos') }}">
             <a class="nav-link" href="{{route('recepcao_alunos')}}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>{{ __('Alunos') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Profile -->
+        <!-- Nav Item - Avaliações alunos -->
+        <li class="nav-item {{ Nav::isRoute('recepcao_prof') }}">
+            <a class="nav-link" href="{{route('recepcao_prof')}}">
+                <i class="fas fa-fw fa-user-graduate"></i>
+                <span>{{ __('Professores') }}</span>
+            </a>
+        </li>
+        <!-- Nav Item - Consultas nutricionistas -->
+        <li class="nav-item {{ Nav::isRoute('recepcao_nutri') }}">
+            <a class="nav-link" href="{{route('recepcao_nutri')}}">
+                <i class="fas fa-fw fa-user-md"></i>
+                <span>{{ __('Nutricionistas') }}</span>
+            </a>
+            <a class="nav-link" href="{{route('consultas_alunos')}}">
+                <i class="fas fa-fw fa-stethoscope"></i>
+                <span>{{ __('Consultas') }}</span>
+            </a>
+        </li>
+        <!-- Nav Item - Avaliações alunos -->
         <li class="nav-item {{ Nav::isRoute('avaliacoes_alunos') }}">
             <a class="nav-link" href="{{route('avaliacoes_alunos')}}">
                 <i class="fas fa-fw fa-file-medical-alt"></i>
-                <span>{{ __('Avaliações físicas') }}</span>
+                <span>{{ __('Avaliações') }}</span>
             </a>
         </li>
 
