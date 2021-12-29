@@ -66,6 +66,20 @@
         <div class="sidebar-heading">
             {{__('Cadastros')}}
         </div>
+        <!-- Nav Item - Pacientes -->
+        <li class="nav-item {{ Nav::isRoute('dietas') }}">
+            <a class="nav-link" href="{{route('consultas_nutri')}}">
+                <i class="fas fa-fw fa-mortar-pestle"></i>
+                <span>{{ __('Dietas') }}</span>
+            </a>
+        </li>
+        <!-- Nav Item - Pacientes -->
+        <li class="nav-item {{ Nav::isRoute('consultas_nutri') }}">
+            <a class="nav-link" href="{{route('consultas_nutri')}}">
+                <i class="fas fa-fw fa-stethoscope"></i>
+                <span>{{ __('Consultas') }}</span>
+            </a>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

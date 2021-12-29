@@ -34,11 +34,8 @@
                             <th>Image</th>
                             <th>Nome</th>
                             <th>Sobrenome</th>
-                            <th>Cargo</th>
                             <th>Email</th>
                             <th>Telefone</th>
-                            <th>Cadastro</th>
-                            <th>Modificado</th>
                             <th>Status</th>
                             <th scope="col">Ações</th>
                         </tr>
@@ -47,14 +44,8 @@
                             <td><img src="/image/{{ $professor -> image }}" width="100px"></td>
                             <td>{{ $professor -> nome }}</td>
                             <td>{{ $professor -> sobrenome }}</td>
-                            @foreach($cargos as $cargo)
-                            @if($cargo->id == $professor->cargos_id)
-                            <td>{{$cargo -> nome}} </td>@endif
-                            @endforeach
                             <td>{{ $professor -> email }}</td>
                             <td>{{ $professor -> telefone }}</td>
-                            <td>{{ date('d-m-Y', strtotime($professor->created_at)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($professor->updated_at)) }}</td>
                             <td>
                                 @if( $professor->active == '0' )
                                 <button class="btn btn-danger">Inativo</button>

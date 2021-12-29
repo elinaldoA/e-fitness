@@ -31,17 +31,32 @@
                 <div class="card-body">
                     <table class="table table-hover text-center">
                         <tr>
-                            <th>Nutricionistas</th>
+                            <th>Imagem</th>
+                            <th>Nome</th>
+                            <th>Sobrenome</th>
                             <th>E-mail</th>
                             <th>Contato</th>
-                            <th>Criado</th>
+                            <th>Status</th>
+                            <th scope="col">Ações</th>
                         </tr>
                         @forelse ($nutricionistas as $nutricionista)
                         <tr>
+                            <td><img src="/image/{{ $nutricionista -> image }}" width="100px"></td>
                             <td>{{$nutricionista -> nome}} </td>
+                            <td>{{$nutricionista -> sobrenome}} </td>
                             <td>{{$nutricionista -> email}} </td>
                             <td>{{$nutricionista -> telefone}} </td>
-                            <td>{{ date('d-m-Y', strtotime($nutricionista->created_at)) }}</td>
+                            <td>
+                                @if( $nutricionista->active == '0' )
+                                <button class="btn btn-danger">Inativo</button>
+                                @else
+                                <button class="btn btn-success">Ativo</button>
+                                @endif
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-primary" href="{{ route('Alterar_recepcao_nutri', ['id' => $nutricionista-> id]) }}"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
+                            </td>
                         </tr>
                         @empty
                         <tr>
@@ -51,6 +66,25 @@
                         </tr>
                         @endforelse
                     </table>
+                    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">{{ __('Confirmar exclusão') }}</h5>
+                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">×</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Deseja realmente excluir esse registro ?
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancelar') }}</button>
+                                    <a class="btn btn-danger btn-ok" href="{{ route('excluir_recepcao_nutri', ['id' => $nutricionista-> id]) }}">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <nav aria-label="Navegação de página exemplo">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">

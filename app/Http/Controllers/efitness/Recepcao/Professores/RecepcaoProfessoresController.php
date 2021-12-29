@@ -82,7 +82,6 @@ class RecepcaoProfessoresController extends Controller
     
     public function update(Request $request, $id)
     {
-        $funcionarios = Funcionarios::findOrFail($id);
         $professores = Professores::findOrFail($id);
         $enderecos = Enderecos::findOrFail($id);
 
@@ -118,7 +117,6 @@ class RecepcaoProfessoresController extends Controller
             unset($input['image']);
         }
 
-        $funcionarios->update($input);
         $professores->update($input);
         $enderecos->update($input);
 

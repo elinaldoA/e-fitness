@@ -4,10 +4,8 @@ namespace App\Http\Controllers\efitness\Professores\Treinos;
 
 use App\Http\Controllers\Controller;
 use App\Models\Alunos;
-use App\Models\Avaliacoes;
 use App\Models\Medidas;
 use App\Models\Professores;
-use App\Models\Sexos;
 use App\Models\Treinos;
 use Illuminate\Http\Request;
 
