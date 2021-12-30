@@ -67,8 +67,15 @@
             {{__('Cadastros')}}
         </div>
         <!-- Nav Item - Pacientes -->
+        <li class="nav-item {{ Nav::isRoute('agendas') }}">
+            <a class="nav-link" href="{{route('agendas_nutri')}}">
+                <i class="fas fa-fw fa-book-open"></i>
+                <span>{{ __('Agendas') }}</span>
+            </a>
+        </li>
+        <!-- Nav Item - Pacientes -->
         <li class="nav-item {{ Nav::isRoute('dietas') }}">
-            <a class="nav-link" href="{{route('consultas_nutri')}}">
+            <a class="nav-link" href="#">
                 <i class="fas fa-fw fa-mortar-pestle"></i>
                 <span>{{ __('Dietas') }}</span>
             </a>

@@ -27,25 +27,41 @@
     <div class="col-lg-12 order-lg-1">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-            <h3 class="m-0 font-weight-bold text-primary"><i class="fas fa-stethoscope"></i></h3>
+                <h3 class="m-0 font-weight-bold text-primary"><i class="fas fa-stethoscope"></i></h3>
                 <div class="card-body">
                     <table class="table table-hover text-center">
                         <tr>
-                            <th>Nome</th>
+                            <th>Pacientes</th>
                             <th>Data</th>
                             <th>Hora</th>
+                            <th>Consulta</th>
                             <th scope="col">Ações</th>
                         </tr>
-                        @forelse ($consultas_nutricionais as $consulta)
+                        @forelse ($anamneses as $anamnese)
                         <tr>
                             @foreach($alunos as $aluno)
-                            @if($aluno->id == $consulta->alunos_id)
+                            @if($aluno->id == $anamnese->alunos_id)
                             <td>{{$aluno -> nome}} </td>@endif
                             @endforeach
-                            <td>{{ date('d-m-Y', strtotime($consulta->data)) }}</td>
-                            <td>{{ $consulta->hora}}</td>
+                            @foreach($consultas_nutricionais as $consulta)
+                            @if($consulta->id == $anamnese->alunos_id)
+                            <td>{{$consulta -> data}} </td>@endif
+                            @endforeach
+                            @foreach($consultas_nutricionais as $consulta)
+                            @if($consulta->id == $anamnese->alunos_id)
+                            <td>{{$consulta -> hora}} </td>@endif
+                            @endforeach
                             <td>
-                                <a class="btn btn-outline-primary" href="{{ route('consultas_nutri.store', ['id' => $consulta-> id]) }}"><i class="fa fa-stethoscope"></i></a>
+                                @if( $anamnese->status == '0' )
+                                <button class="btn btn-danger">Não realizada</button>
+                                @else
+                                <button class="btn btn-success">Realizada</button>
+                                @endif
+                            </td>
+                            <td>
+                                <a class="btn btn-outline-primary" href="#"><i class="fa fa-mortar-pestle"></i></a>
+                                <a class="btn btn-outline-warning" href="{{route('Alterar_consulta_nutri',['id' => $anamnese->id])}}"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                         @empty
@@ -70,7 +86,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancelar') }}</button>
-                                    <a class="btn btn-danger btn-ok" href="{{ route('excluir_consulta_nutri', ['id' => $consulta-> id]) }}">Delete</a>
+                                    <a class="btn btn-danger btn-ok" href="{{ route('excluir_consulta_nutri', ['id' => $anamnese-> id]) }}">Delete</a>
                                 </div>
                             </div>
                         </div>

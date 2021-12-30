@@ -35,7 +35,7 @@
 
             <div class="card-body">
 
-                <form method="POST" action="{{ route('Alterar_nutri', ['id' => $nutricionistas->id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('Alterar_recepcao_nutri', ['id' => $nutricionistas->id]) }}" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand" role="tablist">
                         <li class="nav-item">

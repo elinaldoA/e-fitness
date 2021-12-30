@@ -211,10 +211,18 @@ Route::post('efitness/Recepcao/nutricionistas/consultas/editar/{id}', 'efitness\
 Route::get('efitness/Recepcao/nutricionistas/consultas/excluir/{id}', 'efitness\Recepcao\Nutricionistas\Consultas\RecepcaoNutricionistasConsultasController@delete');
 Route::post('efitness/Recepcao/nutricionistas/consultas/excluir/{id}', 'efitness\Recepcao\Nutricionistas\Consultas\RecepcaoNutricionistasConsultasController@destroy')->name('excluir_consulta_aluno');
 /*=========================Rotas Consultas Nutricionistas=======================================================================================================*/
-Route::get('efitness/Nutricionistas/consultas/novo/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasAgendasController@create')->name('consultas_nutri.create');
-Route::post('efitness/Nutricionistas/consultas/novo/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasAgendasController@store')->name('consultas_nutri.store');
-Route::get('efitness/Nutricionistas/consultas/visualizar', 'efitness\Nutricionistas\Consultas\NutricionistasAgendasController@index')->name('consultas_nutri');
-Route::get('efitness/Nutricionistas/consultas/editar/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasAgendasController@edit');
-Route::post('efitness/Nutricionistas/consultas/editar/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasAgendasController@update')->name('Alterar_consulta_nutri');
-Route::get('efitness/Nutricionistas/consultas/excluir/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasAgendasController@delete');
-Route::post('efitness/Nutricionistas/consultas/excluir/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasAgendasController@destroy')->name('excluir_consulta_nutri');
+Route::get('efitness/Nutricionistas/consultas/novo/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasConsultasController@create')->name('consultas_nutri.create');
+Route::post('efitness/Nutricionistas/consultas/novo/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasConsultasController@store')->name('consultas_nutri.store');
+Route::get('efitness/Nutricionistas/consultas/visualizar', 'efitness\Nutricionistas\Consultas\NutricionistasConsultasController@index')->name('consultas_nutri');
+Route::get('efitness/Nutricionistas/consultas/editar/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasConsultasController@edit');
+Route::post('efitness/Nutricionistas/consultas/editar/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasConsultasController@update')->name('Alterar_consulta_nutri');
+Route::get('efitness/Nutricionistas/consultas/excluir/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasConsultasController@delete');
+Route::post('efitness/Nutricionistas/consultas/excluir/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasConsultasController@destroy')->name('excluir_consulta_nutri');
+/*=========================Rotas Agendas Nutricionistas=======================================================================================================*/
+Route::get('efitness/Nutricionistas/agendas/novo/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@create')->name('agendas_nutri.create');
+Route::post('efitness/Nutricionistas/agendas/novo/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@store')->name('agendas_nutri.store');
+Route::get('efitness/Nutricionistas/agendas/visualizar', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@index')->name('agendas_nutri');
+Route::get('efitness/Nutricionistas/agendas/editar/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@edit');
+Route::post('efitness/Nutricionistas/agendas/editar/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@update')->name('Alterar_agendas_nutri');
+Route::get('efitness/Nutricionistas/agendas/excluir/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@delete');
+Route::post('efitness/Nutricionistas/agendas/excluir/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@destroy')->name('excluir_agendas_nutri');
