@@ -98,7 +98,7 @@ class NutricionistasConsultasController extends Controller
         $input = $request->all();
         $anamneses->update($input);
 
-        return redirect('efitness/Nutricionionistas/consultas/visualizar')->with('success', 'Consulta atualizada com sucesso!');
+        return redirect('efitness/Nutricionistas/consultas/visualizar')->with('success', 'Consulta atualizada com sucesso!');
     }
 
     public function delete($id)
