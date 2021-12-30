@@ -45,7 +45,7 @@
                             @endforeach
                             @foreach($consultas_nutricionais as $consulta)
                             @if($consulta->id == $anamnese->alunos_id)
-                            <td>{{$consulta -> data}} </td>@endif
+                            <td>{{ date('d-m-Y', strtotime($consulta->data)) }}</td>@endif
                             @endforeach
                             @foreach($consultas_nutricionais as $consulta)
                             @if($consulta->id == $anamnese->alunos_id)

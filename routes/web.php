@@ -226,3 +226,11 @@ Route::get('efitness/Nutricionistas/agendas/editar/{id}', 'efitness\Nutricionist
 Route::post('efitness/Nutricionistas/agendas/editar/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@update')->name('Alterar_agendas_nutri');
 Route::get('efitness/Nutricionistas/agendas/excluir/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@delete');
 Route::post('efitness/Nutricionistas/agendas/excluir/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@destroy')->name('excluir_agendas_nutri');
+/*=========================Rotas Dietas Nutricionistas=======================================================================================================*/
+Route::get('efitness/Nutricionistas/dietas/novo/{id}', 'efitness\Nutricionistas\Dietas\NutricionistasDietasController@create')->name('dietas_nutri_paciente.create');
+Route::post('efitness/Nutricionistas/dietas/novo/{id}', 'efitness\Nutricionistas\Dietas\NutricionistasDietasController@store')->name('dietas_nutri_pacientes.store');
+Route::get('efitness/Nutricionistas/dietas/visualizar', 'efitness\Nutricionistas\Dietas\NutricionistasDietasController@index')->name('dietas_nutri_pacientes');
+Route::get('efitness/Nutricionistas/dietas/editar/{id}', 'efitness\Nutricionistas\Dietas\NutricionistasDietasController@edit');
+Route::post('efitness/Nutricionistas/dietas/editar/{id}', 'efitness\Nutricionistas\Dietas\NutricionistasDietasController@update')->name('Alterar_dieta_nutri_paciente');
+Route::get('efitness/Nutricionistas/dietas/excluir/{id}', 'efitness\Nutricionistas\Dietas\NutricionistasDietasController@delete');
+Route::post('efitness/Nutricionistas/dietas/excluir/{id}', 'efitness\Nutricionistas\Dietas\NutricionistasDietasController@destroy')->name('excluir_dieta_nutri_paciente');

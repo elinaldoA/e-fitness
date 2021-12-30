@@ -42,7 +42,7 @@
                             @if($aluno->id == $consulta->alunos_id)
                             <td>{{$aluno -> nome}} </td>@endif
                             @endforeach
-                            <td>{{$consulta -> data}} </td>
+                            <td>{{ date('d-m-Y', strtotime($consulta->data)) }}</td>
                             <td>{{$consulta -> hora}} </td>
                             <td>
                                 <a class="btn btn-outline-primary" href="{{ route('consultas_nutri.store', ['id' => $consulta-> id]) }}"><i class="fa fa-stethoscope"></i></a>

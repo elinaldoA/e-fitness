@@ -75,7 +75,7 @@
         </li>
         <!-- Nav Item - Pacientes -->
         <li class="nav-item {{ Nav::isRoute('dietas') }}">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('dietas_nutri_pacientes')}}">
                 <i class="fas fa-fw fa-mortar-pestle"></i>
                 <span>{{ __('Dietas') }}</span>
             </a>
