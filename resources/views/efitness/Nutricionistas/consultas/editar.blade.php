@@ -39,8 +39,8 @@
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tab_informacoes" role="tab">
-                                Informações
+                            <a class="nav-link" data-toggle="tab" href="#tab_anamnese" role="tab">
+                                Anamnese Corporal
                             </a>
                         </li>
                         <li class="nav-item">
@@ -48,45 +48,132 @@
                                 Medidas Antropométricas
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="tab" href="#tab_anamnese" role="tab">
-                                Anamnese Corporal
-                            </a>
-                        </li>
                     </ul>
                     <div class="tab-content pl-lg-12">
-                        <div class="tab-pane active" id="tab_informacoes" role="tabpanel"><br />
+                        <div class="tab-pane active" id="tab_anamnese" role="tabpanel"><br />
                             <div class="row">
-                                <div class="col-lg-3">
+                                <div class="col-lg-1">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="status">Status <span class="small text-danger"> * </span></label>
+                                        <input type="checkbox" id="status" name="status" class="form-control" value="1" @if(old('status')) checked="checked" @endif required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="alunos_id">Paciente<span class="small text-danger"> * </span></label>
                                         <select name="alunos_id" id="alunos_id" class="form-control">
                                             @foreach($alunos as $aluno)
-                                            <option {{ $consultas_nutricionais->alunos_id == $aluno->id ? 'selected' : '' }} value="{{ $aluno->id }}">{{$aluno->nome}}</option>
+                                            <option {{ $anamneses->alunos_id == $aluno->id ? 'selected' : '' }} value="{{ $aluno->id }}">{{$aluno->nome}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-lg-3">
+                                <div class="col-lg-4">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="nutricionistas_id">Nutricionista<span class="small text-danger"> * </span></label>
                                         <select name="nutricionistas_id" id="nutricionistas_id" class="form-control">
                                             @foreach($nutricionistas as $nutricionista)
-                                            <option {{ $consultas_nutricionais->nutricionistas_id == $nutricionista->id ? 'selected' : '' }} value="{{ $nutricionista->id }}">{{$nutricionista->nome}}</option>
+                                            <option {{ $anamneses->nutricionistas_id == $nutricionista->id ? 'selected' : '' }} value="{{ $nutricionista->id }}">{{$nutricionista->nome}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="data">Data da consulta<span class="small text-danger"> * </span></label>
-                                        <input type="date" id="data" class="form-control" name="data" value="{{$consultas_nutricionais->data}}">
+                                        <label class="form-control-label" for="motivo">Motivo da consulta<span class="small text-danger"> * </span></label>
+                                        <input type="text" class="form-control" name="motivo" id="motivo" value="{{$anamneses->motivo}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="doenca">Possui alguma doença ? <span class="small text-danger"> * </span></label>
+                                        <input type="text" id="doenca" class="form-control" name="doenca" value="{{$anamneses->doenca}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="doenca_familiar">Possui alguma doença na familia ? <span class="small text-danger">*</span></label>
+                                        <input type="text" id="doenca_familiar" class="form-control" name="doenca_familiar" value="{{$anamneses->doenca_familiar}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="quadril">Usa algum medicamento ? <span class="small text-danger"> * </span></label>
+                                        <select class="form-control" name="medicamentos" id="medicamentos">
+                                            <option>{{ $anamneses->medicamentos}}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="historico_social">Histórico social<span class="small text-danger"> * </span></label>
+                                        <input type="text" class="form-control" name="historico_social" id="historico_social" value="{{$anamneses->historico_social}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="atividade_fisica">Atividade física<span class="small text-danger">*</span></label>
+                                        <input type="text" class="form-control" name="atividade_fisica" id="atividade_fisica" value="{{$anamneses->atividade_fisica}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="motivo_pratica">Motivo da prática de atividade<span class="small text-danger"> * </span></label>
+                                        <input type="text" class="form-control" name="motivo_pratica" id="motivo_pratica" value="{{$anamneses->motivo_pratica}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="tempo_pratica">Tempo da prática<span class="small text-danger"> * </span></label>
+                                        <input type="text" class="form-control" name="tempo_pratica" id="tempo_pratica" value="{{$anamneses->tempo_pratica}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="suplementos">Faz uso de suplementos ?<span class="small text-danger"> * </span></label>
+                                        <input type="text" class="form-control" name="suplementos" id="suplementos" value="{{$anamneses->suplementos}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="refeicoes">Refeições por dia<span class="small text-danger"> * </span></label>
+                                        <input type="text" id="refeicoes" class="form-control" name="refeicoes" value="{{$anamneses->refeicoes}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="alimentos">Alimentos inseridos diariamente<span class="small text-danger"> * </span></label>
+                                        <textarea class="form-control" cols="4" rows="4" name="alimentos" id="alimentos">{{$anamneses->alimentos}}</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="observacoes">Observações<span class="small text-danger"> * </span></label>
+                                        <textarea class="form-control" cols="4" rows="4" name="observacoes" id="observacoes">{{$anamneses->observacoes}}</textarea>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="data">Hora da consulta<span class="small text-danger"> * </span></label>
-                                        <input type="time" id="hora" class="form-control" name="hora" value="{{$consultas_nutricionais->hora}}">
+                                        <label class="form-control-label" for="agua">Qt. de água ingeridas diariamente<span class="small text-danger"> * </span></label>
+                                        <input type="text" class="form-control" name="agua" id="agua" placeholder="1 copo, 2 copos ..." value="{{$anamneses->agua}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="agua">Diagnóstico<span class="small text-danger"> * </span></label>
+                                        <input type="text" class="form-control" name="diagnostico" id="diagnostico" value="{{$anamneses->diagnostico}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="agua">Conduta e característica da dieta<span class="small text-danger"> * </span></label>
+                                        <input type="text" class="form-control" name="conduta_dieta" id="conduta_dieta" value="{{$anamneses->conduta_dieta}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="agua">Data de revisão<span class="small text-danger"> * </span></label>
+                                        <input type="date" class="form-control" name="data_revisao" id="data_revisao" value="{{$anamneses->data_revisao}}">
                                     </div>
                                 </div>
                             </div>
@@ -151,124 +238,6 @@
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="panturilha_esquerdo">Panturilha esquerda<span class="small text-danger"> * </span></label>
                                         <input type="text" id="panturilha_esquerda" class="form-control" name="panturilha_esquerda" value="{{$medidas->panturilha_esquerda}}">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="tab_anamnese" role="tabpanel"><br />
-                            <div class="row">
-                                <div class="col-lg-1">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="status">Status <span class="small text-danger"> * </span></label>
-                                        <input type="checkbox" id="status" name="status" class="form-control" value="1" @if(old('status')) checked="checked" @endif required>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="alunos_id">Paciente<span class="small text-danger"> * </span></label>
-                                        <select name="alunos_id" id="alunos_id" class="form-control">
-                                            @foreach($alunos as $aluno)
-                                            <option {{ $anamneses->alunos_id == $aluno->id ? 'selected' : '' }} value="{{ $aluno->id }}">{{$aluno->nome}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="motivo">Motivo da consulta<span class="small text-danger"> * </span></label>
-                                        <input type="text" class="form-control" name="motivo" id="motivo" value="{{$anamneses->motivo}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="doenca">Possui alguma doença ? <span class="small text-danger"> * </span></label>
-                                        <input type="text" id="doenca" class="form-control" name="doenca" value="{{$anamneses->doenca}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="doenca_familiar">Possui alguma doença na familia ? <span class="small text-danger">*</span></label>
-                                        <input type="text" id="doenca_familiar" class="form-control" name="doenca_familiar" value="{{$anamneses->doenca_familiar}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="quadril">Usa algum medicamento ? <span class="small text-danger"> * </span></label>
-                                        <select class="form-control" name="medicamentos" id="medicamentos">
-                                            <option>{{ $anamneses->medicamentos}}</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="historico_social">Histórico social<span class="small text-danger"> * </span></label>
-                                        <input type="text" class="form-control" name="historico_social" id="historico_social" value="{{$anamneses->historico_social}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="atividade_fisica">Atividade física<span class="small text-danger">*</span></label>
-                                        <input type="text" class="form-control" name="atividade_fisica" id="atividade_fisica" value="{{$anamneses->atividade_fisica}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="motivo_pratica">Motivo da prática de atividade<span class="small text-danger"> * </span></label>
-                                        <input type="text" class="form-control" name="motivo_pratica" id="motivo_pratica" value="{{$anamneses->motivo_pratica}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="tempo_pratica">Tempo da prática<span class="small text-danger"> * </span></label>
-                                        <input type="text" class="form-control" name="tempo_pratica" id="tempo_pratica" value="{{$anamneses->tempo_pratica}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="suplementos">Faz uso de suplementos ?<span class="small text-danger"> * </span></label>
-                                        <input type="text" class="form-control" name="suplementos" id="suplementos" value="{{$anamneses->suplementos}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="refeicoes">Refeições por dia<span class="small text-danger"> * </span></label>
-                                        <input type="text" id="refeicoes" class="form-control" name="refeicoes" value="{{$anamneses->refeicoes}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="alimentos">Alimentos inseridos diariamente<span class="small text-danger"> * </span></label>
-                                        <textarea class="form-control" cols="4" rows="4" name="alimentos" id="alimentos">{{$anamneses->alimentos}}</textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="observacoes">Observações<span class="small text-danger"> * </span></label>
-                                        <textarea class="form-control" cols="4" rows="4" name="observacoes" id="observacoes">{{$anamneses->observacoes}}</textarea>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="agua">Qt. de água ingeridas diariamente<span class="small text-danger"> * </span></label>
-                                        <input type="text" class="form-control" name="agua" id="agua" placeholder="1 copo, 2 copos ..." value="{{$anamneses->agua}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="agua">Diagnóstico<span class="small text-danger"> * </span></label>
-                                        <input type="text" class="form-control" name="diagnostico" id="diagnostico" value="{{$anamneses->diagnostico}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="agua">Conduta e característica da dieta<span class="small text-danger"> * </span></label>
-                                        <input type="text" class="form-control" name="conduta_dieta" id="conduta_dieta" value="{{$anamneses->conduta_dieta}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="agua">Data de revisão<span class="small text-danger"> * </span></label>
-                                        <input type="date" class="form-control" name="data_revisao" id="data_revisao" value="{{$anamneses->data_revisao}}">
                                     </div>
                                 </div>
                             </div>

@@ -19,8 +19,10 @@ class NutricionistasDietasController extends Controller
         $nutricionistas = Nutricionistas::with('nutricionistas')->get();
         $consultas_nutricionais = Consultas_nutricionais::with('consultas_nutricionais')->get();
         $anamneses = Anamneses::with('anamneses')->get();
+        $dietas = Dietas::with('dietas')->get();
         return view('efitness/Nutricionistas/dietas/visualizar', 
-        ['alunos' => $alunos, 'nutricionistas' => $nutricionistas, 'consultas_nutricionais' => $consultas_nutricionais,'anamneses' => $anamneses]);
+        ['alunos' => $alunos, 'nutricionistas' => $nutricionistas, 
+        'consultas_nutricionais' => $consultas_nutricionais,'anamneses' => $anamneses, 'dietas' => $dietas]);
     }
 
     public function create($id)
@@ -30,8 +32,10 @@ class NutricionistasDietasController extends Controller
         $anamneses = Anamneses::with('anamneses')->get();
         $medidas = Medidas::findOrFail($id);
         $consultas_nutricionais = Consultas_nutricionais::findOrFail($id);
+        $dietas = Dietas::findOrFail($id);
         return view('efitness/Nutricionistas/dietas/novo', 
-        ['alunos' => $alunos, 'nutricionistas' => $nutricionistas,'medidas' => $medidas, 'consultas_nutricionais' => $consultas_nutricionais, 'anamneses' => $anamneses]);
+        ['alunos' => $alunos, 'nutricionistas' => $nutricionistas,'medidas' => $medidas, 
+        'consultas_nutricionais' => $consultas_nutricionais, 'anamneses' => $anamneses, 'dietas' => $dietas]);
     }
     public function store(Request $request)
     {
@@ -42,7 +46,7 @@ class NutricionistasDietasController extends Controller
         $input = $request->all();
         Dietas::create($input);
 
-        return redirect('efitness/Nutricionistas/dietas/visualizar')->with('success', 'Consulta realizada com sucesso!');
+        return redirect('efitness/Nutricionistas/dietas/visualizar')->with('success', 'Dieta cadastrada com sucesso!');
     }
 
     public function edit($id)
@@ -52,8 +56,10 @@ class NutricionistasDietasController extends Controller
         $anamneses = Anamneses::findOrFail($id);
         $medidas = Medidas::findOrFail($id);
         $consultas_nutricionais = Consultas_nutricionais::findOrFail($id);
+        $dietas = Dietas::findOrFail($id);
         return view('efitness/Nutricionistas/dietas/editar',
-        ['alunos' => $alunos, 'nutricionistas' => $nutricionistas,'medidas' => $medidas, 'consultas_nutricionais' => $consultas_nutricionais, 'anamneses' => $anamneses]);
+        ['alunos' => $alunos, 'nutricionistas' => $nutricionistas,'medidas' => $medidas, 
+        'consultas_nutricionais' => $consultas_nutricionais, 'anamneses' => $anamneses, 'dietas' => $dietas]);
     }
     
     public function update(Request $request, $id)

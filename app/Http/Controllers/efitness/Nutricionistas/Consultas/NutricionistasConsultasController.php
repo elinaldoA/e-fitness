@@ -37,6 +37,7 @@ class NutricionistasConsultasController extends Controller
         $request->validate([
         'status' => 'required|boolean',
         'alunos_id' => 'required|string',
+        'nutricionistas_id' => 'required|string',
         'motivo' => 'required|string',
         'doenca' => 'required|string',
         'doenca_familiar' => 'required|string',
@@ -78,6 +79,7 @@ class NutricionistasConsultasController extends Controller
         $request->validate([
         'status' => 'boolean',
         'alunos_id' => 'string',
+        'nutricionistas_id' => 'string',
         'motivo' => 'string',
         'doenca' => 'string',
         'doenca_familiar' => 'string',

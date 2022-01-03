@@ -17,6 +17,7 @@ class Anamneses extends Model
     protected $fillable = [
         'status',
         'alunos_id',
+        'nutricionistas_id',
         'motivo',
         'doenca',
         'doenca_familiar',
@@ -50,6 +51,7 @@ class Anamneses extends Model
         'id',
         'status',
         'alunos_id',
+        'nutricionistas_id',
         'motivo',
         'doenca',
         'doenca_familiar',
