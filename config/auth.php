@@ -42,8 +42,8 @@ return [
         ],
 
         'api' => [
-            'driver' => 'token',
-            'provider' => 'esaude',
+            'driver' => 'passport',
+            'provider' => 'efitness',
             'hash' => false,
         ],
 

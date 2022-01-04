@@ -15,7 +15,7 @@ class CreateAvaliacoesTable extends Migration
     {
         Schema::create('avaliacoes', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreign('aluno_id')->references('id')->on('alunos');
+            $table->foreign('alunos_id')->references('id')->on('alunos');
             $table->bigInteger('alunos_id')->unsigned();
             $table->foreign('professores_id')->references('id')->on('professores');
             $table->bigInteger('professores_id')->unsigned();

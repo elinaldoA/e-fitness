@@ -117,8 +117,7 @@ class RecepcaoController extends Controller
         }else{
             unset($input['image']);
         }
-
-        $funcionarios->update($input);
+        
         $recepcaos->update($input);
         $enderecos->update($input);
 

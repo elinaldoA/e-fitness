@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::prefix('v1')->group(function () {
+
+    Route::post('/register', 'efitness\Api\V1\Nutricionistas\Auth\RegisterController@register');
+    Route::post('/login', 'efitness\Api\V1\Nutricionistas\Auth\LoginController@login');
+    Route::post('/password/forgot', 'efitness\Api\V1\Nutricionistas\Auth\ForgotPasswordController@getResetToken');
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

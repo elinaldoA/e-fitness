@@ -16,6 +16,7 @@ class CreateRecepcaosTable extends Migration
         Schema::create('recepcaos', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('active')->default(false);
+            $table->string('nome');
             $table->string('sobrenome');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
