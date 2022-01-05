@@ -114,6 +114,34 @@
                                     onkeypress="mascara(this, '## #####-####')" maxlength="13" required>
                                 </div>
                             </div>
+                            <div class="col-lg-3">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="sexo">Planos<span class="small text-danger"> * </span></label>
+                                    <select class="form-control" id="planos_id" name="planos_id">
+                                    <option>Selecione uma opção</option>
+                                        @foreach($planos as $plano)
+                                        <option value="{{$plano->id}}">{{$plano->nome}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="sexo">Valor<span class="small text-danger"> * </span></label>
+                                    <select class="form-control" id="valor" name="valor">
+                                    <option>Selecione uma opção</option>
+                                        @foreach($planos as $plano)
+                                        <option value="{{$plano->valor}}">R$ {{ number_format($plano -> valor, 2) }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-2">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="vencimento">Vencimento<span class="small text-danger"> * </span></label>
+                                    <input type="number" id="vencimento" class="form-control" name="vencimento" placeholder="numeros" required>
+                                </div>
+                            </div>
                             <div class="col-lg-4">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="image">Foto<span class="small text-danger"> * </span></label>

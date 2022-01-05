@@ -110,6 +110,32 @@
                                         name="telefone" placeholder="Somente números" onkeypress="mascara(this, '## #####-####')" maxlength="13" value="{{$alunos->telefone}}">
                                     </div>
                                 </div>
+                                <div class="col-lg-3">
+                                <div class="form-group focused">
+                                        <label class="form-control-label" for="planos_id">Planos<span class="small text-danger"> * </span></label>
+                                        <select name="planos_id" id="planos_id" class="form-control">
+                                            @foreach($planos as $plano)
+                                            <option {{ $alunos->planos_id == $plano->id ? 'selected' : '' }}  value="{{ $plano->id }}">{{$plano->nome}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="sexo">Valor<span class="small text-danger"> * </span></label>
+                                        <select name="valor" id="valor" class="form-control">
+                                            @foreach($planos as $plano)
+                                            <option {{ $alunos->planos_id == $plano->id ? 'selected' : '' }}  value="{{ $plano->id }}">R$ {{ number_format($plano -> valor, 2) }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="vencimento">Vencimento<span class="small text-danger"> * </span></label>
+                                        <input type="number" id="vencimento" class="form-control" name="vencimento" placeholder="numeros" value="{{$alunos->vencimento}}">
+                                    </div>
+                                </div>
                                 <div class="col-lg-4">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="image">Imagem<span class="small text-danger"> * </span></label>

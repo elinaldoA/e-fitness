@@ -104,6 +104,14 @@ Route::put('efitness/Professores/profile-professor', 'ProfileProfessorController
 Route::get('efitness/Nutricionistas/home-nutricionista', 'HomeNutricionistaController@index')->name('home-nutricionista');
 Route::get('efitness/Nutricionistas/profile-nutricionista', 'ProfileNutricionistaController@index')->name('profile-nutricionista');
 Route::put('efitness/Nutricionistas/profile-nutricionista', 'ProfileNutricionistaController@update')->name('profile-nutricionista.update');
+/*=========================Rotas Administrativo Planos=======================================================================================================*/
+Route::get('efitness/Administrativo/planos/novo', 'efitness\Administrativo\Planos\PlanosController@create')->name('planos.create');
+Route::post('efitness/Administrativo/planos/novo', 'efitness\Administrativo\Planos\PlanosController@store')->name('planos.store');
+Route::get('efitness/Administrativo/planos/visualizar', 'efitness\Administrativo\Planos\PlanosController@index')->name('planos');
+Route::get('efitness/Administrativo/planos/editar/{id}', 'efitness\Administrativo\Planos\PlanosController@edit');
+Route::post('efitness/Administrativo/planos/editar/{id}', 'efitness\Administrativo\Planos\PlanosController@update')->name('Alterar_plano');
+Route::get('efitness/Administrativo/planos/excluir/{id}', 'efitness\Administrativo\Planos\PlanosController@delete');
+Route::post('efitness/Administrativo/planos/excluir/{id}', 'efitness\Administrativo\Planos\PlanosController@destroy')->name('excluir_plano');
 /*=========================Rotas Administrativo Cargos=======================================================================================================*/
 Route::get('efitness/Administrativo/cargos/novo', 'efitness\Administrativo\Cargos\CargosController@create')->name('cargos.create');
 Route::post('efitness/Administrativo/cargos/novo', 'efitness\Administrativo\Cargos\CargosController@store')->name('cargos.store');

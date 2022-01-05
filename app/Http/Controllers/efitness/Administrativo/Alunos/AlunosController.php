@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Alunos;
 use App\Models\Enderecos;
 use App\Models\Sexos;
+use App\Models\Planos;
 use Illuminate\Http\Request;
 
 class AlunosController extends Controller
@@ -18,7 +19,8 @@ class AlunosController extends Controller
     public function create()
     {
         $sexos = Sexos::with('sexos')->get();
-        return view('efitness/Administrativo/alunos/novo', ['sexos' => $sexos]);
+        $planos = Planos::with('planos')->get();
+        return view('efitness/Administrativo/alunos/novo', ['sexos' => $sexos, 'planos' => $planos]);
     }
     public function store(Request $request)
     {
@@ -31,6 +33,9 @@ class AlunosController extends Controller
             'cpf' => 'required|string|max:255',
             'email' => 'required|string|unique:users',
             'telefone' => 'required|string|max:13',
+            'planos_id' => 'required|string',
+            'valor' => 'required|string',
+            'vencimento' => 'required|string',
             'rua' => 'required|string|max:255',
             'numero' => 'required|integer',
             'complemento' => 'required|string|max:255',
@@ -64,9 +69,10 @@ class AlunosController extends Controller
     {
         $alunos = Alunos::findOrFail($id);
         $sexos = Sexos::with('sexos')->get();
+        $planos = Planos::with('planos')->get();
         $enderecos = Enderecos::findOrFail($id);
         return view('efitness/Administrativo/alunos/editar', 
-        ['alunos' => $alunos, 'sexos' => $sexos, 'enderecos' => $enderecos]);
+        ['alunos' => $alunos, 'sexos' => $sexos, 'enderecos' => $enderecos, 'planos' => $planos]);
     }
     
     public function update(Request $request, $id)
@@ -83,6 +89,9 @@ class AlunosController extends Controller
             'cpf' => 'string',
             'email' => 'string',
             'telefone' => 'string',
+            'planos_id' => 'string',
+            'valor' => 'string',
+            'vencimento' => 'string',
             'rua' => 'string',
             'numero' => 'string',
             'complemento' => 'string',

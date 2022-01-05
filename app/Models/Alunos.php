@@ -18,7 +18,8 @@ class Alunos extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'active','nome','sobrenome','sexos_id','nascimento','cpf','email','password','telefone','image'
+        'active','nome','sobrenome','sexos_id','nascimento','cpf','email','password','telefone','planos_id',
+        'valor', 'vencimento','image'
     ];
 
     /**
@@ -41,6 +42,7 @@ class Alunos extends Authenticatable implements MustVerifyEmail
 
     public function Alunos()
     {
-        return $this -> hasMany('App\Models\Alunos','id','active','nome','sobrenome','sexos_id','nascimento','cpf','email','password','telefone','image');
+        return $this -> hasMany('App\Models\Alunos','id','active','nome','sobrenome','sexos_id','nascimento','cpf','email','password','telefone','planos_id',
+        'valor', 'vencimento','image');
     }
 }

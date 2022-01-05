@@ -70,6 +70,14 @@
                 <span>{{ __('Sobre') }}</span>
             </a>
         </li>
+        
+        <!-- Nav Item - Financeiro -->
+        <li class="nav-item {{ Nav::isRoute('mensalidades') }}">
+            <a class="nav-link" href="#">
+                <i class="fas fa-fw fa-calendar"></i>
+                <span>{{ __('Mensalidades') }}</span>
+            </a>
+        </li>
 
         <div class="sidebar-heading">
             {{__('Cadastros')}}
@@ -80,6 +88,13 @@
             <a class="nav-link" href="{{ route('cargos') }}">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Cargos') }}</span>
+            </a>
+        </li>
+        <!-- Nav Item - Cargos-->
+        <li class="nav-item {{ Nav::isRoute('planos') }}">
+            <a class="nav-link" href="{{ route('planos') }}">
+                <i class="fas fa-fw fa-dumbbell"></i>
+                <span>{{ __('Planos') }}</span>
             </a>
         </li>
         <!-- Nav Item - Funcionários-->
