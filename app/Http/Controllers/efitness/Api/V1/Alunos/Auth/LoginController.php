@@ -1,46 +1,103 @@
 <?php
 
-namespace App\Http\Controllers\efitnes\Api\V1\Alunos\Auth;
+namespace App\Http\Controllers\efitness\Api\V1\Alunos\Auth;
 
-use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+use App\Http\Resources\V1\Alunos as AlunoResource;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
-class LoginController extends Controller
+class LoginController
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
-
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
+    public function logout(Request $request)
     {
-        $this->middleware('guest:admin')->except('logout');
+        if (!$this->revokeToken($request)) {
+            return $this->sendFailedLoggedOutResponse();
+        }
+
+        return $this->sendLoggedOutResponse();
     }
 
-    protected function redirectTo()
+    public function login(Request $request)
     {
-        session()->flash('success', 'Seja bem vindo!');
-        return $this->redirectTo;
+        $validator = $this->validateLogin($request);
+
+        if ($validator->fails()) {
+            return $this->sendFailedLoginResponse($validator->errors(), Response::HTTP_BAD_REQUEST);
+        }
+
+        $credentials = $this->credentials($request);
+
+        if (!$this->guard()->attempt($credentials)) {
+            return $this->sendFailedLoginResponse(trans('auth.failed'));
+        }
+
+/*        $nutricionistaUser = $this->guard()->user();
+
+        if (!$nutricionistaUser->hasVerifiedEmail()) {
+            return $this->sendFailedLoginResponse(trans('auth.message.email_not_verified_yet'));
+        }*/
+
+        return $this->sendLoginResponse();
+    }
+
+    protected function sendLoggedOutResponse()
+    {
+        return response(['message' => trans('auth.message.logout_success')], Response::HTTP_OK);
+    }
+
+    protected function sendFailedLoggedOutResponse()
+    {
+        return response(['message' => trans('auth.message.logout_failed')], Response::HTTP_OK);
+    }
+
+    protected function revokeToken(Request $request)
+    {
+        return $request->user()->token()->revoke();
+    }
+
+    protected function sendLoginResponse()
+    {
+        $token = $this->guard()->user()->createToken(1);
+        $aluno = $this->guard()->user();
+
+        return response([
+            'user' => new AlunoResource($aluno),
+            'token' => $token
+        ], Response::HTTP_OK);
+    }
+
+    protected function sendFailedLoginResponse($errors, $statusCode = Response::HTTP_UNAUTHORIZED)
+    {
+        return response([
+            'error' => $errors
+        ], $statusCode);
+    }
+
+    protected function validateLogin(Request $request)
+    {
+        return Validator::make($request->all(), $this->rulesLogin());
+    }
+
+    protected function rulesLogin()
+    {
+        return [
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ];
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard('aluno');
     }
 }

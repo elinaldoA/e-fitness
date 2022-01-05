@@ -53,12 +53,12 @@ class ResetPasswordController extends Controller
             : $this->sendResetFailedResponse($request, $response, Response::HTTP_INTERNAL_SERVER_ERROR);
     }
 
-    protected function sendResetResponse(Request $request, $response, $statusCode)
+    protected function sendResetResponse($response, $statusCode)
     {
         return response()->json($response, $statusCode);
     }
 
-    protected function sendResetFailedResponse(Request $request, $response, $statusCode)
+    protected function sendResetFailedResponse($response, $statusCode)
     {
         return response()->json($response, $statusCode);
     }

@@ -3,10 +3,21 @@
 namespace App\Http\Controllers\efitness\Api\V1\Nutricionistas\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\VerifiesEmails;
+use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Response;
 
 class VerificationController extends Controller
 {
-    
+    public function resend(Request $request)
+    {
+        $request->user()->sendEmailVerificationNotification();
+        return response()->json(['message' => __('auth.email_sent')], Response::HTTP_NO_CONTENT);
+    }
+
+    public function verify(EmailVerificationRequest $request)
+    {
+        $request->fulfill();
+        return response()->json(['message' => __('auth.user_verified_successfully')], Response::HTTP_RESET_CONTENT);
+    }
 }

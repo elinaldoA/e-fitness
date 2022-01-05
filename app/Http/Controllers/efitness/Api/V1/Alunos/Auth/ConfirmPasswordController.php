@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\efitnes\Api\V1\Alunos\Auth;
+namespace App\Http\Controllers\efitness\Api\V1\Alunos\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;

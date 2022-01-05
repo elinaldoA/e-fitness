@@ -15,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::prefix('v1')->group(function () {
-
-    Route::prefix('nutricionistas')->group(function () {
+    
+    Route::prefix('nutricionista')->group(function () {
         // Auth Nutricionistas
         Route::middleware('api')->group(function () {
             Route::post('/password/forgot', 'efitness\Api\V1\Nutricionistas\Auth\ForgotPasswordController@getResetToken')->name('nutricionistas.forgot.password');
@@ -50,5 +50,17 @@ Route::prefix('v1')->group(function () {
         Route::get('email/verify', 'efitness\Api\V1\Recepcao\Auth\VerificationController@show')->name('recepcoes.verification.notice');
         Route::get('email/verify/{id}/{hash}', 'efitness\Api\V1\Recepcao\Auth\VerificationController@verify')->name('recepcoes.verification.verify');
         Route::post('email/resend', 'efitness\Api\V1\Recepcao\Auth\VerificationController@resend')->name('recepcoes.verification.resend');
+    });
+    
+    Route::prefix('alunos')->group(function () {
+        // Auth Alunos
+        Route::middleware('api')->group(function () {
+            Route::post('/password/forgot', 'efitness\Api\V1\Alunos\Auth\ForgotPasswordController@getResetToken')->name('alunos.forgot.password');
+            Route::post('/register', 'efitness\Api\V1\Alunos\Auth\RegisterController@register');
+            Route::post('/login', 'efitness\Api\V1\Alunos\Auth\LoginController@login');
+        });
+        Route::get('email/verify', 'efitness\Api\V1\Alunos\Auth\VerificationController@show')->name('alunos.verification.notice');
+        Route::get('email/verify/{id}/{hash}', 'efitness\Api\V1\Alunos\Auth\VerificationController@verify')->name('alunos.verification.verify');
+        Route::post('email/resend', 'efitness\Api\V1\Alunos\Auth\VerificationController@resend')->name('alunos.verification.resend');
     });
 });

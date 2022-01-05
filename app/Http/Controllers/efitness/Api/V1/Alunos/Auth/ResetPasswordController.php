@@ -1,10 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\efitnes\Api\V1\Alunos\Auth;
+namespace App\Http\Controllers\efitness\Api\V1\Alunos\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Providers\RouteServiceProvider;
+
 use Illuminate\Foundation\Auth\ResetsPasswords;
+use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Validator;
 
 class ResetPasswordController extends Controller
 {
@@ -21,22 +27,74 @@ class ResetPasswordController extends Controller
 
     use ResetsPasswords;
 
-    /**
-     * Where to redirect users after resetting their password.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
 
     /**
-     * Set the user's password.
+     * Reset the given user's password.
      *
-     * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
-     * @param  string  $password
-     * @return void
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Http\JsonResponse
      */
-    protected function setUserPassword($user, $password)
+    public function reset(Request $request)
     {
-        $user->password = $password;
+        $validator = Validator::make($request->all(), $this->rules(), $this->validationErrorMessages());
+
+        if ($validator->fails()) {
+            return $this->sendResetFailedResponse($request, $validator->errors(), Response::HTTP_BAD_REQUEST);
+        }
+
+        $user = $request->user();
+        $user->password = Hash::make($request['password']);
+        $response = $user->save();
+
+        return $response
+            ? $this->sendResetResponse($request, [
+                'message' => trans('alunos.password.change_password_successfully')
+            ], Response::HTTP_OK)
+            : $this->sendResetFailedResponse($request, $response, Response::HTTP_INTERNAL_SERVER_ERROR);
+    }
+
+    protected function sendResetResponse($response, $statusCode)
+    {
+        return response()->json($response, $statusCode);
+    }
+
+    protected function sendResetFailedResponse($response, $statusCode)
+    {
+        return response()->json($response, $statusCode);
+    }
+
+    protected function credentials(Request $request)
+    {
+        return $request->only(
+            'email', 'password'
+        );
+    }
+
+    protected function rules()
+    {
+        return [
+            'password' => 'required|min:6',
+            'password_confirmation' => 'required|min:6|same:password',
+        ];
+    }
+
+    /**
+     * Get the guard to be used during password reset.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard('api-aluno');
+    }
+
+    /**
+     * Get the broker to be used during password reset.
+     *
+     * @return \Illuminate\Contracts\Auth\PasswordBroker
+     */
+    public function broker()
+    {
+        return Password::broker('alunos');
     }
 }
