@@ -19,8 +19,7 @@ class CreateMedidasTable extends Migration
             $table->bigInteger('professores_id')->unsigned();
             $table->foreign('alunos_id')->references('id')->on('alunos');
             $table->bigInteger('alunos_id')->unsigned();
-            $table->foreign('sexos_id')->references('id')->on('sexos');
-            $table->bigInteger('sexos_id')->unsigned();
+            $table->string('sexo');
             $table->date('data');
             $table->time('hora');
             $table->string('altura');

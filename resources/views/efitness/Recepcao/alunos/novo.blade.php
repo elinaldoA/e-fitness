@@ -73,12 +73,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="sexo">Sexo<span class="small text-danger"> * </span></label>
-                                    <select class="form-control" id="sexos_id" name="sexos_id">
-                                    <option>Selecione uma opção</option>
-                                        @foreach($sexos as $sexo)
-                                        <option value="{{$sexo->id}}">{{$sexo->nome}}</option>
-                                        @endforeach
-                                    </select>
+                                    <input class="form-control" id="sexo" name="sexo">
                                 </div>
                             </div>
                             <div class="col-lg-3">

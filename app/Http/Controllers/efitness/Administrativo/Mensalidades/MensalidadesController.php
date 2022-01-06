@@ -1,34 +1,41 @@
 <?php
 
-namespace App\Http\Controllers\efitness\Administrativo\Funcionarios;
+namespace App\Http\Controllers\efitness\Administrativo\Mensalidades;
 
 use App\Http\Controllers\Controller;
 use App\Models\Alunos;
 use App\Models\Mensalidades;
+use App\Models\Pagamentos;
+use App\Models\Planos;
 use Illuminate\Http\Request;
 
-class FuncionariosController extends Controller
+class MensalidadesController extends Controller
 {
     public function index()
     {
         $mensalidades = Mensalidades::with('mensalidades')->get();
         $alunos = Alunos::with('alunos')->get();
-        return view('efitness/Administrativo/mensalidades/visualizar', ['mensalidades' => $mensalidades, 'alunos' => $alunos]);
+        $planos = Planos::with('planos')->get();
+        $pagamentos = Pagamentos::with('pagamentos')->get();
+        return view('efitness/Administrativo/mensalidades/visualizar', ['mensalidades' => $mensalidades, 
+        'alunos' => $alunos, 'planos' => $planos, 'pagamentos' => $pagamentos]);
     }
     public function create()
     {
         $mensalidades = Mensalidades::with('mensalidades')->get();
         $alunos = Alunos::with('alunos')->get();
-        return view('efitness/Administrativo/mensalidades/visualizar', ['mensalidades' => $mensalidades, 'alunos' => $alunos]);
+        $planos = Planos::with('planos')->get();
+        return view('efitness/Administrativo/mensalidades/visualizar', ['mensalidades' => $mensalidades, 'alunos' => $alunos, 'planos' => $planos]);
     }
     public function store(Request $request)
     {
         $request->validate([
-            'planos' => 'required|string',
+            'alunos_id' => 'required|string',
+            'planos_id' => 'required|string',
             'valor' => 'required|double',
-            'preco' => 'required|double',
             'forma_de_pagamento' => 'required|string',
             'vencimento' => 'required|string',
+            'status_id' => 'required|string',
             ]);
     
             $input = $request->all();
@@ -44,8 +51,9 @@ class FuncionariosController extends Controller
     public function edit($id)
     {
         $mensalidades = Mensalidades::findOrFail($id);
+        $planos = Planos::with('planos')->get();
         $alunos = Alunos::with('alunos')->get();
-        return view('efitness/Administrativo/mensalidades/editar', ['mensalidades' => $mensalidades, 'alunos' => $alunos]);
+        return view('efitness/Administrativo/mensalidades/editar', ['mensalidades' => $mensalidades, 'planos' => $planos, 'alunos' => $alunos]);
     }
     
     public function update(Request $request, $id)
@@ -53,11 +61,13 @@ class FuncionariosController extends Controller
         $mensalidades = Mensalidades::findOrFail($id);
 
         $request->validate([
-            'planos' => 'string',
-            'valor' => 'double',
-            'preco' => 'double',
+            'alunos_id' => 'string',
+            'planos_id' => 'string',
+            'valor' => 'required|double',
+            'status' => 'required|string',
             'forma_de_pagamento' => 'string',
             'vencimento' => 'string',
+            'status_id' => 'string',
             ]);
 
         $input = $request->all();

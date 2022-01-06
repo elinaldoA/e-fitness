@@ -22,10 +22,8 @@ class CreateRecepcaosTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->foreign('cargos_id')->references('id')->on('cargos');
             $table->bigInteger('cargos_id')->unsigned();
-            $table->foreign('sexos_id')->references('id')->on('sexos');
-            $table->bigInteger('sexos_id')->unsigned();
-            $table->foreign('estados_civils_id')->references('id')->on('estados_civils');
-            $table->bigInteger('estados_civils_id')->unsigned();
+            $table->string('sexo');
+            $table->string('estado_civil');
             $table->date('nascimento');
             $table->string('cpf')->unique();
             $table->string('telefone');

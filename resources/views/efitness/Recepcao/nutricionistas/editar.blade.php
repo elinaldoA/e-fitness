@@ -87,21 +87,13 @@
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="sexo">Sexo<span class="small text-danger"> * </span></label>
-                                        <select name="sexos_id" id="sexos_id" class="form-control">
-                                            @foreach($sexos as $sexo)
-                                            <option {{ $nutricionistas->sexos_id == $sexo->id ? 'selected' : '' }}  value="{{ $sexo->id }}">{{$sexo->nome}}</option>
-                                            @endforeach
-                                        </select>
+                                        <input name="sexos" id="sexos" class="form-control" value="{{$nutricionistas->sexo}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="estado_civil_id">Estado cívil<span class="small text-danger"> * </span></label>
-                                        <select name="estado_civil_id" id="estado_civil_id" class="form-control">
-                                            @foreach($estados_civils as $estadoCivil)
-                                            <option {{ $nutricionistas->estado_civils_id == $estadoCivil->id ? 'selected' : '' }}  value="{{ $estadoCivil->id }}">{{$estadoCivil->nome}}</option>
-                                            @endforeach
-                                        </select>
+                                        <input name="estado_civil" id="estado_civil" class="form-control" value="{{$nutricionistas->estado_civil}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">

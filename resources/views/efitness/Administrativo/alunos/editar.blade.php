@@ -48,6 +48,11 @@
                                 Endereço
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tab_pagamentos" role="tab">
+                                Pagamentos
+                            </a>
+                        </li>
                     </ul>
                     <div class="tab-content pl-lg-12">
                         <div class="tab-pane active" id="tab_informacoes" role="tabpanel"><br />
@@ -55,11 +60,10 @@
                                 <div class="col-lg-1">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="active">Ativo<span class="small text-danger"> * </span></label>
-                                        <input type="checkbox" name="active" value="1" class="form-control"
-                                           @if( ($alunos->active == 0 && old('active') && old('first_time')) || ($alunos->active && old('active') == null && old('first_time') == null) || ($alunos->active && old('active') && old('first_time') ) )
-                                           checked="checked"
+                                        <input type="checkbox" name="active" value="1" class="form-control" @if( ($alunos->active == 0 && old('active') && old('first_time')) || ($alunos->active && old('active') == null && old('first_time') == null) || ($alunos->active && old('active') && old('first_time') ) )
+                                        checked="checked"
                                         @endif
-                                    >
+                                        >
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -77,11 +81,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="sexo">Sexo<span class="small text-danger"> * </span></label>
-                                        <select name="sexos_id" id="sexos_id" class="form-control">
-                                            @foreach($sexos as $sexo)
-                                            <option {{ $alunos->sexos_id == $sexo->id ? 'selected' : '' }}  value="{{ $sexo->id }}">{{$sexo->nome}}</option>
-                                            @endforeach
-                                        </select>
+                                        <input name="sexo" id="sexo" class="form-control" value="{{$alunos->sexo}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
@@ -106,34 +106,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="email">Telefone<span class="small text-danger"> * </span></label>
-                                        <input type="text" id="telefone" class="form-control" 
-                                        name="telefone" placeholder="Somente números" onkeypress="mascara(this, '## #####-####')" maxlength="13" value="{{$alunos->telefone}}">
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                <div class="form-group focused">
-                                        <label class="form-control-label" for="planos_id">Planos<span class="small text-danger"> * </span></label>
-                                        <select name="planos_id" id="planos_id" class="form-control">
-                                            @foreach($planos as $plano)
-                                            <option {{ $alunos->planos_id == $plano->id ? 'selected' : '' }}  value="{{ $plano->id }}">{{$plano->nome}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="sexo">Valor<span class="small text-danger"> * </span></label>
-                                        <select name="valor" id="valor" class="form-control">
-                                            @foreach($planos as $plano)
-                                            <option {{ $alunos->planos_id == $plano->id ? 'selected' : '' }}  value="{{ $plano->id }}">R$ {{ number_format($plano -> valor, 2) }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-2">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="vencimento">Vencimento<span class="small text-danger"> * </span></label>
-                                        <input type="number" id="vencimento" class="form-control" name="vencimento" placeholder="numeros" value="{{$alunos->vencimento}}">
+                                        <input type="text" id="telefone" class="form-control" name="telefone" placeholder="Somente números" onkeypress="mascara(this, '## #####-####')" maxlength="13" value="{{$alunos->telefone}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -147,57 +120,105 @@
                             </div>
                         </div>
                         <div class="tab-pane" id="tab_endereco" role="tabpanel"><br />
-                        <div class="row">
-                            <div class="col-lg-3">
-                                <div class="form-group focused">
-                                    <label class="form-control-label" for="rua">Rua<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="rua" class="form-control" name="rua" placeholder="Rua, Logradouro, Avenida, Travessa ..." value="{{$enderecos->rua}}">
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="rua">Rua<span class="small text-danger"> * </span></label>
+                                        <input type="text" id="rua" class="form-control" name="rua" placeholder="Rua, Logradouro, Avenida, Travessa ..." value="{{$enderecos->rua}}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group focused">
-                                    <label class="form-control-label" for="numero">Número<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="numero" class="form-control" name="numero" placeholder="1234" onkeyup="somenteNumeros(this);" value="{{$enderecos->numero}}">
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="numero">Número<span class="small text-danger"> * </span></label>
+                                        <input type="text" id="numero" class="form-control" name="numero" placeholder="1234" onkeyup="somenteNumeros(this);" value="{{$enderecos->numero}}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group focused">
-                                    <label class="form-control-label" for="complemento">Complemento<span class="small text-danger">*</span></label>
-                                    <input type="text" id="complemento" class="form-control" name="complemeto" placeholder="Perto de..." value="{{$enderecos->complemento}}">
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="complemento">Complemento<span class="small text-danger">*</span></label>
+                                        <input type="text" id="complemento" class="form-control" name="complemeto" placeholder="Perto de..." value="{{$enderecos->complemento}}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group focused">
-                                    <label class="form-control-label" for="bairro">Bairro<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="bairro" class="form-control" name="bairro" placeholder="Bairro" value="{{$enderecos->bairro}}">
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="bairro">Bairro<span class="small text-danger"> * </span></label>
+                                        <input type="text" id="bairro" class="form-control" name="bairro" placeholder="Bairro" value="{{$enderecos->bairro}}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group focused">
-                                    <label class="form-control-label" for="cep">Cep<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="cep" class="form-control" name="cep" placeholder="Somente números" 
-                                    onkeypress="mascara(this,'#####-###')" value="{{$enderecos->cep}}">
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="cep">Cep<span class="small text-danger"> * </span></label>
+                                        <input type="text" id="cep" class="form-control" name="cep" placeholder="Somente números" onkeypress="mascara(this,'#####-###')" value="{{$enderecos->cep}}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group focused">
-                                    <label class="form-control-label" for="cidade">Cidade<span class="small text-danger">*</span></label>
-                                    <input type="text" id="cidade" class="form-control" name="cidade" placeholder="Sua cidade" value="{{$enderecos->cidade}}">
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="cidade">Cidade<span class="small text-danger">*</span></label>
+                                        <input type="text" id="cidade" class="form-control" name="cidade" placeholder="Sua cidade" value="{{$enderecos->cidade}}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group focused">
-                                    <label class="form-control-label" for="estado">Estado<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="estado" class="form-control" name="estado" placeholder="Es" maxlength="2" value="{{$enderecos->estado}}">
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="estado">Estado<span class="small text-danger"> * </span></label>
+                                        <input type="text" id="estado" class="form-control" name="estado" placeholder="Es" maxlength="2" value="{{$enderecos->estado}}">
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group focused">
-                                    <label class="form-control-label" for="pais">País<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="pais" class="form-control" name="pais" placeholder="Brasil" value="{{$enderecos->pais}}">
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="pais">País<span class="small text-danger"> * </span></label>
+                                        <input type="text" id="pais" class="form-control" name="pais" placeholder="Brasil" value="{{$enderecos->pais}}">
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="tab-pane" id="tab_pagamentos" role="tabpanel"><br />
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="alunos_id">Alunos<span class="small text-danger"> * </span></label>
+                                        <input type="text" class="form-control" id="alunos_id" name="alunos_id" value="{{$mensalidades->alunos_id}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="planos_id">Planos<span class="small text-danger"> * </span></label>
+                                        <select class="form-control" id="planos_id" name="planos_id">
+                                            <option>Selecione uma opção</option>
+                                            @foreach($planos as $plano)
+                                            <option {{ $mensalidades->planos_id == $plano->id ? 'selected' : '' }} value="{{ $plano->id }}">{{ ($plano -> nome) }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="valor">Valor<span class="small text-danger"> * </span></label>
+                                        <select class="form-control" id="valor" name="valor">
+                                            <option>Selecione uma opção</option>
+                                            @foreach($planos as $plano)
+                                            <option {{ $mensalidades->planos_id == $plano->id ? 'selected' : '' }} value="{{ $plano->id }}">R$ {{ number_format($plano -> valor, 2) }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="formas_de_pagamentos_id">Valor<span class="small text-danger"> * </span></label>
+                                        <select class="form-control" id="formas_de_pagamentos_id" name="formas_de_pagamentos_id">
+                                            <option>Selecione uma opção</option>
+                                            @foreach($pagamentos as $pagamento)
+                                            <option {{ $mensalidades->formas_de_pagamentos_id == $pagamento->id ? 'selected' : '' }} value="{{ $pagamento->id }}">{{$pagamento->forma_de_pagamento}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="vencimento">Vencimento<span class="small text-danger"> * </span></label>
+                                        <input type="number" id="vencimento" class="form-control" name="vencimento" value="{{$mensalidades->vencimento}}">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <br />

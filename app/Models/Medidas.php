@@ -16,7 +16,7 @@ class Medidas extends Model
      */
     protected $fillable = [
         'alunos_id',
-        'sexos_id',
+        'sexo',
         'professores_id',
         'data',
         'hora',
@@ -43,7 +43,7 @@ class Medidas extends Model
     public function Medidas()
     {
         return $this -> hasMany('App\Models\Medidas','id','alunos_id',
-        'sexos_id',
+        'sexo',
         'professores_id',
         'data',
         'hora',

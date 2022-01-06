@@ -19,7 +19,7 @@ class Professores extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'active','nome','sobrenome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image'
+        'active','nome','sobrenome','cargos_id','sexo','estado_civil','nascimento','cpf','email','password','telefone','image'
     ];
 
     /**
@@ -68,6 +68,6 @@ class Professores extends Authenticatable
     public function Professores()
     {
         return $this -> hasMany('App\Models\Professores','id','active','nome','sobrenome',
-        'cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image');
+        'cargos_id','sexo','estado_civil','nascimento','cpf','email','password','telefone','image');
     }
 }

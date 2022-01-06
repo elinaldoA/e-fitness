@@ -41,7 +41,7 @@
                         @forelse ($planos as $plano)
                         <tr>
                             <td>{{ $plano -> nome }}</td>
-                            <td>{{ $plano -> valor }}</td>
+                            <td>R$ {{ number_format($plano -> valor, 2) }}</td>
                             <td>{{ date('d-m-Y', strtotime($plano->created_at)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($plano->updated_at)) }}</td>
                             <td>

@@ -73,9 +73,16 @@
         
         <!-- Nav Item - Financeiro -->
         <li class="nav-item {{ Nav::isRoute('mensalidades') }}">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{ route('mensalidades') }}">
                 <i class="fas fa-fw fa-calendar"></i>
                 <span>{{ __('Mensalidades') }}</span>
+            </a>
+        </li>
+        <!-- Nav Item - Financeiro -->
+        <li class="nav-item {{ Nav::isRoute('pagamentos') }}">
+            <a class="nav-link" href="{{ route('pagamentos') }}">
+                <i class="fas fa-fw fa-landmark"></i>
+                <span>{{ __('Pagamentos') }}</span>
             </a>
         </li>
 
@@ -90,7 +97,7 @@
                 <span>{{ __('Cargos') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Cargos-->
+        <!-- Nav Item - Planos-->
         <li class="nav-item {{ Nav::isRoute('planos') }}">
             <a class="nav-link" href="{{ route('planos') }}">
                 <i class="fas fa-fw fa-dumbbell"></i>

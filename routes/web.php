@@ -104,6 +104,22 @@ Route::put('efitness/Professores/profile-professor', 'ProfileProfessorController
 Route::get('efitness/Nutricionistas/home-nutricionista', 'HomeNutricionistaController@index')->name('home-nutricionista');
 Route::get('efitness/Nutricionistas/profile-nutricionista', 'ProfileNutricionistaController@index')->name('profile-nutricionista');
 Route::put('efitness/Nutricionistas/profile-nutricionista', 'ProfileNutricionistaController@update')->name('profile-nutricionista.update');
+/*=========================Rotas Administrativo Pagamentos=======================================================================================================*/
+Route::get('efitness/Administrativo/pagamentos/novo', 'efitness\Administrativo\Pagamentos\PagamentosController@create')->name('pagamentos.create');
+Route::post('efitness/Administrativo/pagamentos/novo', 'efitness\Administrativo\Pagamentos\PagamentosController@store')->name('pagamentos.store');
+Route::get('efitness/Administrativo/pagamentos/visualizar', 'efitness\Administrativo\Pagamentos\PagamentosController@index')->name('pagamentos');
+Route::get('efitness/Administrativo/pagamentos/editar/{id}', 'efitness\Administrativo\Pagamentos\PagamentosController@edit');
+Route::post('efitness/Administrativo/pagamentos/editar/{id}', 'efitness\Administrativo\Pagamentos\PagamentosController@update')->name('Alterar_pagamento');
+Route::get('efitness/Administrativo/pagamentos/excluir/{id}', 'efitness\Administrativo\Pagamentos\PagamentosController@delete');
+Route::post('efitness/Administrativo/pagamentos/excluir/{id}', 'efitness\Administrativo\Pagamentos\PagamentosController@destroy')->name('excluir_pagamento');
+/*=========================Rotas Administrativo Mensalidades=======================================================================================================*/
+Route::get('efitness/Administrativo/mensalidades/novo', 'efitness\Administrativo\Mensalidades\MensalidadesController@create')->name('mensalidades.create');
+Route::post('efitness/Administrativo/mensalidades/novo', 'efitness\Administrativo\Mensalidades\MensalidadesController@store')->name('mensalidades.store');
+Route::get('efitness/Administrativo/mensalidades/visualizar', 'efitness\Administrativo\Mensalidades\MensalidadesController@index')->name('mensalidades');
+Route::get('efitness/Administrativo/mensalidades/editar/{id}', 'efitness\Administrativo\Mensalidades\MensalidadesController@edit');
+Route::post('efitness/Administrativo/mensalidades/editar/{id}', 'efitness\Administrativo\Mensalidades\MensalidadesController@update')->name('Alterar_mensalidade');
+Route::get('efitness/Administrativo/mensalidades/excluir/{id}', 'efitness\Administrativo\Mensalidades\MensalidadesController@delete');
+Route::post('efitness/Administrativo/mensalidades/excluir/{id}', 'efitness\Administrativo\Mensalidades\MensalidadesController@destroy')->name('excluir_mensalidade');
 /*=========================Rotas Administrativo Planos=======================================================================================================*/
 Route::get('efitness/Administrativo/planos/novo', 'efitness\Administrativo\Planos\PlanosController@create')->name('planos.create');
 Route::post('efitness/Administrativo/planos/novo', 'efitness\Administrativo\Planos\PlanosController@store')->name('planos.store');

@@ -37,8 +37,6 @@
                             <th>Cargo</th>
                             <th>Email</th>
                             <th>Telefone</th>
-                            <th>Cadastro</th>
-                            <th>Modificado</th>
                             <th>Status</th>
                             <th scope="col">Ações</th>
                         </tr>
@@ -53,8 +51,6 @@
                             @endforeach
                             <td>{{ $nutricionista -> email }}</td>
                             <td>{{ $nutricionista -> telefone }}</td>
-                            <td>{{ date('d-m-Y', strtotime($nutricionista->created_at)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($nutricionista->updated_at)) }}</td>
                             <td>
                                 @if( $nutricionista->active == '0' )
                                 <button class="btn btn-danger">Inativo</button>

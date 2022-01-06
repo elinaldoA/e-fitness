@@ -65,11 +65,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="sexos_id">Sexo<span class="small text-danger"> * </span></label>
-                                    <select name="sexos_id" id="sexos_id" class="form-control">
-                                        @foreach($sexos as $sexo)
-                                            <option {{ $avaliacoes->sexos_id == $sexo->id ? 'selected' : '' }}  value="{{ $sexo->id }}">{{$sexo->nome}}</option>
-                                        @endforeach
-                                    </select>
+                                    <input name="sexo" id="sexo" class="form-control">
                                 </div>
                             </div>
                             <div class="col-lg-3">

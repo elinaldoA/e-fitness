@@ -14,7 +14,7 @@ class Funcionarios extends Model
      * @var array
      */
     protected $fillable = [
-        'active','nome','sobrenome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image'
+        'active','nome','sobrenome','cargos_id','sexo','estado_civil','nascimento','cpf','email','password','telefone','image'
     ];
 
     /**
@@ -62,6 +62,6 @@ class Funcionarios extends Model
 
     public function funcionarios()
     {
-        return $this -> hasMany('App\Models\Funcionarios','id','active','nome','sobrenome','cargos_id','sexos_id','estados_civils_id','nascimento','cpf','email','password','telefone','image');
+        return $this -> hasMany('App\Models\Funcionarios','id','active','nome','sobrenome','cargos_id','sexo','estado_civil','nascimento','cpf','email','password','telefone','image');
     }
 }

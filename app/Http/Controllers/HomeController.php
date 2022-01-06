@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Alunos;
 use App\Models\Funcionarios;
+use App\Models\Mensalidades;
 use App\User;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -29,6 +29,7 @@ class HomeController extends Controller
         $users = User::count();
         $alunos = Alunos::count();
         $funcionarios = Funcionarios::count();
+        $mensalidades = Mensalidades::count();
 
         $widget = [
             'users' => $users,
@@ -43,7 +44,10 @@ class HomeController extends Controller
             'alunos' => $alunos,
             //...
         ];
+        $mensalidades = [
+            'mensalidades' => $mensalidades
+        ];
 
-        return view('efitness/Administrativo/home', compact('widget','funcionarios','alunos'));
+        return view('efitness/Administrativo/home', compact('widget','funcionarios','alunos','mensalidades'));
     }
 }

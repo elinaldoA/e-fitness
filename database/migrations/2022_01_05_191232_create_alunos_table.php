@@ -18,17 +18,12 @@ class CreateAlunosTable extends Migration
             $table->boolean('active')->default(false);
             $table->string('nome');
             $table->string('sobrenome');
-            $table->foreign('sexos_id')->references('id')->on('sexos');
-            $table->bigInteger('sexos_id')->unsigned();
+            $table->string('sexo');
             $table->date('nascimento');
             $table->string('cpf')->unique();
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('telefone');
-            $table->foreign('planos_id')->references('id')->on('planos');
-            $table->bigInteger('planos_id')->unsigned();
-            $table->double('valor');
-            $table->double('vencimento');
             $table->string('image');
             $table->string('password')->nullable();
             $table->rememberToken();
