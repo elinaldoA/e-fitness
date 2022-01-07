@@ -33,6 +33,7 @@
                         <tr>
                             <th>Aluno</th>
                             <th>Professor</th>
+                            <th>Status</th>
                             <th>Data</th>
                             <th>Hora</th>
                             <th scope="col">Ações</th>
@@ -47,6 +48,7 @@
                             @if($professor->id == $avaliacao->professores_id)
                             <td>{{$professor -> nome}} </td>@endif
                             @endforeach
+                            <td>{{$avaliacao -> status}} </td>
                             <td>{{ date('d-m-Y', strtotime($avaliacao->data)) }}</td>
                             <td>{{ $avaliacao->hora }}</td>
                             <td>

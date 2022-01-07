@@ -16,7 +16,7 @@ class Avaliacoes extends Model
      * @var string[]
      */
     protected $fillable = [
-        'alunos_id','professores_id','data','hora'
+        'alunos_id','professores_id','status','data','hora'
     ];
 
     /**
@@ -30,6 +30,6 @@ class Avaliacoes extends Model
 
     public function Avaliacoes()
     {
-        return $this->hasMany('App\Models\Avaliacoes', 'id', 'alunos_id','professores_id','data','hora');
+        return $this->hasMany('App\Models\Avaliacoes', 'id', 'alunos_id','professores_id','status','data','hora');
     }
 }

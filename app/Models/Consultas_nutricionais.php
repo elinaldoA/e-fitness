@@ -15,7 +15,7 @@ class Consultas_nutricionais extends Model
      * @var string[]
      */
     protected $fillable = [
-        'alunos_id','nutricionistas_id','email','telefone','data','hora'
+        'alunos_id','nutricionistas_id','status','email','telefone','data','hora'
     ];
 
     /**
@@ -29,6 +29,6 @@ class Consultas_nutricionais extends Model
 
     public function Consultas_nutricionais()
     {
-        return $this->hasMany('App\Models\Consultas_nutricionais', 'id','alunos_id','nutricionistas_id','email','telefone','data','hora');
+        return $this->hasMany('App\Models\Consultas_nutricionais', 'id','alunos_id','nutricionistas_id','status','email','telefone','data','hora');
     }
 }

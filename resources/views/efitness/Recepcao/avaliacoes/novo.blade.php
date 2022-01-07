@@ -37,7 +37,7 @@
 
                 <form method="POST" action="{{ route('avaliacoes_alunos.create') }}" class="Cargos">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                    <div class="pl-lg-12">
+                    <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="alunos_id">Aluno<span class="small text-danger"> * </span></label>
@@ -51,12 +51,20 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
-                                <label class="form-control-label" for="professores_id">Professores<span class="small text-danger"> * </span></label>
+                                <label class="form-control-label" for="professores_id">Professor<span class="small text-danger"> * </span></label>
                                 <select class="form-control" id="professores_id" name="professores_id">
                                     <option>Selecione uma opção</option>
                                     @foreach($professores as $professor)
                                     <option value="{{$professor->id}}">{{$professor->nome}}</option>
                                     @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group focused">
+                                <label class="form-control-label" for="professores_id">Status<span class="small text-danger"> * </span></label>
+                                <select class="form-control" id="status" name="status">
+                                    <option value="Pendente">Pendente</option>
                                 </select>
                             </div>
                         </div>

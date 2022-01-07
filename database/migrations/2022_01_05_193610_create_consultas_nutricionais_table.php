@@ -19,6 +19,7 @@ class CreateConsultasNutricionaisTable extends Migration
             $table->bigInteger('alunos_id')->unsigned();
             $table->foreign('nutricionistas_id')->references('id')->on('nutricionistas');
             $table->bigInteger('nutricionistas_id')->unsigned();
+            $table->string('status');
             $table->string('email');
             $table->string('telefone');
             $table->date('data');

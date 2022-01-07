@@ -16,8 +16,8 @@ class Medidas extends Model
      */
     protected $fillable = [
         'alunos_id',
-        'sexo',
         'professores_id',
+        'status',
         'data',
         'hora',
         'altura',
@@ -42,20 +42,7 @@ class Medidas extends Model
 
     public function Medidas()
     {
-        return $this -> hasMany('App\Models\Medidas','id','alunos_id',
-        'sexo',
-        'professores_id',
-        'data',
-        'hora',
-        'altura',
-        'peso',
-        'torax',
-        'quadril',
-        'coxa_direita',
-        'coxa_esquerda',
-        'braco_direito',
-        'braco_esquerdo',
-        'panturilha_direita',
-        'panturilha_esquerda');
+        return $this -> hasMany('App\Models\Medidas','id','alunos_id','professores_id','status','data','hora','altura','peso','torax',
+        'quadril','coxa_direita','coxa_esquerda','braco_direito','braco_esquerdo','panturilha_direita','panturilha_esquerda');
     }
 }

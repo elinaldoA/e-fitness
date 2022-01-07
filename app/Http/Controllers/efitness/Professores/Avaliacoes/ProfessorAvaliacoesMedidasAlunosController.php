@@ -7,7 +7,6 @@ use App\Models\Alunos;
 use App\Models\Avaliacoes;
 use App\Models\Medidas;
 use App\Models\Professores;
-use App\Models\Sexos;
 use Illuminate\Http\Request;
 
 class ProfessorAvaliacoesMedidasAlunosController extends Controller
@@ -15,29 +14,27 @@ class ProfessorAvaliacoesMedidasAlunosController extends Controller
     public function index()
     {
         $alunos = Alunos::with('alunos')->get();
-        $sexos = Sexos::with('sexos')->get();
         $professores = Professores::with('professores')->get();
         $avaliacoes = Avaliacoes::with('avaliacoes')->get();
         $medidas = Medidas::with('medidas')->get();
         return view('efitness/Professores/avaliacoes/alunos/visualizar', 
-        ['alunos' => $alunos,'sexos' => $sexos, 'professores' => $professores, 'medidas' => $medidas, 'avaliacoes' => $avaliacoes]);
+        ['alunos' => $alunos,'professores' => $professores, 'medidas' => $medidas, 'avaliacoes' => $avaliacoes]);
     }
     public function create($id)
     {
         $alunos = Alunos::with('alunos')->get();
-        $sexos = Sexos::with('sexos')->get();
         $professores = Professores::with('professores')->get();
         $avaliacoes = Avaliacoes::findOrFail($id);
         $medidas = Medidas::with('medidas')->get();
         return view('efitness/Professores/avaliacoes/alunos/novo', 
-        ['alunos' => $alunos,'sexos' => $sexos, 'professores' => $professores, 'medidas' => $medidas, 'avaliacoes' => $avaliacoes]);
+        ['alunos' => $alunos,'professores' => $professores, 'medidas' => $medidas, 'avaliacoes' => $avaliacoes]);
     }
     public function store(Request $request)
     {
         $request->validate([
             'alunos_id' => 'required|string',
-            'sexos_id' => 'required|string',
             'professores_id' => 'required|string',
+            'status' => 'required|string',
             'data' => 'required|string',
             'hora' => 'required|string',
             'altura' => 'required|string',
@@ -62,24 +59,20 @@ class ProfessorAvaliacoesMedidasAlunosController extends Controller
     {
         $medidas = Medidas::findOrFail($id);
         $alunos = Alunos::findOrFail($id);
-        $sexos = Sexos::with('sexos')->get();
         $professores = Professores::findOrFail($id);
         $avaliacoes = Avaliacoes::findOrFail($id);
         return redirect('efitness/Professores/avaliacoes/alunos/visualizar', 
-        ['avaliacoes' => $avaliacoes, 'alunos' => $alunos,'sexos' => $sexos, 
-        'professores' => $professores, 'medidas', $medidas]);
+        ['avaliacoes' => $avaliacoes, 'alunos' => $alunos,'professores' => $professores, 'medidas', $medidas]);
     }
 
     public function edit($id)
     {
         $medidas = Medidas::findOrFail($id);
         $alunos = Alunos::with('alunos')->get();
-        $sexos = Sexos::with('sexos')->get();
         $professores = Professores::with('professores')->get();
         $avaliacoes = Avaliacoes::with('avaliacoes')->get();
         return view('efitness/Professores/avaliacoes/alunos/editar', 
-        ['avaliacoes' => $avaliacoes, 'alunos' => $alunos,'sexos' => $sexos, 
-        'professores' => $professores, 'medidas' => $medidas]);
+        ['avaliacoes' => $avaliacoes, 'alunos' => $alunos,'professores' => $professores, 'medidas' => $medidas]);
     }
     
     public function update(Request $request, $id)
@@ -88,8 +81,8 @@ class ProfessorAvaliacoesMedidasAlunosController extends Controller
 
         $request->validate([
             'alunos_id' => 'string',
-            'sexos_id' => 'required|string',
             'professores_id' => 'string',
+            'status' => 'string',
             'data' => 'required|string',
             'hora' => 'required|string',
             'altura' => 'string',

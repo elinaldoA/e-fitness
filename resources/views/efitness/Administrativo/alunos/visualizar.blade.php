@@ -36,8 +36,6 @@
                             <th>Sobrenome</th>
                             <th>Email</th>
                             <th>Telefone</th>
-                            <th>Cadastro</th>
-                            <th>Modificado</th>
                             <th>Status</th>
                             <th scope="col">Ações</th>
                         </tr>
@@ -48,8 +46,6 @@
                             <td>{{ $aluno -> sobrenome }}</td>
                             <td>{{ $aluno -> email }}</td>
                             <td>{{ $aluno -> telefone }}</td>
-                            <td>{{ date('d-m-Y', strtotime($aluno->created_at)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($aluno->updated_at)) }}</td>
                             <td>
                                 @if( $aluno->active == '0' )
                                 <button class="btn btn-danger">Inativo</button>

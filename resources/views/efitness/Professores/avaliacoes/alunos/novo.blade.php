@@ -64,12 +64,6 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="sexos_id">Sexo<span class="small text-danger"> * </span></label>
-                                    <input name="sexo" id="sexo" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group focused">
                                     <label class="form-control-label" for="professores_id">Professor<span class="small text-danger"> * </span></label>
                                     <select name="professores_id" id="professores_id" class="form-control">
                                         @foreach($professores as $professor)
@@ -79,15 +73,23 @@
                                 </div>
                             </div>
                             <div class="col-lg-3">
+                            <div class="form-group focused">
+                                <label class="form-control-label" for="professores_id">Status<span class="small text-danger"> * </span></label>
+                                <select class="form-control" id="status" name="status">
+                                    <option value="Avaliado(a)">Avaliado(a)</option>
+                                </select>
+                            </div>
+                            </div>
+                            <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="data">Data<span class="small text-danger"> * </span></label>
-                                    <input type="date" id="data" class="form-control" name="data" value="{{$avaliacoes->data}}">
+                                    <input type="date" id="data" name="data" class="form-control" value="{{$avaliacoes->data}}">
                                 </div>
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="data">Hora<span class="small text-danger"> * </span></label>
-                                    <input type="time" id="hora" class="form-control" name="hora" value="{{$avaliacoes->hora}}">
+                                    <input type="time" id="hora" name="hora" class="form-control" value="{{$avaliacoes->hora}}">
                                 </div>
                             </div>
                         </div>
@@ -121,9 +123,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="coxa_direita">Coxa direita<span class="small text-danger"> * </span></label>
-                                    <input type="text" id="coxa_direita" class="form-control" 
-                                    name="coxa_direita"
-                                    required>
+                                    <input type="text" id="coxa_direita" class="form-control" name="coxa_direita" required>
                                 </div>
                             </div>
                             <div class="col-lg-3">

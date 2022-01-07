@@ -62,6 +62,14 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group focused">
+                                <label class="form-control-label" for="nutricionistas_id">Status da consulta<span class="small text-danger"> * </span></label>
+                                <select class="form-control" id="status" name="status">
+                                    <option value="Pendente">Pendente</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="form-group focused">
                                 <label class="form-control-label" for="email">E-mail<span class="small text-danger"> * </span></label>
                                 <input type="email" class="form-control" name="email" id="email" placeholder="E-mail do paciente"/>
                             </div>

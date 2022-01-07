@@ -37,8 +37,6 @@
                             <th>Cargo</th>
                             <th>Email</th>
                             <th>Telefone</th>
-                            <th>Cadastro</th>
-                            <th>Modificado</th>
                             <th>Status</th>
                             <th scope="col">Ações</th>
                         </tr>
@@ -53,8 +51,6 @@
                             @endforeach
                             <td>{{ $recepcao -> email }}</td>
                             <td>{{ $recepcao -> telefone }}</td>
-                            <td>{{ date('d-m-Y', strtotime($recepcao->created_at)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($recepcao->updated_at)) }}</td>
                             <td>
                                 @if( $recepcao->active == '0' )
                                 <button class="btn btn-danger">Inativo</button>

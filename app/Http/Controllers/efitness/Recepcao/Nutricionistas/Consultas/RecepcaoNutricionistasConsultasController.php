@@ -4,7 +4,6 @@ namespace App\Http\Controllers\efitness\Recepcao\Nutricionistas\Consultas;
 
 use App\Http\Controllers\Controller;
 use App\Models\Alunos;
-use App\Models\Avaliacoes;
 use App\Models\Consultas_nutricionais;
 use App\Models\Nutricionistas;
 use Illuminate\Http\Request;
@@ -31,6 +30,7 @@ class RecepcaoNutricionistasConsultasController extends Controller
         $request->validate([
             'alunos_id' => 'required|string',
             'nutricionistas_id' => 'required|string',
+            'status' => 'required|string',
             'email' => 'required|string',
             'telefone' => 'required|string',
             'data' => 'required|string',
@@ -64,6 +64,7 @@ class RecepcaoNutricionistasConsultasController extends Controller
         $request->validate([
             'alunos_id' => 'string',
             'nutricionistas_id' => 'string',
+            'status' => 'string',
             'email' => 'string',
             'telefone' => 'string',
             'data' => 'string',

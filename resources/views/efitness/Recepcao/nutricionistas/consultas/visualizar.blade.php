@@ -33,6 +33,7 @@
                         <tr>
                             <th>Alunos</th>
                             <th>Nutricionistas</th>
+                            <th>Status</th>
                             <th>Data</th>
                             <th>Hora</th>
                             <th scope="col">Ações</th>
@@ -47,6 +48,7 @@
                             @if($nutricionista->id == $consulta_nutricional->nutricionistas_id)
                             <td>{{$nutricionista -> nome}} </td>@endif
                             @endforeach
+                            <td>{{$consulta_nutricional -> status}} </td>
                             <td>{{ date('d-m-Y', strtotime($consulta_nutricional->data)) }}</td>
                             <td>{{ $consulta_nutricional->hora }}</td>
                             <td>

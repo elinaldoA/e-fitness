@@ -47,26 +47,8 @@ class Anamneses extends Model
 
     public function Anamneses()
     {
-        return $this->hasMany('App\Models\Anamneses', 
-        'id',
-        'status',
-        'alunos_id',
-        'nutricionistas_id',
-        'motivo',
-        'doenca',
-        'doenca_familiar',
-        'medicamentos',
-        'historico_social',
-        'atividade_fisica',
-        'motivo_pratica',
-        'tempo_pratica',
-        'suplementos',
-        'refeicoes',
-        'alimentos',
-        'observacoes',
-        'agua',
-        'diagnostico',
-        'conduta_dieta',
-        'data_revisao');
+        return $this->hasMany('App\Models\Anamneses', 'id','status','alunos_id','nutricionistas_id','motivo','doenca','doenca_familiar','medicamentos',
+        'historico_social','atividade_fisica','motivo_pratica','tempo_pratica','suplementos','refeicoes','alimentos','observacoes','agua','diagnostico',
+        'conduta_dieta','data_revisao');
     }
 }

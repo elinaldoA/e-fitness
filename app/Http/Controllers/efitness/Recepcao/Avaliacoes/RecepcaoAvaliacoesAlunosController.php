@@ -28,6 +28,7 @@ class RecepcaoAvaliacoesAlunosController extends Controller
         $request->validate([
             'alunos_id' => 'required|string',
             'professores_id' => 'required|string',
+            'status' => 'required|string',
             'data' => 'required|string',
             'hora' => 'required|string'
             ]);
@@ -42,16 +43,14 @@ class RecepcaoAvaliacoesAlunosController extends Controller
         $avaliacoes = Avaliacoes::findOrFail($id);
         $alunos = Alunos::findOrFail($id);
         $professores = Professores::findOrFail($id);
-        return redirect('efitness/Recepcao/avaliacoes/visualizar', 
-        ['avaliacoes' => $avaliacoes, 'alunos' => $alunos, 'professores' => $professores]);
+        return redirect('efitness/Recepcao/avaliacoes/visualizar', ['avaliacoes' => $avaliacoes, 'alunos' => $alunos, 'professores' => $professores]);
     }
     public function edit($id)
     {
         $avaliacoes = Avaliacoes::findOrFail($id);
         $alunos = Alunos::with('alunos')->get();
         $professores = Professores::with('professores')->get();
-        return view('efitness/Recepcao/avaliacoes/editar', 
-        ['avaliacoes' => $avaliacoes, 'alunos' => $alunos, 'professores' => $professores]);
+        return view('efitness/Recepcao/avaliacoes/editar', ['avaliacoes' => $avaliacoes, 'alunos' => $alunos, 'professores' => $professores]);
     }
     
     public function update(Request $request, $id)
@@ -61,6 +60,7 @@ class RecepcaoAvaliacoesAlunosController extends Controller
         $request->validate([
             'alunos_id' => 'string',
             'professores_id' => 'string',
+            'status' => 'string',
             'data' => 'string',
             'hora' => 'string',
         ]);
