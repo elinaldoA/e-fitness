@@ -108,7 +108,7 @@
         <li class="nav-item {{ Nav::isRoute('funcionarios') }}">
             <a class="nav-link" href="{{ route('funcionarios') }}">
                 <i class="fas fa-fw fa-users"></i>
-                <span>{{ __('Funcionarios') }}</span>
+                <span>{{ __('Funcionários') }}</span>
             </a>
         </li>
         <!-- Nav Item - Professores-->

@@ -36,7 +36,7 @@ class LoginController
             return $this->sendFailedLoginResponse(trans('auth.failed'));
         }
 
-/*        $recepcaoUser = $this->guard()->user();
+        /*$recepcaoUser = $this->guard()->user();
 
         if (!$recepcaoUser->hasVerifiedEmail()) {
             return $this->sendFailedLoginResponse(trans('auth.message.email_not_verified_yet'));

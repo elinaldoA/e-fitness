@@ -25,9 +25,9 @@ class ForgotPasswordController extends Controller
         $sentResetPasswordEmail = $this->sendResetLinkEmail($request);
 
         return ($sentResetPasswordEmail)
-            ? response()->json(['message' => trans('recepcao.password.email_sent_successfully')])
+            ? response()->json(['message' => trans('recepcaos.password.email_sent_successfully')])
             : response()->json([
-                'message' => trans('recepcao.password.email_sent_failed'),
+                'message' => trans('recepcaos.password.email_sent_failed'),
                 'error' => trans('auth.message.email_not_found')
             ],  Response::HTTP_NOT_FOUND);
     }
@@ -43,6 +43,6 @@ class ForgotPasswordController extends Controller
 
     public function broker()
     {
-        return Password::broker('recepcaos');
+        return Password::broker('recepcao');
     }
 }
