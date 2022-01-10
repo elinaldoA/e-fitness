@@ -94,10 +94,6 @@
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="estado_civil">Estado cívil<span class="small text-danger"> * </span></label>
                                         <input name="estado_civil" id="estado_civil" class="form-control" value="{{$funcionarios->estado_civil}}">
-                                            @foreach($estados_civils as $estadoCivil)
-                                            <option {{ $funcionarios->estado_civils_id == $estadoCivil->id ? 'selected' : '' }}  value="{{ $estadoCivil->id }}">{{$estadoCivil->nome}}</option>
-                                            @endforeach
-                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">

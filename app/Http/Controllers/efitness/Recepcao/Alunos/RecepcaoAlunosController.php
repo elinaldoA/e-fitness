@@ -17,8 +17,8 @@ class RecepcaoAlunosController extends Controller
     }
     public function create()
     {
-        $sexos = Sexos::with('sexos')->get();
-        return view('efitness/Recepcao/alunos/novo', ['sexos' => $sexos]);
+        $alunos = Alunos::with('alunos')->get();
+        return view('efitness/Recepcao/alunos/novo', ['alunos' => $alunos]);
     }
     public function store(Request $request)
     {
@@ -26,7 +26,7 @@ class RecepcaoAlunosController extends Controller
             'active' => 'required|boolean',
             'nome' => 'required|string|max:255',
             'sobrenome' => 'required|string|max:255',
-            'sexos_id' => 'required|string',
+            'sexo' => 'required|string',
             'nascimento' => 'string|max:255',
             'cpf' => 'required|string|max:255',
             'email' => 'required|string|unique:users',
@@ -63,10 +63,9 @@ class RecepcaoAlunosController extends Controller
     public function edit($id)
     {
         $alunos = Alunos::findOrFail($id);
-        $sexos = Sexos::with('sexos')->get();
         $enderecos = Enderecos::findOrFail($id);
         return view('efitness/Recepcao/alunos/editar', 
-        ['alunos' => $alunos, 'sexos' => $sexos, 'enderecos' => $enderecos]);
+        ['alunos' => $alunos,'enderecos' => $enderecos]);
     }
     
     public function update(Request $request, $id)
@@ -78,7 +77,7 @@ class RecepcaoAlunosController extends Controller
             'active' => 'required',
             'nome' => 'string',
             'sobrenome' => 'string',
-            'sexos_id' => 'string',
+            'sexo' => 'string',
             'nascimento' => 'string',
             'cpf' => 'string',
             'email' => 'string',

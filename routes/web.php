@@ -243,13 +243,13 @@ Route::post('efitness/Nutricionistas/consultas/editar/{id}', 'efitness\Nutricion
 Route::get('efitness/Nutricionistas/consultas/excluir/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasConsultasController@delete');
 Route::post('efitness/Nutricionistas/consultas/excluir/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasConsultasController@destroy')->name('excluir_consulta_nutri');
 /*=========================Rotas Agendas Nutricionistas=======================================================================================================*/
-Route::get('efitness/Nutricionistas/agendas/novo/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@create')->name('agendas_nutri.create');
-Route::post('efitness/Nutricionistas/agendas/novo/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@store')->name('agendas_nutri.store');
-Route::get('efitness/Nutricionistas/agendas/visualizar', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@index')->name('agendas_nutri');
-Route::get('efitness/Nutricionistas/agendas/editar/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@edit');
-Route::post('efitness/Nutricionistas/agendas/editar/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@update')->name('Alterar_agendas_nutri');
-Route::get('efitness/Nutricionistas/agendas/excluir/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@delete');
-Route::post('efitness/Nutricionistas/agendas/excluir/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasAgendasController@destroy')->name('excluir_agendas_nutri');
+Route::get('efitness/Nutricionistas/agendas/novo/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasConsultasController@create')->name('agendas_consultas_nutri.create');
+Route::post('efitness/Nutricionistas/agendas/novo/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasConsultasController@store')->name('agendas_consultas_nutri.store');
+Route::get('efitness/Nutricionistas/agendas/visualizar', 'efitness\Nutricionistas\Agendas\NutricionistasConsultasController@index')->name('agendas_consultas_nutri');
+Route::get('efitness/Nutricionistas/agendas/editar/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasConsultasController@edit');
+Route::post('efitness/Nutricionistas/agendas/editar/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasConsultasController@update')->name('Alterar_agendas_consultas_nutri');
+Route::get('efitness/Nutricionistas/agendas/excluir/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasConsultasController@delete');
+Route::post('efitness/Nutricionistas/agendas/excluir/{id}', 'efitness\Nutricionistas\Agendas\NutricionistasConsultasController@destroy')->name('excluir_agendas_consultas_nutri');
 /*=========================Rotas Dietas Nutricionistas=======================================================================================================*/
 Route::get('efitness/Nutricionistas/dietas/novo/{id}', 'efitness\Nutricionistas\Dietas\NutricionistasDietasController@create')->name('dietas_nutri_paciente.create');
 Route::post('efitness/Nutricionistas/dietas/novo/{id}', 'efitness\Nutricionistas\Dietas\NutricionistasDietasController@store')->name('dietas_nutri_pacientes.store');
