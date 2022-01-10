@@ -55,7 +55,7 @@
             {{ __('Definições') }}
         </div>
 
-        <!-- Nav Item - Profile -->
+        <!-- Nav Item - Profile 
         <li class="nav-item {{ Nav::isRoute('profile') }}">
             <a class="nav-link" href="{{ route('efitness.administrativo.profile') }}">
                 <i class="fas fa-fw fa-user"></i>
@@ -63,14 +63,21 @@
             </a>
         </li>
 
-        <!-- Nav Item - About -->
+         Nav Item - About
         <li class="nav-item {{ Nav::isRoute('about') }}">
             <a class="nav-link" href="{{ route('about') }}">
                 <i class="fas fa-fw fa-hands-helping"></i>
                 <span>{{ __('Sobre') }}</span>
             </a>
-        </li>
+        </li> -->
         
+        <!-- Nav Item - Notificações -->
+        <li class="nav-item {{ Nav::isRoute('notificacoes') }}">
+            <a class="nav-link" href="{{ route('notificacoes') }}">
+                <i class="fas fa-fw fa-bell"></i>
+                <span>{{ __('Notificações') }}</span>
+            </a>
+        </li>
         <!-- Nav Item - Financeiro -->
         <li class="nav-item {{ Nav::isRoute('mensalidades') }}">
             <a class="nav-link" href="{{ route('mensalidades') }}">

@@ -152,24 +152,6 @@ Route::get('efitness/Administrativo/professores/editar/{id}', 'efitness\Administ
 Route::post('efitness/Administrativo/professores/editar/{id}', 'efitness\Administrativo\Professores\ProfessoresController@update')->name('Alterar_professor');
 Route::get('efitness/Administrativo/professores/excluir/{id}', 'efitness\Administrativo\Professores\ProfessoresController@delete');
 Route::post('efitness/Administrativo/professores/excluir/{id}', 'efitness\Administrativo\Professores\ProfessoresController@destroy')->name('excluir_professor');
-/*=========================Rotas Professores Avaliações Físicas=======================================================================================================*/
-Route::get('efitness/Professores/avaliacoes/visualizar', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesAlunosController@index')->name('avaliacoes_professores_alunos');
-/*=========================Rotas Professores Avaliações Medidas Físicas=======================================================================================================*/
-Route::get('efitness/Professores/avaliacoes/alunos/novo/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@create')->name('avaliacoes_medidas_alunos.create');
-Route::post('efitness/Professores/avaliacoes/alunos/novo/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@store')->name('avaliacoes_medidas_alunos.store');
-Route::get('efitness/Professores/avaliacoes/alunos/visualizar', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@index')->name('avaliacoes_medidas_alunos');
-Route::get('efitness/Professores/avaliacoes/alunos/editar/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@edit');
-Route::post('efitness/Professores/avaliacoes/alunos/editar/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@update')->name('Alterar_avaliacao_medida_aluno');
-Route::get('efitness/Professores/avaliacoes/alunos/excluir/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@delete');
-Route::post('efitness/Professores/avaliacoes/alunos/excluir/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@destroy')->name('excluir__avaliacao_medida_aluno');
-/*=========================Rotas Professores Treeinos Alunos=======================================================================================================*/
-Route::get('efitness/Professores/treinos/alunos/novo/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@create')->name('treinos_alunos.create');
-Route::post('efitness/Professores/treinos/alunos/novo/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@store')->name('treinos_alunos.store');
-Route::get('efitness/Professores/treinos/alunos/visualizar', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@index')->name('treinos_alunos');
-Route::get('efitness/Professores/treinos/alunos/editar/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@edit');
-Route::post('efitness/Professores/treinos/alunos/editar/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@update')->name('Alterar_treino_aluno');
-Route::get('efitness/Professores/treinos/alunos/excluir/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@delete');
-Route::post('efitness/Professores/treinos/alunos/excluir/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@destroy')->name('excluir__treino_aluno');
 /*=========================Rotas Administrativo Nutricionistas=======================================================================================================*/
 Route::get('efitness/Administrativo/nutricionistas/novo', 'efitness\Administrativo\Nutricionistas\NutricionistasController@create')->name('nutricionistas.create');
 Route::post('efitness/Administrativo/nutricionistas/novo', 'efitness\Administrativo\Nutricionistas\NutricionistasController@store')->name('nutricionistas.store');
@@ -194,6 +176,32 @@ Route::get('efitness/Administrativo/alunos/editar/{id}', 'efitness\Administrativ
 Route::post('efitness/Administrativo/alunos/editar/{id}', 'efitness\Administrativo\Alunos\AlunosController@update')->name('Alterar_aluno');
 Route::get('efitness/Administrativo/alunos/excluir/{id}', 'efitness\Administrativo\Alunos\AlunosController@delete');
 Route::post('efitness/Administrativo/alunos/excluir/{id}', 'efitness\Administrativo\Alunos\AlunosController@destroy')->name('excluir_aluno');
+/*=========================Rotas Administrativo Notificacoes=======================================================================================================*/
+Route::get('efitness/Administrativo/notificacoes/novo', 'efitness\Administrativo\Notificacoes\NotificacoesController@create')->name('notificacoes.create');
+Route::post('efitness/Administrativo/notificacoes/novo', 'efitness\Administrativo\Notificacoes\NotificacoesController@store')->name('notificacoes.store');
+Route::get('efitness/Administrativo/notificacoes/visualizar', 'efitness\Administrativo\Notificacoes\NotificacoesController@index')->name('notificacoes');
+Route::get('efitness/Administrativo/notificacoes/editar/{id}', 'efitness\Administrativo\Notificacoes\NotificacoesController@edit');
+Route::post('efitness/Administrativo/notificacoes/editar/{id}', 'efitness\Administrativo\Notificacoes\NotificacoesController@update')->name('Alterar_notificacao');
+Route::get('efitness/Administrativo/notificacoes/excluir/{id}', 'efitness\Administrativo\Notificacoes\NotificacoesController@delete');
+Route::post('efitness/Administrativo/notificacoes/excluir/{id}', 'efitness\Administrativo\Notificacoes\NotificacoesController@destroy')->name('excluir_notificacao');
+/*=========================Rotas Professores Avaliações Físicas=======================================================================================================*/
+Route::get('efitness/Professores/avaliacoes/visualizar', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesAlunosController@index')->name('avaliacoes_professores_alunos');
+/*=========================Rotas Professores Avaliações Medidas Físicas=======================================================================================================*/
+Route::get('efitness/Professores/avaliacoes/alunos/novo/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@create')->name('avaliacoes_medidas_alunos.create');
+Route::post('efitness/Professores/avaliacoes/alunos/novo/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@store')->name('avaliacoes_medidas_alunos.store');
+Route::get('efitness/Professores/avaliacoes/alunos/visualizar', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@index')->name('avaliacoes_medidas_alunos');
+Route::get('efitness/Professores/avaliacoes/alunos/editar/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@edit');
+Route::post('efitness/Professores/avaliacoes/alunos/editar/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@update')->name('Alterar_avaliacao_medida_aluno');
+Route::get('efitness/Professores/avaliacoes/alunos/excluir/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@delete');
+Route::post('efitness/Professores/avaliacoes/alunos/excluir/{id}', 'efitness\Professores\Avaliacoes\ProfessorAvaliacoesMedidasAlunosController@destroy')->name('excluir__avaliacao_medida_aluno');
+/*=========================Rotas Professores Treeinos Alunos=======================================================================================================*/
+Route::get('efitness/Professores/treinos/alunos/novo/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@create')->name('treinos_alunos.create');
+Route::post('efitness/Professores/treinos/alunos/novo/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@store')->name('treinos_alunos.store');
+Route::get('efitness/Professores/treinos/alunos/visualizar', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@index')->name('treinos_alunos');
+Route::get('efitness/Professores/treinos/alunos/editar/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@edit');
+Route::post('efitness/Professores/treinos/alunos/editar/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@update')->name('Alterar_treino_aluno');
+Route::get('efitness/Professores/treinos/alunos/excluir/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@delete');
+Route::post('efitness/Professores/treinos/alunos/excluir/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@destroy')->name('excluir__treino_aluno');
 /*=========================Rotas Recepcao Alunos=======================================================================================================*/
 Route::get('efitness/Recepcao/alunos/novo', 'efitness\Recepcao\Alunos\RecepcaoAlunosController@create')->name('recepcao_alunos.create');
 Route::post('efitness/Recepcao/alunos/novo', 'efitness\Recepcao\Alunos\RecepcaoAlunosController@store')->name('recepcao_alunos.store');
