@@ -68,12 +68,20 @@
                 <i class="fas fa-fw fa-user-graduate"></i>
                 <span>{{ __('Professores') }}</span>
             </a>
+            <a class="nav-link" href="{{route('agendas_professores')}}">
+                <i class="fas fa-fw fa-book"></i>
+                <span>{{ __('Agendamentos') }}</span>
+            </a>
         </li>
         <!-- Nav Item - Consultas nutricionistas -->
         <li class="nav-item {{ Nav::isRoute('recepcao_nutri') }}">
             <a class="nav-link" href="{{route('recepcao_nutri')}}">
                 <i class="fas fa-fw fa-user-md"></i>
                 <span>{{ __('Nutricionistas') }}</span>
+            </a>
+            <a class="nav-link" href="{{route('agendas_nutricionistas')}}">
+                <i class="fas fa-fw fa-book-open"></i>
+                <span>{{ __('Agendas') }}</span>
             </a>
             <a class="nav-link" href="{{route('consultas_alunos')}}">
                 <i class="fas fa-fw fa-stethoscope"></i>

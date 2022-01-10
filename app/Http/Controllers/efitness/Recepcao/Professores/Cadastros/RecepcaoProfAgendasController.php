@@ -1,31 +1,31 @@
 <?php
 
-namespace App\Http\Controllers\efitness\Recepcao\Nutricionistas\Cadastros;
+namespace App\Http\Controllers\efitness\Recepcao\Professores\Cadastros;
 
 use App\Http\Controllers\Controller;
-use App\Models\AgendasNutricionistas;
+use App\Models\AgendasProfessores;
 use Illuminate\Http\Request;
 
-class RecepcaoNutriAgendasController extends Controller
+class RecepcaoProfAgendasController extends Controller
 {
     public function index(Request $request)
     {
         if($request->ajax())
         {
-            $data = AgendasNutricionistas::whereDate('inicio', '>=', $request->inicio)
+            $data = AgendasProfessores::whereDate('inicio', '>=', $request->inicio)
             ->whereDate('fim', '<=', $request->fim)
             ->get(['id','titulo','inicio','fim']);
 
             return response()->json($data);
         }
-        return view('efitness/Recepcao/nutricionistas/agendas/visualizar');
+        return view('efitness/Recepcao/professores/agendas/visualizar');
     }
     public function ajax(Request $request)
     {
         switch($request->type)
         {
             case 'add':
-                $agenda = AgendasNutricionistas::create([
+                $agenda = AgendasProfessores::create([
                     'titulo' => $request->titulo,
                     'inicio' => $request->inicio,
                     'fim' => $request->fim
@@ -33,7 +33,7 @@ class RecepcaoNutriAgendasController extends Controller
                 return response()->json($agenda);
                 break;
             case 'update':
-                $agenda = AgendasNutricionistas::find($request->id)->update([
+                $agenda = AgendasProfessores::find($request->id)->update([
                     'titulo' => $request->titulo,
                     'inicio' => $request->inicio,
                     'fim' => $request->fim,
@@ -41,7 +41,7 @@ class RecepcaoNutriAgendasController extends Controller
                 return response()->json($agenda);
                 break;
             case 'delete':
-                $agenda = AgendasNutricionistas::find($request->id)->delete();
+                $agenda = AgendasProfessores::find($request->id)->delete();
                 return response()->json($agenda);
                 break;
                 default:

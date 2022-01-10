@@ -93,7 +93,7 @@
                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $consultas_nutricionais['consultas_nutricionais'] }}</div>
                         </div>
                         <div class="col-auto">
-                            <i class="fas fa-user-md fa-2x text-gray-300"></i>
+                            <i class="fas fa-file-medical-alt fa-2x text-gray-300"></i>
                         </div>
                     </div>
                 </div>

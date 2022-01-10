@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAgendasProfessoresTable extends Migration
+class CreateAgendasNutricionistasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateAgendasProfessoresTable extends Migration
      */
     public function up()
     {
-        Schema::create('agendas_professores', function (Blueprint $table) {
-            $table->id();
+        Schema::create('agendas_nutricionistas', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('titulo');
+            $table->string('inicio');
+            $table->string('fim');
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateAgendasProfessoresTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('agendas_professores');
+        Schema::dropIfExists('agendas_nutricionistas');
     }
 }

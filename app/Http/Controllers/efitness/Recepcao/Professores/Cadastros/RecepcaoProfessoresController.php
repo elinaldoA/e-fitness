@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\efitness\Recepcao\Professores;
+namespace App\Http\Controllers\efitness\Recepcao\Professores\Cadastros;
 
 use App\Http\Controllers\Controller;
 use App\Models\Cargos;
 use App\Models\Enderecos;
-use App\Models\Estados_civils;
 use App\Models\Funcionarios;
 use App\Models\Professores;
-use App\Models\Sexos;
 use Illuminate\Http\Request;
 
 class RecepcaoProfessoresController extends Controller
