@@ -27,9 +27,33 @@
     <div class="col-lg-12 order-lg-1">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-book-open"></i></h6>
+                <a class="btn btn-outline-success pull-left" href="novo"><i class="fas fa-plus"></i> Adcionar</a>
                 <div class="card-body">
-                    
+                    <table class="table table-hover text-center">
+                        <tr>
+                            <th>Titulo</th>
+                            <th>Inicio</th>
+                            <th>Fim</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                        @forelse ($agendasNutricionistas as $agendasNutricionista)
+                        <tr>
+                            <td>{{ $agendasNutricionista -> titulo }}</td>
+                            <td>{{ $agendasNutricionista -> inicio }}</td>
+                            <td>{{ $agendasNutricionista -> fim }}</td>
+                            <td>
+                                <a class="btn btn-outline-primary" href="#"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="6">
+                                <h4>Nenhum registro encontrado para listar</h4>
+                            </td>
+                        </tr>
+                        @endforelse
+                    </table>
                 </div>
             </div>
         </div>

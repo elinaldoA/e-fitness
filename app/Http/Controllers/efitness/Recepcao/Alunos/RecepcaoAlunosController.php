@@ -5,7 +5,9 @@ namespace App\Http\Controllers\efitness\Recepcao\Alunos;
 use App\Http\Controllers\Controller;
 use App\Models\Alunos;
 use App\Models\Enderecos;
-use App\Models\Sexos;
+use App\Models\Mensalidades;
+use App\Models\Pagamentos;
+use App\Models\Planos;
 use Illuminate\Http\Request;
 
 class RecepcaoAlunosController extends Controller
@@ -17,8 +19,10 @@ class RecepcaoAlunosController extends Controller
     }
     public function create()
     {
-        $alunos = Alunos::with('alunos')->get();
-        return view('efitness/Recepcao/alunos/novo', ['alunos' => $alunos]);
+        $planos = Planos::with('planos')->get();
+        $mensalidades = Mensalidades::with('mensalidades')->get();
+        $pagamentos = Pagamentos::with('pagamentos')->get();
+        return view('efitness/Recepcao/alunos/novo', ['planos' => $planos, 'mensalidades' => $mensalidades, 'pagamentos' => $pagamentos]);
     }
     public function store(Request $request)
     {
@@ -39,7 +43,13 @@ class RecepcaoAlunosController extends Controller
             'cidade' => 'required|string|max:255',
             'estado' => 'required|string|max:255',
             'pais' => 'required|string|max:255',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'alunos_id' => 'required|string',
+            'status_id' => 'required|string',
+            'planos_id' => 'required|string',
+            'valor' => 'required|string',
+            'formas_de_pagamentos_id' => 'required|string',
+            'vencimento' => 'required|string'
             ]);
     
             $input = $request->all();
@@ -52,6 +62,7 @@ class RecepcaoAlunosController extends Controller
                 $input['image'] = "$profileImage";
             }
             Alunos::create($input);
+            Mensalidades::create($input);
             Enderecos::create($input);
         return redirect('efitness/Recepcao/alunos/visualizar')->with('success', 'Aluno(a) cadastrado(a) com sucesso!');
     }
@@ -63,15 +74,19 @@ class RecepcaoAlunosController extends Controller
     public function edit($id)
     {
         $alunos = Alunos::findOrFail($id);
+        $planos = Planos::with('planos')->get();
+        $mensalidades = Mensalidades::with('mensalidades')->get();
+        $pagamentos = Pagamentos::with('pagamentos')->get();
         $enderecos = Enderecos::findOrFail($id);
         return view('efitness/Recepcao/alunos/editar', 
-        ['alunos' => $alunos,'enderecos' => $enderecos]);
+        ['alunos' => $alunos,'enderecos' => $enderecos, 'planos' => $planos, 'mensalidades' => $mensalidades, 'pagamentos' => $pagamentos]);
     }
     
     public function update(Request $request, $id)
     {
         $alunos = Alunos::findOrFail($id);
         $enderecos = Enderecos::findOrFail($id);
+        $mensalidades = Mensalidades::findOrFail($id);
 
         $request->validate([
             'active' => 'required',
@@ -89,7 +104,13 @@ class RecepcaoAlunosController extends Controller
             'cep' => 'string',
             'cidade' => 'string',
             'estado' => 'string',
-            'pais' => 'string'
+            'pais' => 'string',
+            'alunos_id' => 'string',
+            'status_id' => 'string',
+            'planos_id' => 'string',
+            'valor' => 'string',
+            'formas_de_pagamentos_id' => 'required|string',
+            'vencimento' => 'integer'
         ]);
 
         $input = $request->all();
@@ -105,6 +126,7 @@ class RecepcaoAlunosController extends Controller
 
         $alunos->update($input);
         $enderecos->update($input);
+        $mensalidades->update($input);
 
         return redirect('efitness/Recepcao/alunos/visualizar')->with('success', 'Aluno(a) atualizado(a) com sucesso!');
     }

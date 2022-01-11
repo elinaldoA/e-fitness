@@ -258,6 +258,14 @@ Route::get('efitness/Recepcao/professores/agendas/editar/{id}', 'efitness\Recepc
 Route::post('efitness/Recepcao/professores/agendas/editar/{id}', 'efitness\Recepcao\Professores\Cadastros\RecepcaoProfAgendasController@update')->name('Alterar_agenda_professor');
 Route::get('efitness/Recepcao/professores/agendas/excluir/{id}', 'efitness\Recepcao\Professores\Cadastros\RecepcaoProfAgendasController@delete');
 Route::post('efitness/Recepcao/professores/agendas/excluir/{id}', 'efitness\Recepcao\Professores\Cadastros\RecepcaoProfAgendasController@destroy')->name('excluir_agenda_professor');
+/*=========================Rotas Recepcao notificacoes=======================================================================================================*/
+Route::get('efitness/Recepcao/notificacoes/novo', 'efitness\Recepcao\Notificacoes\RecepcaoNotificacoesController@create')->name('recepcao_notificacoes.create');
+Route::post('efitness/Recepcao/notificacoes/novo', 'efitness\Recepcao\Notificacoes\RecepcaoNotificacoesController@store')->name('recepcao_notificacoes.store');
+Route::get('efitness/Recepcao/notificacoes/visualizar', 'efitness\Recepcao\Notificacoes\RecepcaoNotificacoesController@index')->name('recepcao_notificacoes');
+Route::get('efitness/Recepcao/notificacoes/editar/{id}', 'efitness\Recepcao\Notificacoes\RecepcaoNotificacoesController@edit');
+Route::post('efitness/Recepcao/notificacoes/editar/{id}', 'efitness\Recepcao\Notificacoes\RecepcaoNotificacoesController@update')->name('Alterar_recepcao_notificacoes');
+Route::get('efitness/Recepcao/notificacoes/excluir/{id}', 'efitness\Recepcao\Notificacoes\RecepcaoNotificacoesController@delete');
+Route::post('efitness/Recepcao/notificacoes/excluir/{id}', 'efitness\Recepcao\Notificacoes\RecepcaoNotificacoesController@destroy')->name('excluir_recepcao_notificacoes');
 /*=========================Rotas Consultas Nutricionistas=======================================================================================================*/
 Route::get('efitness/Nutricionistas/consultas/novo/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasConsultasController@create')->name('consultas_nutri.create');
 Route::post('efitness/Nutricionistas/consultas/novo/{id}', 'efitness\Nutricionistas\Consultas\NutricionistasConsultasController@store')->name('consultas_nutri.store');

@@ -10,7 +10,7 @@ class AgendasProfessores extends Model
     use HasFactory;
 
     protected $fillable = [
-        'titulo', 'Inicio', 'Fim'
+        'titulo', 'inicio', 'fim'
     ];
 
     /**

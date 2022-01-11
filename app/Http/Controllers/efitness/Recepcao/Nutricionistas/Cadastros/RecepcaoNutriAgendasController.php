@@ -8,45 +8,54 @@ use Illuminate\Http\Request;
 
 class RecepcaoNutriAgendasController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        if($request->ajax())
-        {
-            $data = AgendasNutricionistas::whereDate('inicio', '>=', $request->inicio)
-            ->whereDate('fim', '<=', $request->fim)
-            ->get(['id','titulo','inicio','fim']);
-
-            return response()->json($data);
-        }
-        return view('efitness/Recepcao/nutricionistas/agendas/visualizar');
+        $agendasNutricionistas = AgendasNutricionistas::with('agendasNutricionistas')->get();
+        return view('efitness/Recepcao/nutricionistas/agendas/visualizar', ['agendasNutricionistas' => $agendasNutricionistas]);
     }
-    public function ajax(Request $request)
+    public function create()
     {
-        switch($request->type)
-        {
-            case 'add':
-                $agenda = AgendasNutricionistas::create([
-                    'titulo' => $request->titulo,
-                    'inicio' => $request->inicio,
-                    'fim' => $request->fim
-                ]);
-                return response()->json($agenda);
-                break;
-            case 'update':
-                $agenda = AgendasNutricionistas::find($request->id)->update([
-                    'titulo' => $request->titulo,
-                    'inicio' => $request->inicio,
-                    'fim' => $request->fim,
-                ]);
-                return response()->json($agenda);
-                break;
-            case 'delete':
-                $agenda = AgendasNutricionistas::find($request->id)->delete();
-                return response()->json($agenda);
-                break;
-                default:
-                #code ...
-                break;
-        }   
+        return view('efitness/Recepcao/nutricionistas/agendas/novo');
+    }
+    public function store(Request $request)
+    {
+        $request->validate([
+            'titulo' => 'required|string',
+            'inicio' => 'required|string',
+            'fim' => 'required|string'
+        ]);
+
+        $input = $request->all();
+        AgendasNutricionistas::create($input);
+        return redirect('efitness/Recepcao/nutricionistas/agendas/visualizar')->with('Agendamento criado com sucesso');
+    }
+    public function show($id)
+    {
+        $agendasNutricionistas = AgendasNutricionistas::findOrFail($id);
+        return view('efitness/Recepcao/nutricionistas/agendas/novo', ['agendasNutricionistas' => $agendasNutricionistas]);
+    }
+    public function edit($id)
+    {
+        $agendasNutricionistas = AgendasNutricionistas::findOrFail($id);
+        return view('efitness/Recepcao/nutricionistas/agendas/novo', ['agendasNutricionistas' => $agendasNutricionistas]);
+    }
+    public function update(Request $request, $id)
+    {
+        $agendasNutricionistas = AgendasNutricionistas::findOrFail($id);
+        $request->validate([
+            'titulo' => 'string',
+            'inicio' => 'string',
+            'fim' => 'string'
+        ]);
+
+        $input = $request->all();
+        $agendasNutricionistas->update($input);
+        return redirect('efitness/Recepcao/nutricionistas/agendas/visualizar')->with('Agendamento atualizado com sucesso');
+    }
+    public function delete($id)
+    {
+        $agendasNutricionistas = AgendasNutricionistas::findOrFail($id);
+        $agendasNutricionistas->delete();
+        return redirect('efitness/Recepcao/nutricionistas/agendas/visualizar')->with('Agendamento excluído com sucesso');
     }
 }

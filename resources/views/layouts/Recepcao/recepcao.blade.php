@@ -95,6 +95,13 @@
                 <span>{{ __('Avaliações') }}</span>
             </a>
         </li>
+        <!-- Nav Item - Avaliações alunos -->
+        <li class="nav-item {{ Nav::isRoute('recepcao_notificacoes') }}">
+            <a class="nav-link" href="{{route('recepcao_notificacoes')}}">
+                <i class="fas fa-fw fa-bell"></i>
+                <span>{{ __('Notificacoes') }}</span>
+            </a>
+        </li>
 
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
