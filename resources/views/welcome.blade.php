@@ -90,7 +90,7 @@
                     <a href="{{ route('efitness.nutricionistas.login') }}">{{ __('Nutricionistas') }}</a>
                     <a href="{{ route('efitness.professores.login') }}">{{ __('Professores') }}</a>
                     <a href="{{ route('efitness.recepcao.login') }}">{{ __('Recepcao') }}</a>
-                    <a href="{{ route('login') }}">{{ __('Administrador') }}</a>
+                    <!--<a href="{{ route('login') }}">{{ __('Administrador') }}</a>-->
                 </div>
             </div>
         </div>

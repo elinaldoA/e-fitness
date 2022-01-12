@@ -40,7 +40,7 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
+        <!-- Nav Item - Admin Dashboard -->
         <li class="nav-item {{ Nav::isRoute('home') }}">
             <a class="nav-link" href="{{ route('home') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -71,21 +71,14 @@
             </a>
         </li> -->
         
-        <!-- Nav Item - Notificações -->
-        <li class="nav-item {{ Nav::isRoute('notificacoes') }}">
-            <a class="nav-link" href="{{ route('notificacoes') }}">
-                <i class="fas fa-fw fa-bell"></i>
-                <span>{{ __('Notificações') }}</span>
-            </a>
-        </li>
-        <!-- Nav Item - Financeiro -->
+        <!-- Nav Item - Admin Mensalidades-->
         <li class="nav-item {{ Nav::isRoute('mensalidades') }}">
             <a class="nav-link" href="{{ route('mensalidades') }}">
                 <i class="fas fa-fw fa-calendar"></i>
                 <span>{{ __('Mensalidades') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Financeiro -->
+        <!-- Nav Item - Admin Pagamentos -->
         <li class="nav-item {{ Nav::isRoute('pagamentos') }}">
             <a class="nav-link" href="{{ route('pagamentos') }}">
                 <i class="fas fa-fw fa-landmark"></i>
@@ -97,55 +90,64 @@
             {{__('Cadastros')}}
         </div>
 
-        <!-- Nav Item - Cargos-->
+        <!-- Nav Item - Admin Cargos-->
         <li class="nav-item {{ Nav::isRoute('cargos') }}">
             <a class="nav-link" href="{{ route('cargos') }}">
                 <i class="fas fa-fw fa-user"></i>
                 <span>{{ __('Cargos') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Planos-->
+        <!-- Nav Item - Admin Planos-->
         <li class="nav-item {{ Nav::isRoute('planos') }}">
             <a class="nav-link" href="{{ route('planos') }}">
                 <i class="fas fa-fw fa-dumbbell"></i>
                 <span>{{ __('Planos') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Funcionários-->
+        <!-- Nav Item - Admin Funcionários-->
         <li class="nav-item {{ Nav::isRoute('funcionarios') }}">
             <a class="nav-link" href="{{ route('funcionarios') }}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>{{ __('Funcionários') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Professores-->
+        <!-- Nav Item - Admin Recepção-->
         <li class="nav-item {{ Nav::isRoute('recepcao') }}">
             <a class="nav-link" href="{{ route('recepcao') }}">
                 <i class="fas fa-fw fa-folder"></i>
                 <span>{{ __('Recepção') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Professores-->
+        <!-- Nav Item - Admin Alunos-->
         <li class="nav-item {{ Nav::isRoute('alunos') }}">
             <a class="nav-link" href="{{ route('alunos') }}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>{{ __('Alunos') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Professores-->
+        <!-- Nav Item - Admin Professores-->
         <li class="nav-item {{ Nav::isRoute('professores') }}">
             <a class="nav-link" href="{{ route('professores') }}">
                 <i class="fas fa-fw fa-user-graduate"></i>
                 <span>{{ __('Professores') }}</span>
             </a>
         </li>
-        <!--Nav Item - Professores -->
+        <!--Nav Item - Admin Nutricionistas -->
         <li class="nav-item {{ Nav::isRoute('nutricionistas') }}">
             <a class="nav-link" href="{{ route('nutricionistas') }}">
                 <i class="fas fa-fw fa-user-nurse"></i>
                 <span>{{ __('Nutricionistas') }}</span>
             </a>
         </li>
+
+        <!-- Nav Item - Admin Notificações -->
+        <li class="nav-item {{ Nav::isRoute('notificacoes') }}">
+            <a class="nav-link" href="{{ route('notificacoes') }}">
+                <i class="fas fa-fw fa-bell"></i>
+                <span>{{ __('Notificações') }}</span>
+            </a>
+        </li>
+        
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 

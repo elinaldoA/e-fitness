@@ -10,6 +10,7 @@ use App\Models\Pagamentos;
 use App\Models\Planos;
 use Illuminate\Http\Request;
 
+
 class AlunosController extends Controller
 {
     public function index()

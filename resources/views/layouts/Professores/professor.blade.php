@@ -40,7 +40,7 @@
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
+        <!-- Nav Item - Professor Dashboard -->
         <li class="nav-item {{ Nav::isRoute('home-professor') }}">
             <a class="nav-link" href="{{ route('home-professor') }}">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
@@ -50,12 +50,12 @@
         <!-- Divider -->
         <hr class="sidebar-divider">
 
-        <!-- Heading -->
+        <!-- Professor Alertas -->
         <div class="sidebar-heading">
             {{ __('Alertas') }}
         </div>
 
-        <!-- Nav Item - Avaliações pendentes -->
+        <!-- Nav Item - Professor Avaliações pendentes -->
         <li class="nav-item {{ Nav::isRoute('avaliacoes_professores_alunos') }}">
             <a class="nav-link" href="{{route('avaliacoes_professores_alunos')}}">
                 <i class="fas fa-fw fa-file-medical-alt"></i>
@@ -63,7 +63,7 @@
             </a>
         </li>
 
-        <!-- Nav Item - Avaliações realizadas -->
+        <!-- Nav Item - Professor Avaliações realizadas -->
         <li class="nav-item {{ Nav::isRoute('avaliacoes_medidas_alunos') }}">
             <a class="nav-link" href="{{route('avaliacoes_medidas_alunos')}}">
                 <i class="fas fa-fw fa-check"></i>
@@ -77,7 +77,7 @@
         <!-- Divider -->
         <hr class="sidebar-divider d-none d-md-block">
 
-        <!-- Nav Item - Treinos alunos -->
+        <!-- Nav Item - Professor Treinos alunos -->
         <li class="nav-item {{ Nav::isRoute('treinos_alunos') }}">
             <a class="nav-link" href="{{route('treinos_alunos')}}">
             <i class="fas fa-fw fa-dumbbell"></i>
@@ -112,13 +112,13 @@
 
                     <div class="topbar-divider d-none d-sm-block"></div>
 
-                    <!-- Nav Item - User Information -->
+                    <!-- Nav Item - Professor User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">#</span>
                             <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial="#"></figure>
                         </a>
-                        <!-- Dropdown - User Information -->
+                        <!-- Dropdown - Professor User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="{{ route('profile-professor') }}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>

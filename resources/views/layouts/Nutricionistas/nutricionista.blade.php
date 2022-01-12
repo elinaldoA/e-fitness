@@ -55,7 +55,7 @@
             {{ __('Definições') }}
         </div>
 
-        <!-- Nav Item - Profile -->
+        <!-- Nav Item - Nutricionista Perfil ----->
         <li class="nav-item {{ Nav::isRoute('profile-nutricionista') }}">
             <a class="nav-link" href="#">
                 <i class="fas fa-fw fa-user"></i>
@@ -66,21 +66,21 @@
         <div class="sidebar-heading">
             {{__('Cadastros')}}
         </div>
-        <!-- Nav Item - Pacientes -->
+        <!-- Nav Item - Nutricionistas Agendas -->
         <li class="nav-item {{ Nav::isRoute('agendas_consultas_nutri') }}">
             <a class="nav-link" href="{{route('agendas_consultas_nutri')}}">
                 <i class="fas fa-fw fa-book-open"></i>
                 <span>{{ __('Agendas') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Pacientes -->
+        <!-- Nav Item - Nutricionistas Dietas -->
         <li class="nav-item {{ Nav::isRoute('dietas') }}">
             <a class="nav-link" href="{{route('dietas_nutri_pacientes')}}">
                 <i class="fas fa-fw fa-mortar-pestle"></i>
                 <span>{{ __('Dietas') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Pacientes -->
+        <!-- Nav Item - Nutricionistas Consultas -->
         <li class="nav-item {{ Nav::isRoute('consultas_nutri') }}">
             <a class="nav-link" href="{{route('consultas_nutri')}}">
                 <i class="fas fa-fw fa-stethoscope"></i>

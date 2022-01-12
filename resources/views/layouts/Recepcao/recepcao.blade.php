@@ -55,47 +55,56 @@
             {{ __('Cadastros') }}
         </div>
 
-        <!-- Nav Item - Alunos -->
+        <!-- Nav Item - Recepção Alunos -->
         <li class="nav-item {{ Nav::isRoute('recepcao_alunos') }}">
             <a class="nav-link" href="{{route('recepcao_alunos')}}">
                 <i class="fas fa-fw fa-users"></i>
                 <span>{{ __('Alunos') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Avaliações alunos -->
+        <!-- Nav Item - Recepção Professores -->
         <li class="nav-item {{ Nav::isRoute('recepcao_prof') }}">
             <a class="nav-link" href="{{route('recepcao_prof')}}">
                 <i class="fas fa-fw fa-user-graduate"></i>
                 <span>{{ __('Professores') }}</span>
             </a>
+        </li>
+        <!------  Nav Item - Recepção Agendamento ------->
+        <li class="nav-item {{ Nav::isRoute('agendas_professores') }}">
             <a class="nav-link" href="{{route('agendas_professores')}}">
                 <i class="fas fa-fw fa-book"></i>
                 <span>{{ __('Agendamentos') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Consultas nutricionistas -->
+        <!-- Nav Item - Recepção Consultas nutricionistas -->
         <li class="nav-item {{ Nav::isRoute('recepcao_nutri') }}">
             <a class="nav-link" href="{{route('recepcao_nutri')}}">
                 <i class="fas fa-fw fa-user-md"></i>
                 <span>{{ __('Nutricionistas') }}</span>
             </a>
+        </li>
+        <!--- Nav - Item - Recepção Agendas -------------------------->
+        <li class="nav-item {{ Nav::isRoute('agendas_nutricionistas') }}">
             <a class="nav-link" href="{{route('agendas_nutricionistas')}}">
                 <i class="fas fa-fw fa-book-open"></i>
                 <span>{{ __('Agendas') }}</span>
             </a>
+        </li>
+        <!---- Nav - Item - Recepção Consultas ----------------->
+        <li class="nav-item {{ Nav::isRoute('consultas_alunos') }}">
             <a class="nav-link" href="{{route('consultas_alunos')}}">
                 <i class="fas fa-fw fa-stethoscope"></i>
                 <span>{{ __('Consultas') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Avaliações alunos -->
+        <!-- Nav Item - Recepção Avaliações alunos -->
         <li class="nav-item {{ Nav::isRoute('avaliacoes_alunos') }}">
             <a class="nav-link" href="{{route('avaliacoes_alunos')}}">
                 <i class="fas fa-fw fa-file-medical-alt"></i>
                 <span>{{ __('Avaliações') }}</span>
             </a>
         </li>
-        <!-- Nav Item - Avaliações alunos -->
+        <!-- Nav Item - Recepção Avaliações alunos -->
         <li class="nav-item {{ Nav::isRoute('recepcao_notificacoes') }}">
             <a class="nav-link" href="{{route('recepcao_notificacoes')}}">
                 <i class="fas fa-fw fa-bell"></i>
@@ -133,13 +142,13 @@
 
                     <div class="topbar-divider d-none d-sm-block"></div>
 
-                    <!-- Nav Item - User Information -->
+                    <!-- Nav Item - Recepção User Information -->
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <span class="mr-2 d-none d-lg-inline text-gray-600 small">#</span>
                             <figure class="img-profile rounded-circle avatar font-weight-bold" data-initial="#"></figure>
                         </a>
-                        <!-- Dropdown - User Information -->
+                        <!-- Dropdown - Recepção User Information -->
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="{{ route('profile-recepcao') }}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>

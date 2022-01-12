@@ -16,7 +16,6 @@ class ProfessorAvaliacoesAlunosController extends Controller
         $professores = Professores::with('professores')->get();
         $avaliacoes = Avaliacoes::with('avaliacoes')->get();
         $medidas = Medidas::with('medidas')->get();
-        return view('efitness/Professores/avaliacoes/visualizar', 
-        ['avaliacoes' => $avaliacoes, 'alunos' => $alunos, 'professores' => $professores, 'medidas' => $medidas]);
+        return view('efitness/Professores/avaliacoes/visualizar', ['avaliacoes' => $avaliacoes, 'alunos' => $alunos, 'professores' => $professores, 'medidas' => $medidas]);
     }
 }
