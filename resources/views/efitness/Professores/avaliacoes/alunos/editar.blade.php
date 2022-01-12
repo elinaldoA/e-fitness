@@ -64,12 +64,6 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="form-group focused">
-                                    <label class="form-control-label" for="sexos_id">Sexo<span class="small text-danger"> * </span></label>
-                                    <input name="sexo" id="sexo" class="form-control" value="{{$medidas->sexo}}">
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="form-group focused">
                                     <label class="form-control-label" for="professores_id">Professor<span class="small text-danger"> * </span></label>
                                     <select name="professores_id" id="professores_id" class="form-control">
                                         @foreach($professores as $professor)

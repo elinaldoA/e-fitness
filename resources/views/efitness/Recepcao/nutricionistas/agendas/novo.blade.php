@@ -35,7 +35,7 @@
 
             <div class="card-body">
 
-                <form method="POST" action="{{ route('agendas_nutricionistas.create') }}" class="Cargos">
+                <form method="POST" action="{{ route('agendas_nutricionistas.create') }}" class="Agendas">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="row">
                         <div class="col-lg-6">

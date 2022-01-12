@@ -24,6 +24,6 @@ class AgendasProfessores extends Model
 
     public function AgendasProfessores()
     {
-        return $this -> hasMany('App\Models\AgendasProfessores','id','titulo', 'Inicio', 'Fim');
+        return $this -> hasMany('App\Models\AgendasProfessores','id','titulo', 'inicio', 'fim');
     }
 }

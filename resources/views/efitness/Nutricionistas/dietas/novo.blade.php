@@ -35,7 +35,7 @@
 
             <div class="card-body">
 
-                <form method="POST" action="{{ route('dietas.store', ['id' => $dietas->id]) }}" class="Dietas">
+                <form method="POST" action="{{ route('dietas_nutri_paciente.store', ['id' => $dietas->id]) }}" class="Dietas">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="row">
                         <div class="col-lg-6">

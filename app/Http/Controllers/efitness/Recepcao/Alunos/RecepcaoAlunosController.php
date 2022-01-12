@@ -75,7 +75,7 @@ class RecepcaoAlunosController extends Controller
     {
         $alunos = Alunos::findOrFail($id);
         $planos = Planos::with('planos')->get();
-        $mensalidades = Mensalidades::with('mensalidades')->get();
+        $mensalidades = Mensalidades::findOrFail($id);
         $pagamentos = Pagamentos::with('pagamentos')->get();
         $enderecos = Enderecos::findOrFail($id);
         return view('efitness/Recepcao/alunos/editar', 

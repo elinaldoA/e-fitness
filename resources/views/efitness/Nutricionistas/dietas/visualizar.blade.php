@@ -27,7 +27,7 @@
     <div class="col-lg-12 order-lg-1">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-            <h3 class="m-0 font-weight-bold text-primary"><i class="fas fa-book-open"></i></h3>
+            <a class="btn btn-outline-success pull-left" href="novo"><i class="fas fa-plus"></i> Adcionar</a>
                 <div class="card-body">
                     <table class="table table-hover text-center">
                         <tr>

@@ -10,7 +10,7 @@ class AgendasNutricionistas extends Model
     use HasFactory;
 
     protected $fillable = [
-        'titulo', 'Inicio', 'Fim'
+        'titulo', 'inicio', 'fim'
     ];
 
     /**
@@ -24,6 +24,6 @@ class AgendasNutricionistas extends Model
 
     public function AgendasNutricionistas()
     {
-        return $this -> hasMany('App\Models\AgendasNutricionistas','id','titulo', 'Inicio', 'Fim');
+        return $this -> hasMany('App\Models\AgendasNutricionistas','id','titulo', 'inicio', 'fim');
     }
 }
