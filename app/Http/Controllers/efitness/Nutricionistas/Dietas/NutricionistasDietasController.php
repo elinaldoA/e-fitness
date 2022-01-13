@@ -27,7 +27,7 @@ class NutricionistasDietasController extends Controller
 
     public function create($id)
     {
-        $alunos = Alunos::with('alunos')->get();
+        $alunos = Alunos::findOrFail($id);
         $nutricionistas = Nutricionistas::with('nutricionistas')->get();
         $anamneses = Anamneses::findOrFail($id);
         $medidas = Medidas::with('medidas')->get();

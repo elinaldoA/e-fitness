@@ -71,13 +71,13 @@
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="data">Data<span class="small text-danger"> * </span></label>
-                                <input type="date" class="form-control" name="data" id="data"/>
+                                <input type="date" class="form-control" name="data" id="data" />
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="hora">Hora<span class="small text-danger"> * </span></label>
-                                <input type="time" class="form-control" name="hora" id="hora"/>
+                                <input type="time" class="form-control" name="hora" id="hora" />
                             </div>
                         </div>
                     </div>

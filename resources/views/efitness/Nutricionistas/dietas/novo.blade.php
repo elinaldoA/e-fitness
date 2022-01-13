@@ -35,9 +35,19 @@
 
             <div class="card-body">
 
-                <form method="POST" action="{{ route('dietas_nutri_paciente.store', ['id' => $dietas->id]) }}" class="Dietas">
+                <form method="POST" action="{{ route('dietas_nutri_paciente.store', ['id' => $dietas->id])}}" class="Dietas">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="row">
+                    <div class="col-lg-4">
+                            <div class="form-group focused">
+                                <label class="form-control-label" for="alunos_id">Paciente<span class="small text-danger"> * </span></label>
+                                    <select name="alunos_id" id="alunos_id" class="form-control">
+                                        @foreach($alunos as $aluno)
+                                        <option {{ $dietas->alunos_id == $aluno->id ? 'selected' : '' }} value="{{ $aluno->id }}">{{$aluno->nome}}</option>
+                                        @endforeach
+                                    </select>
+                            </div>
+                        </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="nome">Alimento<span class="small text-danger"> * </span></label>
@@ -56,7 +66,7 @@
                         <div class="row">
                             <div class="col">
                                 <button type="submit" class="btn btn-outline-primary"><i class="far fa-save"></i> Salvar</button>
-                                <a href="{{route('dietas')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> Voltar</a>
+                                <a href="{{route('dietas_nutri_pacientes')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> Voltar</a>
                             </div>
                         </div>
                     </div>
