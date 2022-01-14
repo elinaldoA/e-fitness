@@ -206,8 +206,8 @@
                                         <label class="form-control-label" for="formas_de_pagamentos_id">Valor<span class="small text-danger"> * </span></label>
                                         <select class="form-control" id="formas_de_pagamentos_id" name="formas_de_pagamentos_id">
                                             <option>Selecione uma opção</option>
-                                            @foreach($pagamentos as $pagamento)
-                                            <option {{ $mensalidades->formas_de_pagamentos_id == $pagamento->id ? 'selected' : '' }} value="{{ $pagamento->id }}">{{$pagamento->forma_de_pagamento}}</option>
+                                            @foreach($formaPags as $formaPag)
+                                            <option {{ $mensalidades->formas_de_pagamentos_id == $formaPag->id ? 'selected' : '' }} value="{{ $formaPag->id }}">{{$formaPag->forma_de_pagamento}}</option>
                                             @endforeach
                                         </select>
                                     </div>

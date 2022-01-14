@@ -79,8 +79,8 @@
             </a>
         </li>
         <!-- Nav Item - Admin Pagamentos -->
-        <li class="nav-item {{ Nav::isRoute('pagamentos') }}">
-            <a class="nav-link" href="{{ route('pagamentos') }}">
+        <li class="nav-item {{ Nav::isRoute('formas_de_pagamento') }}">
+            <a class="nav-link" href="{{ route('formas_de_pagamento') }}">
                 <i class="fas fa-fw fa-landmark"></i>
                 <span>{{ __('Pagamentos') }}</span>
             </a>

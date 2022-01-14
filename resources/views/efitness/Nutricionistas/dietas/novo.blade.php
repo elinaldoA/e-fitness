@@ -35,7 +35,7 @@
 
             <div class="card-body">
 
-                <form method="POST" action="{{ route('dietas_nutri_paciente.store', ['id' => $dietas->id])}}" class="Dietas">
+                <form method="POST" action="{{ route('dietas_nutri_paciente.store', ['id' => $anamneses->id])}}" class="Dietas">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="row">
                     <div class="col-lg-4">
@@ -43,7 +43,7 @@
                                 <label class="form-control-label" for="alunos_id">Paciente<span class="small text-danger"> * </span></label>
                                     <select name="alunos_id" id="alunos_id" class="form-control">
                                         @foreach($alunos as $aluno)
-                                        <option {{ $dietas->alunos_id == $aluno->id ? 'selected' : '' }} value="{{ $aluno->id }}">{{$aluno->nome}}</option>
+                                        <option {{ $anamneses->alunos_id == $aluno->id ? 'selected' : '' }} value="{{ $aluno->id }}">{{$aluno->nome}}</option>
                                         @endforeach
                                     </select>
                             </div>

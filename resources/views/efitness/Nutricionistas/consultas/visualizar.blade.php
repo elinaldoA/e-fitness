@@ -56,7 +56,7 @@
                                 @endif
                             </td>
                             <td>
-                                <a class="btn btn-outline-primary" href="{{ route('dietas_nutri_paciente.store', ['id' => $consulta-> id]) }}"><i class="fa fa-mortar-pestle"></i></a>
+                                <a class="btn btn-outline-primary" href="{{ route('dietas_nutri_paciente.create', ['id' => $consulta-> id]) }}"><i class="fa fa-mortar-pestle"></i></a>
                                 <a class="btn btn-outline-warning" href="{{route('Alterar_consulta_nutri',['id' => $anamnese->id])}}"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
                             </td>

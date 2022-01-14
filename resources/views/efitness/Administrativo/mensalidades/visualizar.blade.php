@@ -48,17 +48,17 @@
                             <td>{{$plano -> nome}} </td>@endif
                             @endforeach
                             <td>R$ {{ number_format($mensalidade -> valor, 2) }}</td>
-                            @foreach($pagamentos as $pagamento)
-                            @if($pagamento->id == $mensalidade->formas_de_pagamentos_id)
-                            <td>{{$pagamento -> forma_de_pagamento}} </td>@endif
+                            @foreach($formaPags as $formaPag)
+                            @if($formaPag->id == $mensalidade->formas_de_pagamentos_id)
+                            <td>{{$formaPag -> forma_de_pagamento}} </td>@endif
                             @endforeach
-                            @foreach($pagamentos as $pagamento)
-                            @if($pagamento->id == $mensalidade->status_id)
-                            <td>{{$pagamento -> status}} </td>@endif
+                            @foreach($formaPags as $formaPag)
+                            @if($formaPag->id == $mensalidade->status_id)
+                            <td>{{$formaPag -> status}} </td>@endif
                             @endforeach
                             <td>{{ $mensalidade -> vencimento }}</td>
                             <td>
-                                <a class="btn btn-outline-primary" href="#"><i class="fa fa-file-invoice-dollar"></i></a>
+                                <a class="btn btn-outline-primary" href="{{route('cobrancas.create',['id' => $mensalidade->id])}}"><i class="fa fa-file-invoice-dollar"></i></a>
                                 <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>

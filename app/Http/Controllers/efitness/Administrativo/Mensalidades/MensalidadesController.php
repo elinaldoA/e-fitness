@@ -4,8 +4,9 @@ namespace App\Http\Controllers\efitness\Administrativo\Mensalidades;
 
 use App\Http\Controllers\Controller;
 use App\Models\Alunos;
+use App\Models\FormaPags;
 use App\Models\Mensalidades;
-use App\Models\Pagamentos;
+use App\Models\Pags;
 use App\Models\Planos;
 use Illuminate\Http\Request;
 
@@ -16,9 +17,9 @@ class MensalidadesController extends Controller
         $mensalidades = Mensalidades::with('mensalidades')->get();
         $alunos = Alunos::with('alunos')->get();
         $planos = Planos::with('planos')->get();
-        $pagamentos = Pagamentos::with('pagamentos')->get();
+        $formaPags = FormaPags::with('formaPags')->get();
         return view('efitness/Administrativo/mensalidades/visualizar', ['mensalidades' => $mensalidades, 
-        'alunos' => $alunos, 'planos' => $planos, 'pagamentos' => $pagamentos]);
+        'alunos' => $alunos, 'planos' => $planos, 'formaPags' => $formaPags]);
     }
     public function create()
     {

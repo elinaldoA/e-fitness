@@ -5,8 +5,8 @@ namespace App\Http\Controllers\efitness\Administrativo\Alunos;
 use App\Http\Controllers\Controller;
 use App\Models\Alunos;
 use App\Models\Enderecos;
+use App\Models\FormaPags;
 use App\Models\Mensalidades;
-use App\Models\Pagamentos;
 use App\Models\Planos;
 use Illuminate\Http\Request;
 
@@ -22,8 +22,8 @@ class AlunosController extends Controller
     {
         $planos = Planos::with('planos')->get();
         $mensalidades = Mensalidades::with('mensalidades')->get();
-        $pagamentos = Pagamentos::with('pagamentos')->get();
-        return view('efitness/Administrativo/alunos/novo', ['planos' => $planos, 'mensalidades' => $mensalidades, 'pagamentos' => $pagamentos]);
+        $formaPags = FormaPags::with('formaPags')->get();
+        return view('efitness/Administrativo/alunos/novo', ['planos' => $planos, 'mensalidades' => $mensalidades, 'formaPags' => $formaPags]);
     }
     public function store(Request $request)
     {
@@ -76,11 +76,11 @@ class AlunosController extends Controller
     {
         $alunos = Alunos::findOrFail($id);
         $planos = Planos::with('planos')->get();
-        $pagamentos = Pagamentos::with('pagamentos')->get();
+        $formaPags = FormaPags::with('formaPags')->get();
         $mensalidades = Mensalidades::findOrFail($id);
         $enderecos = Enderecos::findOrFail($id);
         return view('efitness/Administrativo/alunos/editar', 
-        ['alunos' => $alunos,'enderecos' => $enderecos, 'planos' => $planos, 'mensalidades' => $mensalidades, 'pagamentos' => $pagamentos]);
+        ['alunos' => $alunos,'enderecos' => $enderecos, 'planos' => $planos, 'mensalidades' => $mensalidades, 'formaPags' => $formaPags]);
     }
     
     public function update(Request $request, $id)
