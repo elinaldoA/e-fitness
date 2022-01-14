@@ -36,7 +36,7 @@
             <div class="card-body">
 
                 <form method="POST" action="{{ route('recepcao_nutri.create') }}" class="nutricionistas" enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tab_informacoes" role="tab">
@@ -220,7 +220,7 @@
                         <div class="row">
                             <div class="col">
                                 <button type="submit" class="btn btn-outline-primary"><i class="far fa-save"></i> Salvar</button>
-                                <a href="{{route('recepcao_nutri')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
+                                <a href="{{route('nutricionistas')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
                             </div>
                         </div>
                     </div>
@@ -237,7 +237,7 @@
         var newdiv = document.createElement('div');
         newdiv.innerHTML = '[' + line + ']';
         newdiv.innerHTML = '<div class="row">';
-        newdiv.innerHTML += '<label class="form-control-label" for="dia">Dias de atendimento<span class="small text-danger"> * </span></label><select class="form-control" name="dia_da_semana' + line + '" id="dia_da_semana' + line + '"><option>Selecione uma opção</option><option value="Segunda-feira">Segunda-feira</option><option value="Terça-feira">Terça-feira</option><option value="Quarta-feira">Quarta-feira</option><option value="Quinta-feira">Quinta-feira</option><option value="Sexta-feira">Sexta-feira</option></select><br/>';
+        newdiv.innerHTML = '<label class="form-control-label" for="dia">Dias de atendimento<span class="small text-danger"> * </span></label><select class="form-control" name="dia_da_semana' + line + '" id="dia_da_semana' + line + '"><option>Selecione uma opção</option><option value="Segunda-feira">Segunda-feira</option><option value="Terça-feira">Terça-feira</option><option value="Quarta-feira">Quarta-feira</option><option value="Quinta-feira">Quinta-feira</option><option value="Sexta-feira">Sexta-feira</option></select><br/>';
         newdiv.innerHTML += '<label class="form-control-label" for="inicial">Inicial<span class="small text-danger"> * </span></label><input class="form-control" type="time" name="inicio' + line + '" id="inicio' + line + '"><br/>';
         newdiv.innerHTML += '<label class="form-control-label" for="final">Final<span class="small text-danger"> * </span></label><input class="form-control" type="time" name="fim' + line + '" id="fim' + line + '"><br/>';
         newdiv.innerHTML += '<div>';

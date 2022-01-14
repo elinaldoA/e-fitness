@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\efitness\Recepcao\Nutricionistas\Cadastros;
 
 use App\Http\Controllers\Controller;
+use App\Models\Atendimentos_nutricionistas;
 use App\Models\Nutricionistas;
 use App\Models\Enderecos;
 use App\Models\Cargos;
@@ -67,14 +68,17 @@ class RecepcaoNutricionistasController extends Controller
     public function edit($id)
     {
         $nutricionistas = Nutricionistas::findOrFail($id);
+        $atendimentos_nutricionistas = Atendimentos_nutricionistas::findOrFail($id);
         $cargos = Cargos::with('cargos')->get();
         $enderecos = Enderecos::findOrFail($id);
-        return view('efitness/Recepcao/nutricionistas/editar', ['nutricionistas' => $nutricionistas,'enderecos' => $enderecos, 'cargos' => $cargos]);
+        return view('efitness/Recepcao/nutricionistas/editar', ['nutricionistas' => $nutricionistas,
+        'enderecos' => $enderecos, 'cargos' => $cargos, 'atendimentos_nutricionistas' => $atendimentos_nutricionistas]);
     }
     
     public function update(Request $request, $id)
     {
         $nutricionistas = Nutricionistas::findOrFail($id);
+        $atendimentos_nutricionistas = Atendimentos_nutricionistas::findOrFail($id);
         $enderecos = Enderecos::findOrFail($id);
 
         $request->validate([
@@ -110,6 +114,7 @@ class RecepcaoNutricionistasController extends Controller
         }
 
         $nutricionistas->update($input);
+        $atendimentos_nutricionistas->update($input);
         $enderecos->update($input);
 
         return redirect('efitness/Recepcao/nutricionistas/visualizar')->with('success', 'Nutricionista atualizada com sucesso!');

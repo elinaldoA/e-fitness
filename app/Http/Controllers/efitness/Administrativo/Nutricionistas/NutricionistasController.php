@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\efitness\Administrativo\Nutricionistas;
 
 use App\Http\Controllers\Controller;
+use App\Models\Atendimentos_nutricionistas;
 use App\Models\Cargos;
 use App\Models\Enderecos;
 use App\Models\Funcionarios;
@@ -15,7 +16,9 @@ class NutricionistasController extends Controller
     {
         $nutricionistas = Nutricionistas::with('nutricionistas')->get();
         $cargos = Cargos::with('cargos')->get();
-        return view('efitness/Administrativo/nutricionistas/visualizar', ['nutricionistas' => $nutricionistas, 'cargos' => $cargos]);
+        $atendimentos_nutricionistas = Atendimentos_nutricionistas::with('atendimentos_nutricionistas')->get();
+        return view('efitness/Administrativo/nutricionistas/visualizar',
+        ['nutricionistas' => $nutricionistas, 'cargos' => $cargos, 'atendimentos_nutricionistas' => $atendimentos_nutricionistas]);
     }
     public function create()
     {
@@ -43,6 +46,9 @@ class NutricionistasController extends Controller
             'cidade' => 'required|string|max:255',
             'estado' => 'required|string|max:255',
             'pais' => 'required|string|max:255',
+            'dia_da_semana' => 'required|string',
+            'inicio' => 'required|string',
+            'fim' => 'required|string',
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
     
@@ -58,6 +64,7 @@ class NutricionistasController extends Controller
             Funcionarios::create($input);
             Nutricionistas::create($input);
             Enderecos::create($input);
+            Atendimentos_nutricionistas::create($input);
         return redirect('efitness/Administrativo/nutricionistas/visualizar')->with('success', 'Nutricionista(a) cadastrado(a) com sucesso!');
     }
     public function show($id)
@@ -70,14 +77,17 @@ class NutricionistasController extends Controller
         $nutricionistas = Nutricionistas::findOrFail($id);
         $cargos = Cargos::with('cargos')->get();
         $enderecos = Enderecos::findOrFail($id);
+        $atendimentos_nutricionistas = Atendimentos_nutricionistas::findOrFail($id);
         return view('efitness/Administrativo/nutricionistas/editar', 
-        ['nutricionistas' => $nutricionistas,'enderecos' => $enderecos, 'cargos' => $cargos]);
+        ['nutricionistas' => $nutricionistas,'enderecos' => $enderecos, 
+        'cargos' => $cargos, 'atendimentos_nutricionistas' => $atendimentos_nutricionistas]);
     }
     
     public function update(Request $request, $id)
     {
         $nutricionistas = Nutricionistas::findOrFail($id);
         $enderecos = Enderecos::findOrFail($id);
+        $atendimentos_nutricionistas = Atendimentos_nutricionistas::findOrFail($id);
 
         $request->validate([
             'active' => 'required',
@@ -97,7 +107,10 @@ class NutricionistasController extends Controller
             'cep' => 'string',
             'cidade' => 'string',
             'estado' => 'string',
-            'pais' => 'string'
+            'pais' => 'string',
+            'dia_da_semana' => 'string',
+            'inicio' => 'string',
+            'fim' => 'string',
         ]);
 
         $input = $request->all();
@@ -113,6 +126,7 @@ class NutricionistasController extends Controller
 
         $nutricionistas->update($input);
         $enderecos->update($input);
+        $atendimentos_nutricionistas->update($input);
 
         return redirect('efitness/Administrativo/nutricionistas/visualizar')->with('success', 'Nutricionista atualizado(a) com sucesso!');
     }

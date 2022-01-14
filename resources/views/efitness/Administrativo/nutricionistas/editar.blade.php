@@ -35,12 +35,18 @@
 
             <div class="card-body">
 
-                <form method="POST" action="{{ route('Alterar_nutricionista', ['id' => $nutricionistas->id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('Alterar_nutricionista', ['id' => $nutricionistas->id], ['id' => $enderecos->id], 
+                    ['id' => $atendimentos_nutricionistas->id]) }}" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand" role="tablist">
                         <li class="nav-item">
                             <a class="nav-link" data-toggle="tab" href="#tab_informacoes" role="tab">
                                 Informações
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-toggle="tab" href="#tab_atendimentos" role="tab">
+                                Atendimentos
                             </a>
                         </li>
                         <li class="nav-item">
@@ -132,6 +138,33 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="tab-pane" id="tab_atendimentos" role="tabpanel"><br />
+                            <div class="row">
+                                <div class="col-lg-4" id="lines">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="dia">Dia da semana<span class="small text-danger"> * </span></label>
+                                        <select class="form-control" name="dia_da_semana" id="dia_da_semana">
+                                        @foreach($atendimentos_nutricionistas as $atendimentos)
+                                            <option >{{$atendimentos_nutricionistas->dia_da_semana}}</option>
+                                        @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="inicio">Inicio<span class="small text-danger"> * </span></label>
+                                        <input type="time" id="inicio" class="form-control" name="inicio" value="{{$atendimentos_nutricionistas->inicio}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="fim">Fim<span class="small text-danger"> * </span></label>
+                                        <input type="time" id="fim" class="form-control" name="fim" value="{{$atendimentos_nutricionistas->fim}}">
+                                    </div>
+                                </div>
+                            </div>
+                            <a class="btn btn-outline-warning" onclick="addInput('lines')"><i class="fas fa-plus"></i> Adicionar</a>
+                        </div>
                         <div class="tab-pane" id="tab_endereco" role="tabpanel"><br />
                         <div class="row">
                             <div class="col-lg-3">
@@ -149,7 +182,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="complemento">Complemento<span class="small text-danger">*</span></label>
-                                    <input type="text" id="complemento" class="form-control" name="complemeto" placeholder="Perto de..." value="{{$enderecos->complemento}}">
+                                    <input type="text" class="form-control" name="complemento" id="complemento" value="{{$enderecos->complemento}}">
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -192,7 +225,7 @@
                         <div class="row">
                             <div class="col">
                                 <button type="submit" class="btn btn-outline-primary"><i class="far fa-save"></i> Salvar</button>
-                                <a href="{{route('nutricionistas.create')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
+                                <a href="{{route('nutricionistas')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
                             </div>
                         </div>
                     </div>
@@ -222,4 +255,20 @@
             campo.value = "";
         }
     }
+</script>
+<script>
+    var line = 1;
+
+    function addInput(divName) {
+        var newdiv = document.createElement('div');
+        newdiv.innerHTML = '[' + line + ']';
+        newdiv.innerHTML = '<div class="row">';
+        newdiv.innerHTML = '<label class="form-control-label" for="dia">Dias de atendimento<span class="small text-danger"> * </span></label><select class="form-control" name="dia_da_semana' + line + '" id="dia_da_semana' + line + '"><option>Selecione uma opção</option><option value="Segunda-feira">Segunda-feira</option><option value="Terça-feira">Terça-feira</option><option value="Quarta-feira">Quarta-feira</option><option value="Quinta-feira">Quinta-feira</option><option value="Sexta-feira">Sexta-feira</option></select><br/>';
+        newdiv.innerHTML += '<label class="form-control-label" for="inicial">Inicial<span class="small text-danger"> * </span></label><input class="form-control" type="time" name="inicio' + line + '" id="inicio' + line + '"><br/>';
+        newdiv.innerHTML += '<label class="form-control-label" for="final">Final<span class="small text-danger"> * </span></label><input class="form-control" type="time" name="fim' + line + '" id="fim' + line + '"><br/>';
+        newdiv.innerHTML += '<div>';
+        document.getElementById(divName).appendChild(newdiv);
+        line++;
+    }
+    addInput('lines');
 </script>

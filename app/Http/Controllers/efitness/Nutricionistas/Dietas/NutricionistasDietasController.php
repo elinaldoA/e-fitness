@@ -27,9 +27,9 @@ class NutricionistasDietasController extends Controller
 
     public function create($id)
     {
-        $alunos = Alunos::findOrFail($id);
+        $alunos = Alunos::with('alunos')->get();
         $nutricionistas = Nutricionistas::with('nutricionistas')->get();
-        $anamneses = Anamneses::findOrFail($id);
+        $anamneses = Anamneses::with('anamneses')->get();
         $medidas = Medidas::with('medidas')->get();
         $consultas_nutricionais = Consultas_nutricionais::with('consultas_nutricionais')->get();
         $dietas = Dietas::findOrFail($id);
@@ -40,7 +40,8 @@ class NutricionistasDietasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            
+            'nome' => 'required|string',
+            'quantidade' => 'required|string'
         ]);
 
         $input = $request->all();
@@ -67,7 +68,8 @@ class NutricionistasDietasController extends Controller
         $dietas = Dietas::findOrFail($id);
 
         $request->validate([
-            
+            'nome' => 'string',
+            'quantidade' => 'string',
         ]);
 
         $input = $request->all();

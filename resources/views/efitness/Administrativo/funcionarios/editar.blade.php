@@ -148,7 +148,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="complemento">Complemento<span class="small text-danger">*</span></label>
-                                    <input type="text" id="complemento" class="form-control" name="complemeto" placeholder="Perto de..." value="{{$enderecos->complemento}}">
+                                    <input type="text" class="form-control" name="complemento" id="complemento" value="{{$enderecos->complemento}}">
                                 </div>
                             </div>
                             <div class="col-lg-3">
@@ -191,7 +191,7 @@
                         <div class="row">
                             <div class="col">
                                 <button type="submit" class="btn btn-outline-primary"><i class="far fa-save"></i> Salvar</button>
-                                <a href="{{route('funcionarios.create')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
+                                <a href="{{route('funcionarios')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
                             </div>
                         </div>
                     </div>

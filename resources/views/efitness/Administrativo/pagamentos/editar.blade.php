@@ -56,6 +56,7 @@
                         <div class="row">
                             <div class="col">
                                 <button type="submit" class="btn btn-outline-primary"><i class="fas fa-edit"></i>Atualizar</button>
+                                <a href="{{route('pagamentos')}}" class="btn btn-outline-primary"><i class="fas fa-angle-double-left"></i> voltar</a>
                             </div>
                         </div>
                     </div>

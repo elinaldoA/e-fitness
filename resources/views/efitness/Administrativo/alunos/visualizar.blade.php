@@ -56,7 +56,6 @@
                             <td>
                                 <a class="btn btn-outline-primary" href="{{ route('Alterar_aluno', ['id' => $aluno-> id]) }}"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
-                                <a class="btn btn-outline-primary" href="{{ route('createPDF')}}"><i class="fa fa-print"></i></a>
                             </td>
                         </tr>
                         @empty
