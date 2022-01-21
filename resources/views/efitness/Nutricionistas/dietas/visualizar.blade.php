@@ -27,19 +27,38 @@
     <div class="col-lg-12 order-lg-1">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-            <a class="btn btn-outline-success pull-left" href="novo"><i class="fas fa-plus"></i> Adcionar</a>
+            <h3 class="m-0 font-weight-bold text-primary"><i class="fa fa-mortar-pestle"></i></h3>
                 <div class="card-body">
-                    <table class="table table-hover text-center">
+                <table class="table table-hover text-center">
                         <tr>
-                            <th>Pacientes</th>
-                            <th>Data</th>
-                            <th>Ações</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Refeições</th>
+                            <th scope="col">Alimento</th>
+                            <th scope="col">Quantidade</th>
+                            <th scope="col">Ações</th>
                         </tr>
+                        @forelse ($dietas as $dieta)
+                        <tr>
+                            @foreach($alunos as $aluno)
+                            @if($aluno->id == $dieta->alunos_id)
+                            <td>{{$aluno -> nome}} </td>@endif
+                            @endforeach
+                            <td>{{ $dieta -> refeicoes }}</td>
+                            <td>{{ $dieta -> nome }}</td>
+                            <td>{{ $dieta -> quantidade }}</td>
+                            <td>
+                                <a class="btn btn-outline-primary" href="{{ route('Alterar_dieta_nutri_paciente', ['id' => $dieta-> id]) }}"><i class="fa fa-edit"></i></a>
+                                <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
+                            </td>
+                        </tr>
+                        @empty
                         <tr>
                             <td colspan="6">
                                 <h4>Nenhum registro encontrado para listar</h4>
                             </td>
                         </tr>
+                        @endforelse
+                        </tbody>
                     </table>
                     <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">

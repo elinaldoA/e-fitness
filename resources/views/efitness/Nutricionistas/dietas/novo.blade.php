@@ -35,17 +35,29 @@
 
             <div class="card-body">
 
-                <form method="POST" action="{{ route('dietas_nutri_paciente.store', ['id' => $anamneses->id])}}" class="Dietas">
+                <form method="POST" action="{{ route('dietas_nutri_paciente.create', ['id' => $anamneses->id])}}" class="Dietas">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <div class="row">
-                    <div class="col-lg-4">
+                        <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="alunos_id">Paciente<span class="small text-danger"> * </span></label>
-                                    <select name="alunos_id" id="alunos_id" class="form-control">
-                                        @foreach($alunos as $aluno)
-                                        <option {{ $anamneses->alunos_id == $aluno->id ? 'selected' : '' }} value="{{ $aluno->id }}">{{$aluno->nome}}</option>
-                                        @endforeach
-                                    </select>
+                                <select name="alunos_id" id="alunos_id" class="form-control">
+                                    @foreach($alunos as $aluno)
+                                    <option {{ $anamneses->alunos_id == $aluno->id ? 'selected' : '' }} value="{{ $aluno->id }}">{{$aluno->nome}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group focused">
+                                <label class="form-control-label" for="refeicoes">Refeições<span class="small text-danger"> * </span></label>
+                                <select name="refeicoes" id="refeicoes" class="form-control">
+                                    <option>Selecione uma opção</option>
+                                    <option value="Café">Café</option>
+                                    <option value="Almoço">Almoço</option>
+                                    <option value="Lanche">Lanche</option>
+                                    <option value="Jantar">Jantar</option>
+                                </select>
                             </div>
                         </div>
                         <div class="col-lg-6">

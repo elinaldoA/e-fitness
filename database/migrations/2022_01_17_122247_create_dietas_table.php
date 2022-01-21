@@ -15,8 +15,11 @@ class CreateDietasTable extends Migration
     {
         Schema::create('dietas', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->foreign('alunos_id')->references('id')->on('alunos');
+            $table->bigInteger('alunos_id')->unsigned();
             $table->string('nome');
-            $table->double('quantidade');
+            $table->string('refeicoes');
+            $table->string('quantidade');
             $table->timestamps();
         });
     }

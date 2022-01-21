@@ -29,10 +29,10 @@ class NutricionistasDietasController extends Controller
     {
         $alunos = Alunos::with('alunos')->get();
         $nutricionistas = Nutricionistas::with('nutricionistas')->get();
-        $anamneses = Anamneses::with('anamneses')->get();
+        $anamneses = Anamneses::findOrFail($id);
         $medidas = Medidas::with('medidas')->get();
         $consultas_nutricionais = Consultas_nutricionais::with('consultas_nutricionais')->get();
-        $dietas = Dietas::findOrFail($id);
+        $dietas = Dietas::with('dietas')->get();
         return view('efitness/Nutricionistas/dietas/novo', 
         ['alunos' => $alunos, 'nutricionistas' => $nutricionistas,'medidas' => $medidas, 
         'consultas_nutricionais' => $consultas_nutricionais, 'anamneses' => $anamneses, 'dietas' => $dietas]);
@@ -40,7 +40,9 @@ class NutricionistasDietasController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'alunos_id' => 'required|string',
             'nome' => 'required|string',
+            'refeicoes' => 'required|string',
             'quantidade' => 'required|string'
         ]);
 
@@ -68,7 +70,9 @@ class NutricionistasDietasController extends Controller
         $dietas = Dietas::findOrFail($id);
 
         $request->validate([
+            'alunos_id' => 'string',
             'nome' => 'string',
+            'refeicoes' => 'string',
             'quantidade' => 'string',
         ]);
 
