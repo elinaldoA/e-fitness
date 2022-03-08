@@ -100,7 +100,7 @@
         <!-- Nav Item - Admin Planos-->
         <li class="nav-item {{ Nav::isRoute('planos') }}">
             <a class="nav-link" href="{{ route('planos') }}">
-                <i class="fas fa-fw fa-dumbbell"></i>
+                <i class="fas fa-fw fa-clipboard"></i>
                 <span>{{ __('Planos') }}</span>
             </a>
         </li>
@@ -189,14 +189,6 @@
                             <a class="dropdown-item" href="{{ route('efitness.administrativo.profile') }}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 {{ __('Perfil') }}
-                            </a>
-                            <a class="dropdown-item" href="javascript:void(0)">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                {{ __('Definições') }}
-                            </a>
-                            <a class="dropdown-item" href="javascript:void(0)">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                {{ __('Logs') }}
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">

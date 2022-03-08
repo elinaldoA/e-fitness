@@ -27,7 +27,7 @@
     <div class="col-lg-12 order-lg-1">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <a class="btn btn-outline-success pull-left" href="novo"><i class="fas fa-dumbbell"></i> Adicionar</a>
+                <a class="btn btn-outline-success pull-left" href="novo"><i class="fas fa-clipboard"></i> Adicionar</a>
                 <div class="card-body">
 
                     <table class="table table-hover text-center">

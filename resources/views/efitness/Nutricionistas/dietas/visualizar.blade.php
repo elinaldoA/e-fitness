@@ -27,14 +27,14 @@
     <div class="col-lg-12 order-lg-1">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-            <h3 class="m-0 font-weight-bold text-primary"><i class="fa fa-mortar-pestle"></i></h3>
+                <h3 class="m-0 font-weight-bold text-primary"><i class="fas fa-stethoscope"></i></h3>
                 <div class="card-body">
-                <table class="table table-hover text-center">
+                    <table class="table table-hover text-center">
                         <tr>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Refeições</th>
-                            <th scope="col">Alimento</th>
-                            <th scope="col">Quantidade</th>
+                            <th>Nome</th>
+                            <th>Refeições</th>
+                            <th>Alimento</th>
+                            <th>Quantidade</th>
                             <th scope="col">Ações</th>
                         </tr>
                         @forelse ($dietas as $dieta)
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancelar') }}</button>
-                                    <a class="btn btn-danger btn-ok" href="#">Delete</a>
+                                    <a class="btn btn-danger btn-ok" href="{{ route('excluir_dieta_nutri_paciente', ['id' => $dieta-> id]) }}">Delete</a>
                                 </div>
                             </div>
                         </div>

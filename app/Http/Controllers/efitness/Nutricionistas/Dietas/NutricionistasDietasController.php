@@ -54,8 +54,8 @@ class NutricionistasDietasController extends Controller
 
     public function edit($id)
     {
-        $alunos = Alunos::findOrFail($id);
-        $nutricionistas = Nutricionistas::with('nutricionistas')->get();
+        $alunos = Alunos::with('alunos')->get();
+        $nutricionistas = Nutricionistas::findOrFail($id);
         $anamneses = Anamneses::findOrFail($id);
         $medidas = Medidas::findOrFail($id);
         $consultas_nutricionais = Consultas_nutricionais::findOrFail($id);

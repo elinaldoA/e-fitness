@@ -35,7 +35,7 @@
 
             <div class="card-body">
 
-                <form method="POST" action="{{ route('Alterar_aluno', ['id' => $alunos->id]) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('Alterar_aluno', ['id' => $alunos->id])}}" enctype="multipart/form-data">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <ul class="nav nav-tabs nav-tabs-line nav-tabs-bold nav-tabs-line-3x nav-tabs-line-brand" role="tablist">
                         <li class="nav-item">
@@ -176,7 +176,6 @@
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="alunos_id">Alunos<span class="small text-danger"> * </span></label>
-                                        <input type="text" class="form-control" id="alunos_id" name="alunos_id" value="{{$mensalidades->alunos_id}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
@@ -184,9 +183,6 @@
                                         <label class="form-control-label" for="planos_id">Planos<span class="small text-danger"> * </span></label>
                                         <select class="form-control" id="planos_id" name="planos_id">
                                             <option>Selecione uma opção</option>
-                                            @foreach($planos as $plano)
-                                            <option {{ $mensalidades->planos_id == $plano->id ? 'selected' : '' }} value="{{ $plano->id }}">{{ ($plano -> nome) }}</option>
-                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -195,9 +191,6 @@
                                         <label class="form-control-label" for="valor">Valor<span class="small text-danger"> * </span></label>
                                         <select class="form-control" id="valor" name="valor">
                                             <option>Selecione uma opção</option>
-                                            @foreach($planos as $plano)
-                                            <option {{ $mensalidades->planos_id == $plano->id ? 'selected' : '' }} value="{{ $plano->id }}">R$ {{ number_format($plano -> valor, 2) }}</option>
-                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -206,9 +199,6 @@
                                         <label class="form-control-label" for="formas_de_pagamentos_id">Valor<span class="small text-danger"> * </span></label>
                                         <select class="form-control" id="formas_de_pagamentos_id" name="formas_de_pagamentos_id">
                                             <option>Selecione uma opção</option>
-                                            @foreach($formaPags as $formaPag)
-                                            <option {{ $mensalidades->formas_de_pagamentos_id == $formaPag->id ? 'selected' : '' }} value="{{ $formaPag->id }}">{{$formaPag->forma_de_pagamento}}</option>
-                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

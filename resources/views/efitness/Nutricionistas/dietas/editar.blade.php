@@ -59,13 +59,13 @@
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="nome">Alimento<span class="small text-danger"> * </span></label>
-                                <input type="text" id="nome" class="form-control" name="nome" required>
+                                <input type="text" id="nome" class="form-control" name="nome" value="{{$dietas->nome}}">
                             </div>
                         </div>
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="nome">Quantidade<span class="small text-danger"> * </span></label>
-                                <input type="text" id="quantidade" class="form-control" name="quantidade" required>
+                                <input type="text" id="quantidade" class="form-control" name="quantidade" value="{{$dietas->quantidade}}">
                             </div>
                         </div>
                     </div>

@@ -18,10 +18,10 @@ class CreateMensalidadesTable extends Migration
             $table->string('alunos_id');
             $table->foreign('planos_id')->references('id')->on('planos');
             $table->bigInteger('planos_id')->unsigned();
-            $table->foreign('status_id')->references('id')->on('pagamentos');
+            $table->foreign('status_id')->references('id')->on('forma_pags');
             $table->bigInteger('status_id')->unsigned();
             $table->double('valor');
-            $table->foreign('formas_de_pagamentos_id')->references('id')->on('pagamentos');
+            $table->foreign('formas_de_pagamentos_id')->references('id')->on('forma_pags');
             $table->bigInteger('formas_de_pagamentos_id')->unsigned();
             $table->integer('vencimento');
             $table->timestamps();

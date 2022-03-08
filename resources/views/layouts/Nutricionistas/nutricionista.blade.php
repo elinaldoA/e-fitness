@@ -49,20 +49,7 @@
 
         <!-- Divider -->
         <hr class="sidebar-divider">
-
-        <!-- Heading -->
-        <div class="sidebar-heading">
-            {{ __('Definições') }}
-        </div>
-
-        <!-- Nav Item - Nutricionista Perfil ----->
-        <li class="nav-item {{ Nav::isRoute('profile-nutricionista') }}">
-            <a class="nav-link" href="#">
-                <i class="fas fa-fw fa-user"></i>
-                <span>{{ __('Perfil') }}</span>
-            </a>
-        </li>
-
+        
         <div class="sidebar-heading">
             {{__('Cadastros')}}
         </div>
@@ -128,14 +115,6 @@
                             <a class="dropdown-item" href="{{ route('profile-nutricionista') }}">
                                 <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                 {{ __('Perfil') }}
-                            </a>
-                            <a class="dropdown-item" href="javascript:void(0)">
-                                <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                                {{ __('Definições') }}
-                            </a>
-                            <a class="dropdown-item" href="javascript:void(0)">
-                                <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                                {{ __('Logs') }}
                             </a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
