@@ -19,7 +19,7 @@ class Recepcaos extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'active','nome','sobrenome','cargos_id','sexo','estado_civil','nascimento','cpf','email','password','telefone','image'
+        'active','nome','sobrenome','cargos_id','sexos','estado_civil','nascimento','cpf','email','password','telefone','image'
     ];
 
     /**
@@ -67,7 +67,7 @@ class Recepcaos extends Authenticatable
 
     public function Recepcaos()
     {
-        return $this -> hasMany('App\Models\Recepcaos','id','active','nome','sobrenome','cargos_id','sexo','estado_civil',
+        return $this -> hasMany('App\Models\Recepcaos','id','active','nome','sobrenome','cargos_id','sexos','estado_civil',
         'nascimento','cpf','email','password','telefone','image');
     }
 }

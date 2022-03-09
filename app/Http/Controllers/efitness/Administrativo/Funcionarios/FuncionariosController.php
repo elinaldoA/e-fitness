@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\efitness\Administrativo\Funcionarios;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\V1\Professores;
 use App\Models\Cargos;
 use App\Models\Enderecos;
 use App\Models\Funcionarios;

@@ -16,8 +16,8 @@ class CreateAtendimentosNutricionistasTable extends Migration
         Schema::create('atendimentos_nutricionistas', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('dia_da_semana');
-            $table->date('inicio');
-            $table->date('fim');
+            $table->time('inicio');
+            $table->time('fim');
             $table->timestamps();
         });
     }

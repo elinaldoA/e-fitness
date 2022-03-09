@@ -80,8 +80,8 @@
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="sexo">Sexo<span class="small text-danger"> * </span></label>
-                                        <input name="sexo" id="sexo" class="form-control" value="{{$alunos->sexo}}">
+                                        <label class="form-control-label" for="sexos">Sexo<span class="small text-danger"> * </span></label>
+                                        <input name="sexos" id="sexos" class="form-control" value="{{$alunos->sexos}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">

@@ -18,7 +18,7 @@ class Professores extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $fillable = [
-        'active','nome','sobrenome','cargos_id','sexo','estado_civil','nascimento','cpf','email','password','telefone','image'
+        'active','nome','sobrenome','cargos_id','sexos','estado_civil','nascimento','cpf','email','password','telefone','image'
     ];
 
     /**
@@ -67,6 +67,6 @@ class Professores extends Authenticatable implements MustVerifyEmail
     public function Professores()
     {
         return $this -> hasMany('App\Models\Professores','id','active','nome','sobrenome',
-        'cargos_id','sexo','estado_civil','nascimento','cpf','email','password','telefone','image');
+        'cargos_id','sexos','estado_civil','nascimento','cpf','email','password','telefone','image');
     }
 }

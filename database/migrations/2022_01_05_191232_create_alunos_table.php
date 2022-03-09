@@ -18,7 +18,7 @@ class CreateAlunosTable extends Migration
             $table->boolean('active')->default(false);
             $table->string('nome');
             $table->string('sobrenome');
-            $table->string('sexo');
+            $table->string('sexos');
             $table->date('nascimento');
             $table->string('cpf')->unique();
             $table->string('email')->unique();
