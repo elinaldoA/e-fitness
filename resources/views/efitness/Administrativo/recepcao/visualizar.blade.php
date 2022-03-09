@@ -61,17 +61,7 @@
                             <td>
                                 <a class="btn btn-outline-primary" href="{{ route('Alterar_recepcao', ['id' => $recepcao-> id]) }}"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
-                            </td>
-                        </tr>
-                        @empty
-                        <tr>
-                            <td colspan="6">
-                                <h4>Nenhum registro encontrado para listar</h4>
-                            </td>
-                        </tr>
-                        @endforelse
-                    </table>
-                    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -90,6 +80,16 @@
                             </div>
                         </div>
                     </div>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="6">
+                                <h4>Nenhum registro encontrado para listar</h4>
+                            </td>
+                        </tr>
+                        @endforelse
+                    </table>
                     <nav aria-label="Navegação de página exemplo">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">

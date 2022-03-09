@@ -61,35 +61,35 @@
                             <td>
                                 <a class="btn btn-outline-primary" href="{{ route('Alterar_funcionario', ['id' => $funcionario-> id]) }}"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
+                                <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">{{ __('Confirmar exclusão') }}</h5>
+                                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">×</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Deseja realmente excluir esse registro ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancelar') }}</button>
+                                                <a class="btn btn-danger btn-ok" href="{{ route('excluir_funcionario', ['id' => $funcionario-> id]) }}">Delete</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         @empty
                         <tr>
                             <td colspan="6">
-                                <h4>Nenhum registro encontrado para listar</h4>
+                                <h4 class="text-center">Nenhum registro encontrado para listar</h4>
                             </td>
                         </tr>
                         @endforelse
                     </table>
-                    <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">{{ __('Confirmar exclusão') }}</h5>
-                                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    Deseja realmente excluir esse registro ?
-                                </div>
-                                <div class="modal-footer">
-                                    <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancelar') }}</button>
-                                    <a class="btn btn-danger btn-ok" href="{{ route('excluir_funcionario', ['id' => $funcionario-> id]) }}">Delete</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <nav aria-label="Navegação de página exemplo">
                         <ul class="pagination justify-content-center">
                             <li class="page-item">
