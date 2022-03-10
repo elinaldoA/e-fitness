@@ -21,7 +21,7 @@ class RecepcaoAlunosController extends Controller
     {
         $planos = Planos::with('planos')->get();
         $mensalidades = Mensalidades::with('mensalidades')->get();
-        $formaPags = formaPags::with('formaPags')->get();
+        $formaPags = FormaPags::with('formaPags')->get();
         return view('efitness/Recepcao/alunos/novo', ['planos' => $planos, 'mensalidades' => $mensalidades, 'formaPags' => $formaPags]);
     }
     public function store(Request $request)

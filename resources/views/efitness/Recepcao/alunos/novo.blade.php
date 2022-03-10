@@ -178,8 +178,8 @@
                                         <label class="form-control-label" for="status_id">Status<span class="small text-danger"> * </span></label>
                                         <select class="form-control" id="status_id" name="status_id">
                                             <option>Selecione uma opção</option>
-                                            @foreach($pagamentos as $pagamento)
-                                            <option value="{{$pagamento->id}}">{{$pagamento->status}}</option>
+                                            @foreach($formaPags as $formaPag)
+                                            <option value="{{$formaPag->id}}">{{$formaPag->status}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -211,8 +211,8 @@
                                         <label class="form-control-label" for="forma_de_pagamento">Forma de pagamento<span class="small text-danger"> * </span></label>
                                         <select class="form-control" id="formas_de_pagamentos_id" name="formas_de_pagamentos_id">
                                             <option>Selecione uma opção</option>
-                                            @foreach($pagamentos as $pagamento)
-                                            <option value="{{$pagamento->id}}">{{ $pagamento->forma_de_pagamento}}</option>
+                                            @foreach($formaPags as $formaPag)
+                                            <option value="{{$formaPag->id}}">{{ $formaPag->forma_de_pagamento}}</option>
                                             @endforeach
                                         </select>
                                     </div>
