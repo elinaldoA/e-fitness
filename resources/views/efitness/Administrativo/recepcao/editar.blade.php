@@ -115,6 +115,12 @@
                                         <input type="email" id="email" class="form-control" name="email" placeholder="example@servidor.com.br" value="{{$recepcaos->email}}">
                                     </div>
                                 </div>
+                                <div class="col-lg-4">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="password">Senha<span class="small text-danger"> * </span></label>
+                                        <input type="password" id="password" class="form-control" name="email" placeholder="Senha" value="{{$recepcaos->password}}">
+                                    </div>
+                                </div>
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="email">Telefone<span class="small text-danger"> * </span></label>

@@ -9,7 +9,7 @@ use Illuminate\Notifications\Notifiable;
 
 use Laravel\Passport\HasApiTokens;
 
-class Recepcaos extends Authenticatable
+class Recepcaos extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory, Notifiable, HasApiTokens;
 
