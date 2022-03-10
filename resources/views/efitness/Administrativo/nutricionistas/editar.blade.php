@@ -115,10 +115,16 @@
                                         {{$nutricionistas->cpf}}">
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="email">E-mail<span class="small text-danger"> * </span></label>
                                         <input type="email" id="email" class="form-control" name="email" placeholder="example@servidor.com.br" value="{{$nutricionistas->email}}">
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="password">Senha<span class="small text-danger"> * </span></label>
+                                        <input type="password" id="password" class="form-control" name="password" placeholder="Senha" value="{{$nutricionistas->passwordl}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
@@ -128,7 +134,7 @@
                                         name="telefone" placeholder="Somente números" onkeypress="mascara(this, '## #####-####')" maxlength="13" value="{{$nutricionistas->telefone}}">
                                     </div>
                                 </div>
-                                <div class="col-lg-5">
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="image">Imagem<span class="small text-danger"> * </span></label>
                                         <input type="file" id="image" class="form-control" name="image" class="form-control" placeholder="imagem">

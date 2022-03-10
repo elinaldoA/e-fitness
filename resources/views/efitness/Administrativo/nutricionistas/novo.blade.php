@@ -110,10 +110,16 @@
                                         <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Somente números" maxlength="15" onkeypress="mascara(this, '###.###.###-##')" onkeyup="somenteNumeros(this);" required>
                                     </div>
                                 </div>
-                                <div class="col-lg-4">
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="email">E-mail<span class="small text-danger"> * </span></label>
                                         <input type="email" id="email" class="form-control" name="email" placeholder="example@servidor.com.br" required>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="password">Senha<span class="small text-danger"> * </span></label>
+                                        <input type="password" id="password" class="form-control" name="password" placeholder="Senha" required>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
@@ -122,7 +128,7 @@
                                         <input type="text" id="telefone" class="form-control" name="telefone" placeholder="Somente números" onkeypress="mascara(this, '## #####-####')" maxlength="13" required>
                                     </div>
                                 </div>
-                                <div class="col-lg-5">
+                                <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="image">Foto<span class="small text-danger"> * </span></label>
                                         <input type="file" id="image" class="form-control" name="image" class="form-control" placeholder="imagem">
