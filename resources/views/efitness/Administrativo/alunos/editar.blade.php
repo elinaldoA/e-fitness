@@ -69,7 +69,7 @@
                                 <div class="col-lg-4">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="nome">Nome<span class="small text-danger"> * </span></label>
-                                        <input type="text" id="nome" class="form-control" name="nome" placeholder="Seu nome" value="{{$alunos->nome}}">
+                                        <input type="text" id="nome" class="form-control" name="nome" placeholder="Seu sobrenome" value="{{$alunos->nome}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -174,31 +174,46 @@
                         <div class="tab-pane" id="tab_pagamentos" role="tabpanel"><br />
                             <div class="row">
                                 <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="alunos_id">Alunos<span class="small text-danger"> * </span></label>
-                                    </div>
-                                </div>
-                                <div class="col-lg-3">
-                                    <div class="form-group focused">
-                                        <label class="form-control-label" for="planos_id">Planos<span class="small text-danger"> * </span></label>
-                                        <select class="form-control" id="planos_id" name="planos_id">
+                                <div class="form-group focused">
+                                    <label class="form-control-label" for="valor">Forma de pagamento<span class="small text-danger"> * </span></label>
+                                        <select class="form-control" id="status_id" name="status_id">
                                             <option>Selecione uma opção</option>
+                                            @foreach($planos as $plano)
+                                            <option {{ $mensalidades->planos_id == $plano->id ? 'selected' : '' }}  value="{{ $plano->id }}">{{$plano->nome}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
-                                        <label class="form-control-label" for="valor">Valor<span class="small text-danger"> * </span></label>
-                                        <select class="form-control" id="valor" name="valor">
+                                        <label class="form-control-label" for="forma_de_pagamentos_id">Forma de pagamento<span class="small text-danger"> * </span></label>
+                                        <select class="form-control" id="formas_de_pagamentos_id" name="formas_de_pagamentos_id">
                                             <option>Selecione uma opção</option>
+                                            @foreach($formaPags as $formaPag)
+                                            <option {{ $mensalidades->formas_de_pagamentos_id == $formaPag->id ? 'selected' : '' }}  value="{{ $formaPag->id }}">{{$formaPag->forma_de_pagamento}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="form-group focused">
+                                        <label class="form-control-label" for="status_id">Status<span class="small text-danger"> * </span></label>
+                                        <select class="form-control" id="status_id" name="status_id">
+                                            <option>Selecione uma opção</option>
+                                            @foreach($formaPags as $formaPag)
+                                            <option {{ $mensalidades->status_id == $formaPag->id ? 'selected' : '' }}  value="{{ $formaPag->id }}">{{$formaPag->status}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="formas_de_pagamentos_id">Valor<span class="small text-danger"> * </span></label>
-                                        <select class="form-control" id="formas_de_pagamentos_id" name="formas_de_pagamentos_id">
+                                        <select class="form-control" id="valor" name="valor">
                                             <option>Selecione uma opção</option>
+                                            @foreach($planos as $plano)
+                                            <option {{ $mensalidades->planos_id == $plano->id ? 'selected' : '' }}  value="{{ $plano->id }}">{{$plano->valor}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

@@ -74,10 +74,12 @@ class RecepcaoAlunosController extends Controller
     public function edit($id)
     {
         $alunos = Alunos::findOrFail($id);
+        $planos = Planos::with('planos')->get();
+        $formaPags = FormaPags::with('formaPags')->get();
         $mensalidades = Mensalidades::findOrFail($id);
         $enderecos = Enderecos::findOrFail($id);
         return view('efitness/Recepcao/alunos/editar', 
-        ['alunos' => $alunos, 'mensalidades' => $mensalidades, 'enderecos' => $enderecos]);
+        ['alunos' => $alunos,'enderecos' => $enderecos, 'planos' => $planos, 'mensalidades' => $mensalidades, 'formaPags' => $formaPags]);
     }
     
     public function update(Request $request, $id)

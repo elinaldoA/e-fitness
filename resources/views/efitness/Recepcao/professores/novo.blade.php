@@ -90,7 +90,7 @@
                             <div class="col-lg-3">
                                 <div class="form-group focused">
                                     <label class="form-control-label" for="estado_civil">Estado civil<span class="small text-danger"> * </span></label>
-                                    <input class="form-control" id="estado_civil" name="estado_civil">
+                                    <input class="form-control" id="estado_civil" name="estado_civil" placeholder="S">
                                 </div>
                             </div>
                             <div class="col-lg-3">

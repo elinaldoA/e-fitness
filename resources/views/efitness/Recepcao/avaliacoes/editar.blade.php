@@ -37,7 +37,7 @@
 
                 <form method="POST" action="{{ route('Alterar_avaliacao_aluno', ['id' => $avaliacoes->id]) }}" enctype="multipart/form-data">
                     @csrf
-                    <div class="pl-lg-12">
+                    <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="alunos_id">Aluno<span class="small text-danger"> * </span></label>
