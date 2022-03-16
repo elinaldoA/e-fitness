@@ -40,21 +40,21 @@
                         </tr>
                         @forelse($treinos as $treino)
                         <tr>
-                            @foreach($alunos as $aluno)
+                        @foreach($alunos as $aluno)
                             @if($aluno->id == $treino->alunos_id)
                             <td>{{$aluno -> nome}} </td>@endif
-                            @endforeach
+                        @endforeach
                             <td>{{$treino->nivel}}</td>
                             <td>{{$treino->objetivo}}</td>
-                            @foreach($professores as $professor)
+                        @foreach($professores as $professor)
                             @if($professor->id == $treino->professores_id)
                             <td>{{$professor -> nome}} </td>@endif
-                            @endforeach
+                        @endforeach
                             <td>{{ date('d-m-Y', strtotime($treino->data_inicio)) }}</td>
-                            <td>
-                                <a class="btn btn-outline-warning" href="{{route('Alterar_treino_aluno', ['id' => $treino-> id])}}"><i class="fa fa-edit"></i></a>
-                                <a class="btn btn-outline-primary" href="#"><i class="fa fa-print"></i></a>
-                                <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
+                        <td>
+                            <a class="btn btn-outline-warning" href="{{route('Alterar_treino_aluno', ['id' => $treino-> id])}}"><i class="fa fa-edit"></i></a>
+                            <a class="btn btn-outline-primary" href="{{route('createPDF')}}"><i class="fa fa-print"></i></a>
+                            <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>
                                 <div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
                                         <div class="modal-content">

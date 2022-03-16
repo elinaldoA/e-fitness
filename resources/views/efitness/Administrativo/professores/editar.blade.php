@@ -105,8 +105,10 @@
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="nome">Cpf<span class="small text-danger"> * </span></label>
-                                        <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Somente números" maxlength="15" onkeypress="mascara(this, '###.###.###-##')" onkeyup="somenteNumeros(this);" value="
-                                        {{$professores->cpf}}">
+                                        <input type="text" id="cpf" 
+                                        class="form-control" name="cpf" placeholder="Somente números" 
+                                        maxlength="15" onkeypress="mascara(this, '###.###.###-##')" 
+                                        onkeyup="somenteNumeros(this);" value="{{$professores->cpf}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-3">

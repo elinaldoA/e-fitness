@@ -56,10 +56,13 @@
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="active">Ativo<span class="small text-danger"> * </span></label>
                                         <input type="checkbox" name="active" value="1" class="form-control"
-                                           @if( ($professores->active == 0 && old('active') && old('first_time')) || ($professores->active && old('active') == null && old('first_time') == null) || ($professores->active && old('active') && old('first_time') ) )
+                                           @if( ($professores->active == 0 && old('active') && old('first_time')) 
+                                           || 
+                                           ($professores->active && old('active') == null && old('first_time') == null) 
+                                           || 
+                                           ($professores->active && old('active') && old('first_time') ) )
                                            checked="checked"
-                                        @endif
-                                    >
+                                        @endif>
                                     </div>
                                 </div>
                                 <div class="col-lg-4">
@@ -105,8 +108,12 @@
                                 <div class="col-lg-3">
                                     <div class="form-group focused">
                                         <label class="form-control-label" for="nome">Cpf<span class="small text-danger"> * </span></label>
-                                        <input type="text" id="cpf" class="form-control" name="cpf" placeholder="Somente números" maxlength="15" onkeypress="mascara(this, '###.###.###-##')" onkeyup="somenteNumeros(this);" value="
-                                        {{$professores->cpf}}">
+                                        <input type="text" id="cpf" 
+                                        class="form-control" 
+                                        name="cpf" placeholder="Somente números" 
+                                        maxlength="15" 
+                                        onkeypress="mascara(this, '###.###.###-##')" 
+                                        onkeyup="somenteNumeros(this);" value="{{$professores->cpf}}">
                                     </div>
                                 </div>
                                 <div class="col-lg-4">

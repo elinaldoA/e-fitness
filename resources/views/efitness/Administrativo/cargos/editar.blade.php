@@ -30,14 +30,14 @@
         <div class="card shadow mb-4">
 
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Editar Cargo</h6>
+                <h6 class="m-0 font-weight-bold text-primary"><i class="fa fa-edit"></i> Cargo</h6>
             </div>
 
             <div class="card-body">
 
                 <form method="POST" action="{{ route('Alterar_cargo', ['id' => $cargos->id]) }}" autocomplete="off">
                     @csrf
-                    <div class="pl-lg-12">
+                    <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="nome">Nome<span class="small text-danger"> * </span></label>

@@ -210,6 +210,8 @@ Route::get('efitness/Professores/treinos/alunos/editar/{id}', 'efitness\Professo
 Route::post('efitness/Professores/treinos/alunos/editar/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@update')->name('Alterar_treino_aluno');
 Route::get('efitness/Professores/treinos/alunos/excluir/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@delete');
 Route::post('efitness/Professores/treinos/alunos/excluir/{id}', 'efitness\Professores\Treinos\ProfessorTreinosAlunosController@destroy')->name('excluir__treino_aluno');
+/*========================PDF========================================================================================================================================== */
+Route::get('efitness/Professores/treinos/alunos/treinos/pdf', 'efitness\Professores\Treinos\AlunosTreinosController@createPDF')->name('createPDF');
 /*=========================Rotas Recepcao Alunos=======================================================================================================*/
 Route::get('efitness/Recepcao/alunos/novo', 'efitness\Recepcao\Alunos\RecepcaoAlunosController@create')->name('recepcao_alunos.create');
 Route::post('efitness/Recepcao/alunos/novo', 'efitness\Recepcao\Alunos\RecepcaoAlunosController@store')->name('recepcao_alunos.store');

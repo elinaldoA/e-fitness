@@ -34,14 +34,12 @@
                         <tr>
                             <th scope="col">Nome</th>
                             <th scope="col">Criado</th>
-                            <th scope="col">Modificado</th>
                             <th scope="col">Ações</th>
                         </tr>
                         @forelse ($cargos as $cargo)
                         <tr>
                             <td>{{ $cargo -> nome }}</td>
                             <td>{{ date('d-m-Y', strtotime($cargo->created_at)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($cargo->updated_at)) }}</td>
                             <td>
                                 <a class="btn btn-outline-primary" href="{{ route('Alterar_cargo', ['id' => $cargo-> id]) }}"><i class="fa fa-edit"></i></a>
                                 <a class="btn btn-outline-danger" data-toggle="modal" data-target="#confirm-delete"><i class="fa fa-trash"></i></a>

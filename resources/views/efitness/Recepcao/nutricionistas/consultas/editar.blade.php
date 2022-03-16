@@ -43,7 +43,7 @@
                                 <label class="form-control-label" for="alunos_id">Aluno<span class="small text-danger"> * </span></label>
                                 <select name="alunos_id" id="alunos_id" class="form-control">
                                     @foreach($alunos as $aluno)
-                                    <option {{ $consultas_nutricionais->alunos_id == $aluno->id ? 'selected' : '' }}  value="{{ $aluno->id }}">{{$aluno->nome}}</option>
+                                    <option {{ $consultas_nutricionais->alunos_id == $aluno->id ? 'selected' : '' }} value="{{ $aluno->id }}">{{$aluno->nome}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -53,7 +53,7 @@
                                 <label class="form-control-label" for="professores_id">Avaliador Fisíco<span class="small text-danger"> * </span></label>
                                 <select name="professores_id" id="professores_id" class="form-control">
                                     @foreach($nutricionistas as $nutricionista)
-                                    <option {{ $consultas_nutricionais->nutricionistas_id == $nutricionista->id ? 'selected' : '' }}  value="{{ $nutricionista->id }}">{{$nutricionista->nome}}</option>
+                                    <option {{ $consultas_nutricionais->nutricionistas_id == $nutricionista->id ? 'selected' : '' }} value="{{ $nutricionista->id }}">{{$nutricionista->nome}}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -61,25 +61,25 @@
                         <div class="col-lg-3">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="email">E-mail<span class="small text-danger"> * </span></label>
-                                <input type="email" class="form-control" name="email" id="email" value="{{$consultas_nutricionais->email}}"/>
+                                <input type="email" class="form-control" name="email" id="email" value="{{$consultas_nutricionais->email}}" />
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="data">Contato<span class="small text-danger"> * </span></label>
-                                <input type="text" class="form-control" name="telefone" id="telefone" value="{{$consultas_nutricionais->telefone}}"/>
+                                <input type="text" class="form-control" name="telefone" id="telefone" value="{{$consultas_nutricionais->telefone}}" />
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="data">Data<span class="small text-danger"> * </span></label>
-                                <input type="date" class="form-control" name="data" id="data" value="{{$consultas_nutricionais->data}}"/>
+                                <input type="date" class="form-control" name="data" id="data" value="{{$consultas_nutricionais->data}}" />
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group focused">
                                 <label class="form-control-label" for="hora">Horário<span class="small text-danger"> * </span></label>
-                                <input type="time" class="form-control" name="hora" id="hora" value="{{$consultas_nutricionais->hora}}"/>
+                                <input type="time" class="form-control" name="hora" id="hora" value="{{$consultas_nutricionais->hora}}" />
                             </div>
                         </div>
                     </div>

@@ -54,22 +54,6 @@
         <div class="sidebar-heading">
             {{ __('Definições') }}
         </div>
-
-        <!-- Nav Item - Profile 
-        <li class="nav-item {{ Nav::isRoute('profile') }}">
-            <a class="nav-link" href="{{ route('efitness.administrativo.profile') }}">
-                <i class="fas fa-fw fa-user"></i>
-                <span>{{ __('Perfil') }}</span>
-            </a>
-        </li>
-
-         Nav Item - About
-        <li class="nav-item {{ Nav::isRoute('about') }}">
-            <a class="nav-link" href="{{ route('about') }}">
-                <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('Sobre') }}</span>
-            </a>
-        </li> -->
         
         <!-- Nav Item - Admin Mensalidades-->
         <li class="nav-item {{ Nav::isRoute('mensalidades') }}">
