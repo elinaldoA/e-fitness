@@ -14,7 +14,7 @@
         <!-- Styles -->
         <style>
             html, body {
-                background-color: black;
+                background-image: url(../img/01.jpg);
                 background-repeat: no-repeat;
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
